@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 /node_modules/
+=======
+README.md
+#node
+node_modules
+
+#dotenv
+.env
+>>>>>>> 08b4ca37382ee37b39314432bfc79efc74988106
