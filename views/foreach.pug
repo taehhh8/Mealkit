@@ -1,0 +1,97 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet', href='./css/layout.css', type='text/css')
+        link(rel='stylesheet', href='./css/app.css', type='text/css')
+        link(rel='stylesheet', href='./css/main.css', type='text/css')
+        link(rel='stylesheet', href='./css/normalize.css', type='text/css')
+        title Document
+    body 
+    .header__inner
+        .header__sec
+            h1.logo
+            a(href='https://www.greating.co.kr/')
+                img(src='./htmlfiles/img_header_logo.png', alt='greating')
+            //- #id .class
+            .all
+            a(href="https://www.greating.co.kr/event/eventList#")
+                span.all__icon
+                    span
+                    span
+                    span
+                |카테고리
+            .all-menu
+                .all-menu__inner
+                    ul.all-menu__depth1
+                        each val, key in {'planMeals': '케어식단'}
+                            li
+                                a(href=`https://www.greating.co.kr/planMeals/${key}`) #{val}
+                                
+                        ul.all-menu__depth2
+                            each val, key in {'planMeals': '정기식단'}
+                                li 
+                                    a(href=`https://www.greating.co.kr/planMeals/${key}`) #{val}
+                                    
+                            ul.all-menu__depth3
+                                each val, key in {'careLow':'저당식단', 'careLight':'칼로리식단', 'careWellness':'장수마을식단'}
+                                    li
+                                        a(href=`https://www.greating.co.kr/planMeals/${key}`) #{val}
+
+            #dvGetFilterArea
+                section.category
+                    h3.category__title &#xC120;&#xD638;&#xD558;&#xB294; &#xC7AC;&#xB8CC;&#xAC00; &#xC788;&#xC73C;&#xC2E0;&#xAC00;&#xC694;?
+
+                            //-{
+                            //-     "cars": {
+                            //-         "Nissan": [
+                            //-             {"model":"Sentra", "doors":4},
+                            //-             {"model":"Maxima", "doors":4},
+                            //-             {"model":"Skyline", "doors":2}
+                            //-         ],
+                            //-         "Ford": [
+                            //-             {"model":"Taurus", "doors":4},
+                            //-             {"model":"Escort", "doors":4}
+                            //-         ]
+                            //-     }
+                            //- }
+                            data = {'no': {'1': [{'value': 290, 'df':'소고기'}, {'value': 291, 'df':'돼지고시'}, {'value': 292, 'df':'닭고기'}, {'value': 293, 'df':'생선'}, {'value': 295, 'df':'해초'}, {'value': 313, 'df':'해산물'}], '2': [{'value': 290, 'df':'소고기'}, {'value': 291, 'df':'돼지고시'}, {'value': 292, 'df':'닭고기'}, {'value': 293, 'df':'생선'}, {'value': 295, 'df':'해초'}, {'value': 313, 'df':'해산물'}]}}
+                            each num in data.no 
+                                each val, df in data.no[num] 
+                                    console.log(num, val, df)
+                                    li=num, val, df
+script.
+  data = {
+  no: {
+  '1': [
+  {'value': [290,291,292,293,295,313]},
+  {'df': ['소고기', '돼지고시', '닭고기', '생선', '해초','해산물']}
+  ],
+  '2': [
+  {'value': [290,291,292,293,295,313]},
+  {'df': ['소고기', '돼지고시', '닭고기', '생선', '해초','해산물']}
+  ]
+  }
+  }
+  -each (i in data.no) {
+  -each (key in data.no[i]) {
+  -each (v in data.no[i][key]) {
+  -each (d in data.no[i][key][v]){
+  console.log("i: ",i , "\\ndata.no : ", data.no, "\nkey: ", data.no[i][key], "\nv: ", data.no[i][key][v], "\nd: ", data.no[i][key][v][d])
+  }
+  }
+  }
+  }
+
+                            
+                    
+
+                            //- ul#dvFilterGrpSubTemplate#{i}.box
+                            //-     li.box__list.hd__custom-label
+                            //-         console.log(#{i.keys, i.values})
+                            //-         input#filter_#{i.no}.hidden(type='checkbox', name=`${no}_${i.1.value}`, value=${i.1.value}, data-filtername=i.1.df)
+                            //-             label(for=`filter_${i.value}`) #{i.df}
+                                    
+                        

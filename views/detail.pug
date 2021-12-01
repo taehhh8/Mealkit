@@ -1,0 +1,98 @@
+doctype html
+html(lang="ko")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title 상품상세보기
+        script.
+            let tapBtn = document.getElemtsByClassName("tap-button");
+            function tapactive(){
+                    if(tapBtn.getAttribute("button-active") {return tapBtn.setAttribute("class", "");}
+                    tapBtn.setAttribute("class", "tap-button button-active")
+            }
+            tapBtn.addEventListener("click", tapactive);
+        style.
+             body{height:1024px;}
+             .productInfo{display:flex;}
+             .pImage{width: 350; height:350; margin:5%;}
+             .pInfo{display:flex;}
+             .info-area__btn{display:flex;}
+             .tap-button{
+                 width:20%;
+                 height: 50px; 
+                 border-radius:0px;
+                 border-top-left-radius:15px;
+                 border-top-right-radius:15px;
+                 color:black; font-weight: bold;
+                 background-color:#EAEAEA;
+                 
+                 }
+             .button-active { background-color: #8C8303; color:white;}
+            
+    body
+        div
+            h2 상품 상세페이지 폼
+        ul.wherearewe
+            li.mcate HOME
+            //cate1
+            li.cate1 cate1 
+            // cate2
+            li.cate2 cate2
+        section.Details
+            div.pInfo
+                div.pImage
+                    img(src="http://loremflickr.com/350/350")
+                div
+                    div.productInfo
+                    p.productAdvice 제주 건모자반 몸국과 케일면
+                        div.info-area__btn
+                            span Heart
+                            span Share
+                    h3 
+                        span [그리팅 X 성산포바당] 제주 몸국 면 패키지
+                        br
+                        span 원산지 : 상세페이지 참고
+                    hr
+                    div.price
+                        span 10%
+                        span 8,100
+                        span 9,000
+                    hr
+                    div.shipping
+                        div 배송정보
+                        div 
+                            div 새벽배송
+                            div 택배배송
+                            br
+                            a(href="#") "주문시간 및 배송안내 자세히보기"
+                    hr
+                    div
+                        div 배송비
+                        div 
+                            span.shipPrice 3,000원
+                            span 30,000원 이상 무료배송
+
+                        div 
+                            div 판매자
+                            div 그리팅
+                            div.tel 1800-0700
+                    div.buyButtons
+                        input(type="button" value="장바구니 담기") 
+                        input(type="button" value="구매하기")  
+                        input(type="button" value="선물하기")  
+            section
+                    div.tab-menu
+                        ul
+                            li
+                                button.tap-button.button-active 상품정보
+                            li
+                                button.tap-button 상품후기
+                            li
+                                button.tap-button 상품후기
+                            li
+                                button.tap-button 교환/반품
+                                        
+            
+            
+            
