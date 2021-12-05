@@ -1,0 +1,41 @@
+doctype html
+head
+  meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+  include ./common/head.pug
+  script.
+    if(IS_SESSION == 'N'){
+    location.href='/login?reurl=' + encodeURIComponent(document.location.href);
+    }
+  body#eventList.hd
+    main#contents.hd__myCoupon 
+      .coupon__wrap
+        h2.hd__page-title 쿠폰/교환권
+        .hd__inner1100
+          ul.tab-menu.regist.clearfix
+            li.tab-menu__list.tab-menu__list--on(onclick='couponRegister()')
+              a(href='#') 쿠폰등록
+            li#MobileGiftExchliId.tab-menu__list(onclick='ticketRegister()')
+              a(href='#') 교환권등록
+          #couponRegist.tab-content.tab-content--show
+            .coupon_regist
+              input(type='text' placeholder='쿠폰 코드를 입력해 주세요.' name='randomNumber')
+              //
+                * 등록 시 로그인 체크 후 공통 얼렛 레이어 팝업으로 진행
+                로그인 - 고객님의 건강한 식사를 위한 <br> 쿠폰이 등록 되었습니다.
+                비로그인 - 유효하지 않은 쿠폰 코드 입니다. <br> 코드를 다시 입력해 주세요.
+              button#rdmNbrBtn(type='button') 등록
+          #ticketRegist.tab-content
+            .coupon_regist
+              input(type='text' placeholder='(-)를 제외한 교환권 번호를 입력해주세요.' name='mobileGiftExchNumber')
+              button#mobileGiftExchRegistBtn.detail-open.anchor-act(type='button' data-popup-name='designationDetail' data-login='n' data-itemid='{{IL_ITEM_ID}}' itemmenutype='1') 등록;
+            .guide
+              .guide_title
+                |교환권 이용안내
+              ul.guide_text
+                li - 그리팅 제휴사, 선물하기 등을 통해 발행되는 모바일 이용권으로, 그리팅 상품으로 교환하여 배송 받으실 수 있습니다.
+                li
+                  | - 교환권의 사용을 위해 교환권 등록 후 해당 상품의 교환주문을 완료하시면 상품 배송을 준비하며
+                  br
+                  | 이후 서비스는 그리팅몰 서비스 정책을 따릅니다. 
+                li - 본 교환권은 현금이나 잔액환불이 안되며, 이미 사용한 교환권은 취소 및 환불이 불가 합니다.
+                li - 교환권 번호 노출/분실로 인한 책임을 지지 않습니다.

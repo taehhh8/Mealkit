@@ -1,0 +1,76 @@
+doctype html
+head
+  meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+  link(href="./css/join.css" crossorigin="anonymous", rel="stylesheet")
+  include ./common/head.pug
+  
+  main#contents.hd__greatingJoin
+    section.greatingJoin.hd__sub.hd__inner
+      h2.hd__page-title 정보입력
+      //- ol.join-order
+      //-   li 약관동의
+      //-   li.on 정보입력
+      //-   li 가입완료
+      .register
+        form(action='')
+          .flex
+            ul.container
+              li.item.center
+                | &#xC774;&#xB984;
+              li.item
+                input(type='text', name='name', autofocus='', required='')
+              li.item
+            ul.container
+              li.item.center
+                | &#xC544;&#xC774;&#xB514;
+              li.item
+                input(type='text', placeholder='아이디를 입력하세요.', required='')
+              li.item
+                button.idcheck &#xC911;&#xBCF5;&#xD655;&#xC778;
+            ul.container
+              li.item.center
+                | &#xBE44;&#xBC00;&#xBC88;&#xD638;
+              li.item
+                input(type='password', placeholder='비밀번호를 입력하세요.', required='')
+              li.item
+            ul.container
+              li.item.center
+                | &#xBE44;&#xBC00;&#xBC88;&#xD638; &#xD655;&#xC778;
+              li.item
+                input(type='password', placeholder='비밀번호를 입력하세요.', required='')
+              li.item
+            ul.container
+              li.item.center
+                | &#xC0DD;&#xB144;&#xC6D4;&#xC77C;
+              li.item
+                input(type='date', required='')
+              li.item
+            ul.container
+              li.item.center
+                | &#xC131;&#xBCC4;
+              li.item
+                select(name='gender', id='')
+                  option(value='선택', selected='') &#xC120;&#xD0DD;
+                  option(value='남성') &#xB0A8;&#xC131;
+                  option(value='여성') &#xC5EC;&#xC131;
+              li.item
+            ul.container
+              li.item.center
+                | &#xC804;&#xD654;&#xBC88;&#xD638;
+              li.item
+                input(type='text', placeholder='휴대전화번호')
+              li.item
+            ul.container
+              li.item.center
+              li.item
+                button.submit &#xAC00;&#xC785;&#xD558;&#xAE30;
+              li.item
+  #dvdpPopupArea(style='position: absolute; top: 40px; width: 100%; height: auto;')
+  a.hd__top(href='#')
+    span.hidden &#xC0C1;&#xB2E8;&#xC73C;&#xB85C; &#xBC14;&#xB85C;&#xAC00;&#xAE30;
+  script(src='/pc/greating/js/controller/common/footerController.js?dt=20210601')
+form#inputForm(method='post' name='inputForm')
+  input#FLEX_DATA_KEY(name='FLEX_DATA_KEY' type='hidden' value='')
+  input#FLEX_YN(name='FLEX_YN' type='hidden' value='N')
+script(src='../js/commonJoin.js')
+script(src='../js/greatingJoin.js')

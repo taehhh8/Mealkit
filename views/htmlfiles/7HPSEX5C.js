@@ -1,1 +1,0 @@
-function ip(){return"203.228.139.19"};

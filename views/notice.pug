@@ -1,0 +1,407 @@
+doctype html
+// 세션 세팅
+head
+  // Global site tag (gtag.js) - Google Analytics
+  script(src='https://www.youtube.com/iframe_api')
+  link(rel='stylesheet', type='text/css', href='../static/css/qnaM.css')
+  link(rel='stylesheet', type='text/css', href='../static/css/qnaJ.css')
+  script(src='../static/js/notice.js')
+  script(src='../static/js/noticeVendor.js')
+  script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-154592972-1')
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+
+  include ./common/head.pug
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-154592972-1', { 'optimize_id': 'OPT-PKR6F5B'});
+  // Google Tag Manager
+  script.
+    (function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+    'gtm.start' : new Date().getTime(),
+    event : 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
+    + l
+    : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KN4Z3B7');
+  //
+    Anti-flicker snippet (recommended)
+    2020.10.30 내용 추가 Lee Seung Hwan
+  style.
+    .async-hide { opacity: 0 !important}
+  script.
+    (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'OPT-PKR6F5B':true});
+  // End Google Tag Manager
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  style.
+    .pop_wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    }
+    .pop_wrap__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 400px;
+    padding: 30px;
+    background: #FFF;
+    transform: translate3d(-50%, -50%, 0);
+    }
+    .pop_wrap__inner .pop_content {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 26px;
+    }
+    .pop_content .btn_close {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 30px;
+    height: 20px;
+    font: 0/0 a;
+    }
+    .pop_wrap__inner .btn.alert {
+    width: 220px;
+    }
+    .pop_wrap__inner .btn.confirm {
+    width: 440px;
+    }
+    .pop_wrap__inner .btn .btn-init {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    }
+
+body.hd#noticeList
+#wrap
+  .hd__popup.hd__popup-v2.popup_search
+    article.hd__popup__modal.modal
+      section.modal__sec
+        strong.modal__sec__title.bb-none
+          | &#xC0C1;&#xD488;&#xAC80;&#xC0C9;
+          a.btn__close-x.btn__modal-close(href='#')
+            span.hidden &#xB808;&#xC774;&#xC5B4; &#xD31D;&#xC5C5; &#xB2EB;&#xAE30;
+        section.input-text
+          input#searchInput.search-input(type='text', placeholder='검색어를 입력해 주세요.')
+          button#dvSrhFilterBtn.btn-init.green &#xAC80;&#xC0C9;
+        .modal__sec__cont.scroll
+          button#btnClear.btn-clear
+            span.btn-img &#xCD08;&#xAE30;&#xD654;
+          #dvGetFilterArea
+            script#dvFilterGrpTemplate(type='text/x-handlebars-template').
+              <section class="category">
+              <h3 class="category__title">{{FILTER_GRP_NAME}}</h3>
+              <ul class="box" id="dvFilterGrpSubTemplate{{FILTER_GRP_CODE}}"></ul>
+              </section>
+            script#dvFilterListTemplate(type='text/x-handlebars-template').
+              <li class="box__list hd__custom-label">
+              <input type="checkbox" class="hidden" name="{{FILTER_GRP_CODE}}_{{IL_ITEM_FILTER_ID}}" id="filter_{{IL_ITEM_FILTER_ID}}" value="{{IL_ITEM_FILTER_ID}}" data-filtername="{{FILTER_NAME}}">
+              <label for="filter_{{IL_ITEM_FILTER_ID}}">{{FILTER_NAME}}</label>
+              </li>
+          .btn
+            button#btnClear.btn-init.white
+              span.btn-img &#xCD08;&#xAE30;&#xD654;
+            button#dvSrhFilterSelectBtn.btn-init.green &#xC120;&#xD0DD;&#xC644;&#xB8CC;
+  main#contents.hd__noticeList
+    ul.breadcrumb
+      li HOME
+      li &#xACE0;&#xAC1D;&#xC13C;&#xD130;
+      li &#xACF5;&#xC9C0;&#xC0AC;&#xD56D;
+    .noticeList
+      h2.hd__page-title &#xACF5;&#xC9C0;&#xC0AC;&#xD56D;
+      .sub-wrap.hd__inner1100
+        // snb
+        aside.snb
+          h3.hidden &#xC11C;&#xBE0C;&#xBA54;&#xB274;
+          ul.snb-box
+            li#notice.snb-box__list
+              a(href='/serviceCenter/notice') &#xACF5;&#xC9C0;&#xC0AC;&#xD56D;
+            li#faq.snb-box__list
+              a(href='/serviceCenter/faq') &#xC790;&#xC8FC; &#xBB3B;&#xB294; &#xC9C8;&#xBB38;
+            li#myPersonalInquery.snb-box__list
+              a(href='/serviceCenter/myPersonalInquery?TYPE=0') 1:1 &#xBB38;&#xC758;
+            li#qna.snb-box__list
+              a(href='/serviceCenter/qna') &#xACE0;&#xAC1D;&#xC758; &#xC18C;&#xB9AC;
+          .snb__csCenter
+            span.snb__csCenter__num
+              | &#xACE0;&#xAC1D;&#xC13C;&#xD130;
+              strong#csCenterTel
+            p#csCenterTime.snb__csCenter__use
+        // 컨텐츠
+        .sub-cont
+          section.sub-cont__sec
+            .noticeList__top
+              strong.noticeList__top__total
+                | &#xC804;&#xCCB4; 
+                span#csTotal
+                | &#xAC1C;
+              .dvSearchResult(style='display: none;')
+                strong#csSubTit
+                | &#xC5D0; &#xB300;&#xD55C; &#xAC80;&#xC0C9;&#xACB0;&#xACFC; &#xCD1D; 
+                span#csSubTotal.total 0 &#xAC1C;
+              .list-search
+                input#searchinput.input__text(type='text', title='검색', value='', placeholder='검색어를 입력하세요.', data-del-btn='')
+                // <button type="button" class="search_del del">삭제</button>
+                button#btnSearch.btn-init.green(type='button') &#xAC80;&#xC0C9;
+            #dvNoticeListMainArea.notice
+              // dvNoticeListMainTemplate
+            script#dvNoticeListMainTemplate(type='text/x-handlebars-template').
+              {{#if total}}
+              <div class="noticeList__cont">
+              <ul class="box" id="dvNoticeListArea1">
+              <!-- dvNoticeListTemplate1 -->
+              </ul>
+              <ul class="box" id="dvNoticeListArea2" style="border-top:0;">
+              <!-- dvNoticeListTemplate2 -->
+              </ul>
+              </div>
+              {{else}}
+              {{#if CONDI_VALUE}}
+              <div class="none-list">
+              <div class="none-list__inner">
+              <p class="none-list__txt">
+              <strong>[{{CONDI_VALUE}}]</strong>에 대한 검색 결과가 없습니다.
+              </p>
+              </div>
+              </div>
+              {{else}}
+              <!-- 리스트 없는 경우 -->
+              <div class="none-list">
+              <div class="none-list__inner">
+              <p class="none-list__txt">등록된 공지사항이 없습니다.</p>
+              </div>
+              </div>
+              {{/if}}
+              {{/if}}
+            // paging
+            #pageNation.pagenation
+            // //paging
+  // 플로팅 배너
+  aside#sideBanner.side-banner
+    // 사이드배너
+    .side-slide-wrap
+      #sideSlide.side-slide
+      button.slide-prev
+      button.slide-next
+    // 최근 본 상품
+    #sideMyViewItem.good-list
+      h2
+        a(href='/myPage/myViewItemList') &#xCD5C;&#xADFC; &#xBCF8; &#xC0C1;&#xD488;
+      ul#sideMyViewItemList
+    span#sideBannerCustomerCenter.call-center
+  footer#footer.hd__footer
+    .hd__footer__inner
+      .hd__footer__left
+        ul.item
+          // <li><a href="https://hyundaigreenfood.com/po/INDEX.hgc" target="_blank">회사소개</a></li>
+          li
+            a(href='/main/boardDetail?freeboardId=239') &#xD68C;&#xC0AC;&#xC18C;&#xAC1C;
+          // <li><a href="/serviceCenter/userGuide">이용안내</a></li>
+          li
+            a.winOpen(href='#', data-url='/main/defaultCaulse?ID=1') &#xC774;&#xC6A9;&#xC57D;&#xAD00;
+          li
+            a.bold.winOpen(href='#', data-url='/main/personalInfo?ID=2') &#xAC1C;&#xC778;&#xC815;&#xBCF4;&#xCC98;&#xB9AC;&#xBC29;&#xCE68;
+          li
+            a(href='/serviceCenter/benefit') &#xBA64;&#xBC84;&#xC2ED; &#xD504;&#xB85C;&#xADF8;&#xB7A8;
+        .support
+          strong.support__title &#xACE0;&#xAC1D;&#xC13C;&#xD130;
+          span#CUSTOMER_CENTER_TEL.support__tel
+          p#CUSTOMER_CENTER_TIME.support__desc
+        ul.sns-box
+          li
+            a.sns-box__intagram(href='https://www.instagram.com/greating.official/') &#xC778;&#xC2A4;&#xD0C0;&#xADF8;&#xB7A8;
+          li
+            a.sns-box__youtube(href='https://www.youtube.com/channel/UClyxH287Qe5OEWxCPXRRvHg', target='_blank') &#xC720;&#xD29C;&#xBE0C;
+          li
+            a.sns-box__blog(href='https://blog.naver.com/h_greating', target='_blank') &#xBE14;&#xB85C;&#xADF8;
+          li
+            a.sns-box__kakao(href='javascript:csKakao()') &#xCE74;&#xCE74;&#xC624;&#xD1A1;
+      .hd__footer__right
+        .company
+          strong#COMPANY_NAME.company__name
+          #COMPANY_INFO.company__info
+        em#COPYRIGHT.copyright
+        .familySite
+          a.familySite__default &#xD604;&#xB300;&#xBC31;&#xD654;&#xC810; &#xAD00;&#xACC4;&#xC0AC;
+          .familySite__inner
+            div(style='padding: 20px 14px')
+              ul.familySite__inner__one
+                li
+                  span - &#xC1FC;&#xD551;&#xBAB0; &#xC0AC;&#xC774;&#xD2B8;
+                  ul.familySite__inner__two
+                    li
+                      a(href='http://www.hyundaihmall.com/', target='_blank', title='현대Hmall') &#xD604;&#xB300;Hmall
+                    li
+                      a(href='http://www.thehyundai.com/', target='_blank', title='더현대닷컴') &#xB354;&#xD604;&#xB300;&#xB2F7;&#xCEF4;
+                    li
+                      a(href='https://www.hddfs.com/shop/dm/main.do?ptnrChlCd=00003014', target='blank', title='현대백화점 DUTY FREE') &#xD604;&#xB300;&#xBC31;&#xD654;&#xC810; DUTY FREE
+                    li
+                      a(href='http://esuper.ehyundai.com/', target='_blank', title='E수퍼마켓') E&#xC218;&#xD37C;&#xB9C8;&#xCF13;
+                    li
+                      a(href='http://www.thehandsome.com/', target='_blank', title='더한섬') &#xB354;&#xD55C;&#xC12C;
+                    li
+                      a(href='http://mall.hyundailivart.co.kr/', target='_blank', title='현대리바트몰') &#xD604;&#xB300;&#xB9AC;&#xBC14;&#xD2B8;&#xBAB0;
+                    li
+                      a(href='http://www.hyundairentalcare.co.kr/', target='_blank', title='현대렌탈케어') &#xD604;&#xB300;&#xB80C;&#xD0C8;&#xCF00;&#xC5B4;
+                    li
+                      a(href='http://www.hfashionmall.com/', target='_blank', title='H패션몰') H&#xD328;&#xC158;&#xBAB0;
+                    li
+                      a(href='https://www.h-vrstation.com/main', target='blank', title='VR STATION') VR STATION
+                li
+                  span - &#xAD00;&#xACC4;&#xC0AC; &#xC0AC;&#xC774;&#xD2B8;
+                  ul.familySite__inner__two
+                    li
+                      a(href='http://www.ehyundai.com/newPortal/ir', target='blank', title='현대백화점 그룹') &#xD604;&#xB300;&#xBC31;&#xD654;&#xC810; &#xADF8;&#xB8F9;
+                    li
+                      a(href='http://www.ehyundai.com', target='blank', title='현대백화점') &#xD604;&#xB300;&#xBC31;&#xD654;&#xC810;
+                    li
+                      a(href='http://www.hyundaihmall.com/', target='_blank', title='현대홈쇼핑') &#xD604;&#xB300;&#xD648;&#xC1FC;&#xD551;
+                    li
+                      a(href='http://www.hyundaigreenfood.com', target='blank', title='현대그린푸드') &#xD604;&#xB300;&#xADF8;&#xB9B0;&#xD478;&#xB4DC;
+                    li
+                      a(href='http://www.thehansome.com', target='blank', title='한섬') &#xD55C;&#xC12C;
+                    li
+                      a(href='http://www.hyundailivart.co.kr', target='blank', title='현대리바트') &#xD604;&#xB300;&#xB9AC;&#xBC14;&#xD2B8;
+                    li
+                      a(href='http://www.hyundaihns.com', target='blank', title='현대H&S') &#xD604;&#xB300;H&amp;S
+                    li
+                      a(href='http://www.hcn.co.kr', target='blank', title='현대HCN') &#xD604;&#xB300;HCN
+                    li
+                      a(href='http://www.hyundaimedia.com', target='blank', title='현대미디어') &#xD604;&#xB300;&#xBBF8;&#xB514;&#xC5B4;
+                    li
+                      a(href='http://www.hyundairentalcare.co.kr', target='blank', title='현대렌탈케어') &#xD604;&#xB300;&#xB80C;&#xD0C8;&#xCF00;&#xC5B4;
+                    li
+                      a(href='http://www.hyundaidreamtour.com', target='blank', title='현대드림투어') &#xD604;&#xB300;&#xB4DC;&#xB9BC;&#xD22C;&#xC5B4;
+                    li
+                      a(href='http://www.everdigm.com', target='blank', title='에버다임') &#xC5D0;&#xBC84;&#xB2E4;&#xC784;
+                    li
+                      a(href='http://www.cnsfoodsystem.co.kr', target='blank', title='씨엔에스푸드시스템') &#xC528;&#xC5D4;&#xC5D0;&#xC2A4;&#xD478;&#xB4DC;&#xC2DC;&#xC2A4;&#xD15C;
+                    li
+                      a(href='http://www.hyundaicatering.co.kr', target='blank', title='현대캐터링시스템') &#xD604;&#xB300;&#xCE90;&#xD130;&#xB9C1;&#xC2DC;&#xC2A4;&#xD15C;
+                    li
+                      a(href='http://www.hyundai-ite.com', target='blank', title='현대IT&E') &#xD604;&#xB300;IT&amp;E
+                    li
+                      a(href='http://www.hyundailncmall.com', target='blank', title='현대L&C') &#xD604;&#xB300;L&amp;C
+                    li
+                      a(href='https://www.hddfs.com', target='blank', title='현대백화점면세점') &#xD604;&#xB300;&#xBC31;&#xD654;&#xC810;&#xBA74;&#xC138;&#xC810;
+                    li
+                      a(href='https://www.hyundaifuturenet.co.kr', target='blank', title='현대퓨처넷') &#xD604;&#xB300;&#xD4E8;&#xCC98;&#xB137;
+    script(src='https://developers.kakao.com/sdk/js/kakao.min.js')
+    script.
+      //카카오톡 cs문의
+      function csKakao() {
+      Kakao.cleanup();
+      Kakao.init(SS_KAKAO_ID);
+      Kakao.PlusFriend.chat({
+      plusFriendId: '_xjuhtT'
+      });
+      }
+  // intro popup
+  script#dvdpPopupTemplate(type='text/x-handlebars-template').
+    <article class="intro-popup" id="dpPopup_{{DP_POPUP_ID}}">
+    <div class="popup-cont">{{{HELPER_HTML DESC_HTML}}}</div>
+    <span class="popup-btm btn">
+    {{#if TODAYYN}}
+    <a href="javascript:closeDpPopup(this, '{{DP_POPUP_ID}}');" class="btn-init green today-none">오늘 하루 보지 않기</a>
+    {{/if}}
+    <a href="javascript:closePopup(this, '{{DP_POPUP_ID}}');" class="close btn-init grey">닫기</a>
+    </span>
+    </article>
+  // 오늘 하루 보지 않기
+  #dvdpPopupArea(style='position: absolute; top: 40px; width: 100%; height: auto;')
+  a.hd__top(href='#')
+    span.hidden &#xC0C1;&#xB2E8;&#xC73C;&#xB85C; &#xBC14;&#xB85C;&#xAC00;&#xAE30;
+  script(src='/pc/greating/js/controller/common/footerController.js?dt=20210601')
+// 공통 alert
+#alert-layer.pop_wrap
+  script#dvAlertLayerTemplate(type='text/x-handlebars-template').
+    <div class="pop_wrap__inner">
+    <h2 class="pop_header hidden">alert</h2>
+    <div class="pop_content">
+    <div class="text">
+    {{{MSG}}}
+    </div>
+    </div>
+    <div class="btn_area btn alert">
+    <button type="button" class="btn-init green" id="dvAlertOk">확인</button>
+    </div>
+    </div>
+// // 공통 alert
+// 공통 confirm
+#confirm-layer.pop_wrap
+  script#dvConfirmLayerTemplate(type='text/x-handlebars-template').
+    <div class="pop_wrap__inner">
+    <h2 class="pop_header hidden">confirm</h2>
+    <div class="pop_content">
+    <div class="text">
+    {{{MSG}}}
+    </div>
+    <button type="button" class="btn_close btn--delete" style="visibility:hidden;"></button>
+    </div>
+    <div class="btn_area btn confirm">
+    <button type="button" class="btn-init white" id="dvConfirmCancel">취소</button>
+    <button type="button" class="btn-init green" id="dvConfirmOk">확인</button>
+    </div>
+    </div>
+// // 공통 confirm
+.mask
+// 앱설치QR코드 Alert
+#qr-alert-layer.pop_wrap.alert-layer(style='z-index: 10000;')
+  .pop_wrap__inner
+    h2.pop_header.hidden &#xC571; &#xC124;&#xCE58; &#xC548;&#xB0B4;
+    .pop_content
+      .text
+        | &#xC571;&#xC5D0;&#xC11C;&#xB9CC; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xC11C;&#xBE44;&#xC2A4;&#xC785;&#xB2C8;&#xB2E4;.
+        br
+        | &#xADF8;&#xB9AC;&#xD305; &#xC571;&#xC744; &#xC124;&#xCE58;&#xD558;&#xACE0; &#xB354; &#xAC04;&#xD3B8;&#xD558;&#xAC8C; &#xAC74;&#xAC15;&#xC744; &#xCC59;&#xACA8;&#xBCF4;&#xC138;&#xC694;!
+      .img
+        img(src='/front_pc/images/img_appQR.jpg', alt='')
+    .btn_area.btn.alert
+      button#dvAlertOk.btn-init.green(type='button') &#xD655;&#xC778;
+// 모바일 구독 앱설치QR코드 Alert
+#subscribe-qr-alert-layer.pop_wrap.alert-layer(style='z-index: 10000;')
+  .pop_wrap__inner
+    h2.pop_header.hidden &#xC571; &#xC124;&#xCE58; &#xC548;&#xB0B4;
+    .pop_content
+      .text
+        | &#xBAA8;&#xBC14;&#xC77C;&#xC5D0;&#xC11C;&#xB9CC; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xC11C;&#xBE44;&#xC2A4;&#xC785;&#xB2C8;&#xB2E4;.
+        br
+        | &#xADF8;&#xB9AC;&#xD305; &#xC571;&#xC744; &#xC124;&#xCE58;&#xD558;&#xACE0; &#xB354; &#xAC04;&#xD3B8;&#xD558;&#xAC8C; &#xAC74;&#xAC15;&#xC744; &#xCC59;&#xACA8;&#xBCF4;&#xC138;&#xC694;!
+      .img
+        img(src='/front_pc/images/img_appQR.jpg', alt='')
+    .btn_area.btn.alert
+      button#dvAlertOk.btn-init.green(type='button') &#xD655;&#xC778;
+script(src='/pc/greating/js/library.js')
+script(src='/pc/greating/js/7HPSEX5C.js')
+script(src='/pc/greating/js/fflow.ui.js?dt=20210826a')
+// <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+script(src='https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js')
+script(src='/pc/greating/js/controller/common/controller.js?dt=20210705')
+script(src='/pc/greating/js/controller/common/cmContollerUI.js')
+script(src='/pc/greating/js/controller/common/cmHandlebars.js')
+// 공통 Handlebars
+script(src='/pc/greating/js/controller/common/header.js?dt=20211005')
+script(src='/pc/greating/js/controller/common/pageController.js')
+script(src='/pc/greating/js/controller/search/searchController.js?dt=20210202')
+script(src='/pc/greating/js/controller/serviceCenter/noticeController.js')
+script(src='/pc/greating/js/controller/common/pageController.js')
