@@ -20875,8 +20875,7 @@ white-space
   font-size: 16px;
 }
 
-.hd .memberJoin 
- {
+.hd .memberJoin .green-box {
   display: inline-block;
   vertical-align: top;
   width: 460px;
@@ -21137,7 +21136,7 @@ white-space
 }
 
 .hd__greatingJoin .greatingJoin {
-  width: 550px;
+  width: 750px;
   margin: 0 auto;
 }
 
@@ -33557,29 +33556,6 @@ blockquote {
   clip: rect(1px 1px 1px 1px);
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
-}
-.hd__eventList .breadcrumb {
-  width: 1100px;
-  margin: 0 auto;
-  font-size: 0;
-}
-.hd__eventList .breadcrumb li {
-  display: inline-block;
-  height: 50px;
-  line-height: 50px;
-  font-size: 14px;
-  color: #888;
-}
-.hd__eventList .breadcrumb li:before {
-  content: '>';
-  color: #888;
-  margin: 0 10px;
-}
-.hd__eventList .breadcrumb li:first-child:before {
-  display: none;
-}
-.hd__eventList .breadcrumb li:last-child {
-  color: #1c1c1c;
 }
 
 

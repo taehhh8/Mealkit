@@ -3,19 +3,12 @@ style.
     li{ list-style:none; padding: 0; display:inline; }
     li.mcate::after{ content:" > "; } li.cate1::after{ content:" > "; }
     a{text-decoration: none; }
-    #contents{
-        margin:0 25%;
-    }
 
-div
-    include ./common/head
-    
-    
-div#contents
-    include ./common/temp/main
-    // include #{page}
-	
-    
-    
-div
-    include ./common/footer
+include ./header
+<<<<<<< HEAD
+include ./head
+=======
+
+include ./detail
+>>>>>>> 08b4ca37382ee37b39314432bfc79efc74988106
+include ./footer

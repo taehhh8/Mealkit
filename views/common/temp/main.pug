@@ -1,0 +1,42 @@
+style.
+    .slides{
+    margin:0 -50%;
+    margin-bottom: 5%;
+    } 
+    .maincatelist{ 
+    padding: 5px; 
+    margin: 5%; 
+    background-color:#F4F5F4; 
+    border-radius:15px;
+    }
+    #productlist{display:flex; } .mainproducts{margin:0 10px;} .mainptitle{margin: 10px 0;}
+    .maincatelist{margin: 10px 5px;}
+div
+    div#slide
+        img.slides(src="https://image.greating.co.kr/DP/banner/202112/BB64B647428341FD94ADED78F22E8407.jpg")
+    div#catetitle
+        div.catetitle1 건강은 밥상으로부터
+        div.catetitle2 그리팅이 자신있게 추천드려요
+    div#catelist 
+        -let maincatelist=['건강반찬', '진한 국/찌개', '자연 담은 면', '영양가득 밥/죽', '샐러드/샌드위치', '베이커리/스프', '착한 간식/음료', '안심 키즈', '부드러운 연화식', '1Table', '비건', '스페셜 패키지', '반찬', '반찬 정긱구독', '라이프' ];
+        each list in maincatelist
+            a(href="#")
+                span.maincatelist= list
+    div#productlist
+        each product in products
+        
+            div.mainproducts
+                a(href="#")
+                    img(src="http://loremflickr.com/260/260")
+                div.mainptitle
+                    div.m.p.title=product.title
+                    div.m.p.pname=product.name
+                    div
+                        span=product.sale[0]
+                        span
+                            del=product.sale[1]
+                    div.m.p.price=product.price
+        
+        
+        
+        
