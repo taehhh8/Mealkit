@@ -49,10 +49,16 @@ app.get('/order', (req, res) => {
 
 
 const port = 3000
-const host = '0.0.0.0'
+const host = '127.0.0.1'
 
 app.get('/', (req, res) => {
-    res.render('index', {breadcrumbList: ["HOME"], page: 'event.pug'})
+    let products = [
+        {title:"양파 치즈 마요 드레싱" , name:"부드러운 닭가슴살 콥 샐러드 (S)" , sale:[ "10%",  "5,800원"], price:"5,220원"},
+        {title:"참깨 마요 드레싱" , name:"[I like Eat] 크랜베리 치킨 샐러드" , sale:[ "10%",  "5,800원"], price:"5,220원"},
+        {title:"참깨 드레싱" , name:"율무 단호박 샐러드(R)" , sale:[ "10%",  "5,800원"], price:"5,220원"},
+        {title:"스위트 바나나 드레싱" , name:"리코타 치즈 샐러드 (S/R)" , sale:[ "10%",  "5,800원"], price:"5,220원"}
+                   ]
+    res.render('index', {breadcrumbList: ["HOME"],products: products,  page: 'event.pug'})
 })
 
 app.get('/login', (req, res) => {
@@ -61,6 +67,12 @@ app.get('/login', (req, res) => {
 app.get('/signup', (req, res) => {
     res.render('signup', {breadcrumbList: ["HOME", "회원가입"]})
 })
+
+app.post('/signup', (req, res) => {
+    console.log(req.body)
+    res.redirect('signup')
+})
+
 app.get('/event', (req, res) => {
     res.render('event', {breadcrumbList: ["HOME", "이벤트"]})
 })
