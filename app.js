@@ -68,17 +68,45 @@ app.get('/', (req, res) => {
         { title: "스위트 바나나 드레싱", name: "리코타 치즈 샐러드 (S/R)", sale: ["10%", "5,800원"], price: "5,220원" }
     ]
     if (req.session.user != undefined) {
-        
+
         res.render('index', { breadcrumbList: ["HOME"], products: products, page: 'event.pug' })
     } else {
-        res.render('event', { breadcrumbList: ["HOME"]})
+        res.render('event', { breadcrumbList: ["HOME"] })
     }
 })
 
 app.get('/signup', (req, res) => {
-    res.render('signup', { breadcrumbList: ["HOME", "회원가입"] })
+    res.render('signup', {breadcrumbList: ["HOME", "회원가입"] })
 })
-app.post('/signup', (req, res) => {
+app.post('/chkId', (req, res, registchk) => {
+    var formdata = {
+        id: req.body.id
+    }
+    if (formdata.id != undefined) {
+        var QchckId = `SELECT * FROM Customers WHERE Id='${formdata.id}'`
+        console.log("formdata.id: "+ formdata.id)
+        getConnection((conn) => {
+            conn.query(QchckId, function (err, row, fields) {
+                if (err) {
+                    console.log("회원가입 실패")
+                    res.send('<script>alert("아이디 에러; 아이디를 다시 입력해주세여"); window.location.href = "/signup"; </script>');
+                    throw err;
+                } else if (row.length > 0) {
+                    console.log("회원가입 실패 아이디가 이미 존재합니다")
+                    res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세여"); window.location.href = "/signup"; </script>');
+                } else {
+                    console.log("사용 가능한 아이디입니돠")
+                    res.send('<script>alert("사용 가능한 아이디입니돠"); window.location.href = "/signup"; </script>');
+                }
+                console.log("release pool")
+                conn.release()
+            })
+        })
+    }
+
+})
+
+app.post('/signup', (req, res, registchk) => {
     // console.log(req.body)
     var formdata = {
         id: req.body.id,
@@ -90,30 +118,44 @@ app.post('/signup', (req, res) => {
         gender: req.body.gender,
         phone: req.body.phone
     }
+    
+
+
     if (formdata.pwd != formdata.pwdchk) {
         console.log("비밀번호 틀림")
-        res.redirect('signup')
+        res.render('signup', {
+            registchk: 0,
+            breadcrumbList: ["HOME", "회원가입"]
+        });
     } else {
         bcrypt.hash(formdata.pwd, null, null, function (err, hash) {
             // insert user data into users table
             var qSignup = "INSERT INTO Customer (Id, Pwd, Name, Addr, Birthdate, Phone, Gender) VALUES ('" + formdata.id + "', '" + hash + "', '" + formdata.name + "', '" + formdata.addr + "', '" + formdata.birthdate + "', '" + formdata.phone + "', '" + formdata.gender + "');"
             getConnection((conn) => {
-                conn.query(
-                    qSignup, function (err, row, fields) {
-                        if (err) throw err;
-                        // console.log(row);
+                conn.query(qSignup, function (err, row, fields) {
+                    if (err) {
+                        console.log("회원가입 실패")
+                        res.render('signup', {
+                            registchk: 0,
+                            breadcrumbList: ["HOME", "회원가입"]
+                        });
+                        throw err;
                     }
-                );
-                conn.release()
-            })
-        });
-        // res.redirect('/signupfinished')
+                    console.log("회원가입 성공")
+                    // console.log(row);
+                    // res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세요"); window.location.href = "/signup"; </script>');
+                    // res.send({registchk: 1});
+                    res.render('signup', {
+                        registchk: 1,
+                        breadcrumbList: ["HOME", "회원가입"]
+                    });
+                    conn.release()
+                })
+            });
+        })
     }
 })
 
-app.get('/signupfinished', (req, res) => {
-    res.render('signupfinished', { breadcrumbList: ["HOME", "가입완료"] })
-})
 app.get('/login', (req, res) => {
     res.render('login', { breadcrumbList: ["HOME", "로그인"] })
 })
