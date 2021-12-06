@@ -83,8 +83,8 @@ app.post('/signup', (req, res) => {
     var formdata = {
         id: req.body.id,
         name: req.body.name,
-        pwd: req.body.password,
-        pwdchk: req.body.passwordck,
+        pwd: req.body.pwd,
+        pwdchk: req.body.pwdck,
         addr: req.body.post + '/' + req.body.addr + '/' + req.body.detai,
         birthdate: req.body.date,
         gender: req.body.gender,
@@ -107,10 +107,13 @@ app.post('/signup', (req, res) => {
                 conn.release()
             })
         });
-        res.redirect('/signup')
+        // res.redirect('/signupfinished')
     }
 })
 
+app.get('/signupfinished', (req, res) => {
+    res.render('signupfinished', { breadcrumbList: ["HOME", "가입완료"] })
+})
 app.get('/login', (req, res) => {
     res.render('login', { breadcrumbList: ["HOME", "로그인"] })
 })

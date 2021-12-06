@@ -13,8 +13,8 @@ head
       //-   li 약관동의
       //-   li.on 정보입력
       //-   li 가입완료
-      .register
-        form(action='/signup' method='post')
+      .register#signup
+        form(action='/signup' method='post' name="signup")
           .flex
             ul.container
               li.item.center
@@ -79,12 +79,24 @@ head
             ul.container
               li.item.center
               li.item
-          button.submit(type="submit") 가입하기
-              li.item
-
-    
-
+          button.submit 가입하기
+      .register#hiddenInfo(style='display: none')
+        .flex
+          ul
+            li.item.center
+              a.loginlink 회원가입이 완료되었습니다.
+            li.item.center
+              a.loginlink(href='./login' style='color: blue') 로그인
               
+              a.loginlink 을 해주세여.
+            
+script.
+  var button = document.querySelector('form[name="signup"] > button');
+  button.addEventListener("click", function() {
+    document.getElementById('signup').style.display= "none";
+    document.getElementById("hiddenInfo").style.display= "block";
+  })
+     
 //- script(src='/pc/greating/js/controller/common/footerController.js?dt=20210601')
 //- script(src='./js/commonJoin.js')
 //- script(src='./js/greatingJoin.js')
