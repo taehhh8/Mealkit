@@ -51,7 +51,7 @@ var Users = [];
 app.set('view engine', 'pug');
 app.set("views", './views');
 
-app.get('/order', (req, res) => {
+app.get('/board/order', (req, res) => {
     res.render('order', { page: "join" })
 })
 
@@ -96,10 +96,10 @@ app.post('/signup', (req, res) => {
     } else {
         bcrypt.hash(formdata.pwd, null, null, function (err, hash) {
             // insert user data into users table
-            var qSignup = "INSERT INTO customer (Id, Pwd, Name, Addr, Birthdate, Phone, Gender) VALUES ('" + formdata.id + "', '" + hash + "', '" + formdata.name + "', '" + formdata.addr + "', '" + formdata.birthdate + "', '" + formdata.phone + "', '" + formdata.gender + "');"
+            var qSignup = "INSERT INTO Customer (Id, Pwd, Name, Addr, Birthdate, Phone, Gender) VALUES ('" + formdata.id + "', '" + hash + "', '" + formdata.name + "', '" + formdata.addr + "', '" + formdata.birthdate + "', '" + formdata.phone + "', '" + formdata.gender + "');"
             getConnection((conn) => {
                 conn.query(
-                    q1, function (err, row, fields) {
+                    qSignup, function (err, row, fields) {
                         if (err) throw err;
                         // console.log(row);
                     }
@@ -137,7 +137,6 @@ app.post('/login', (req, res) => {
                                     res.status(200).send('h1 OK');
                                 }
                             })
-
                         } else {
                             console.log('로그인 실패')
                             console.log("user: ", req.session.user)

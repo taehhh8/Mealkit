@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 const config = {
-  host: 'localhost', 
-  user: 'root',     
-  password: 'pwd',      
-  port: '3306',
-  database: 'sikdan',
+  host: '52.78.162.166', 
+  user: 'block4s',     
+  password: 'mealkits',      
+  port: '55314',
+  database: 'mealkit',
   connectionLimit: 30
 };
 
