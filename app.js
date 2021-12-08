@@ -9,6 +9,8 @@ const session = require("express-session")
 const getConnection = require("./static/js/database.js")
 require("dotenv").config();
 
+const member = require("./routes/member.js")
+
 
 // getConnection((conn) => {
 //     var q1 = ""
@@ -33,6 +35,7 @@ require("dotenv").config();
 
 app.use(express.static('./views'))
 app.use(express.static('./static'))
+app.use('/member', member)
 
 
 // app.use('/board/personalQuery', personalQueryRouter);
@@ -242,6 +245,50 @@ app.get('/story', (req, res) => {
 app.get('/post', (req, res) => {
     res.render('post', { breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'] })
 })
+
+//member
+// app.get('/1', (req,res)=> {
+//     res.render('./member/pug/coupon')
+// })
+// app.get('/2', (req,res)=> {
+//     res.render('./member/pug/myAnniversary')
+// })
+// app.get('/3', (req,res)=> {
+//     res.render('./member/pug/myBenefit')
+// })
+// app.get('/4', (req,res)=> {
+//     res.render('./member/pug/myClaimList')
+// })
+// app.get('/5', (req,res)=> {
+//     res.render('./member/pug/myCoupon')
+// })
+// app.get('/6', (req,res)=> {
+//     res.render('./member/pug/myFaqList')
+// })
+// app.get('/7', (req,res)=> {
+//     res.render('./member/pug/myFavorate')
+// })
+// app.get('/8', (req,res)=> {
+//     res.render('./member/pug/myInqueryList')
+// })
+// app.get('/9', (req,res)=> {
+//     res.render('./member/pug/myItemQna')
+// })
+// app.get('/10', (req,res)=> {
+//     res.render('./member/pug/myLoginLog')
+// })
+// app.get('/11', (req,res)=> {
+//     res.render('./member/pug/myMarketing')
+// })
+// app.get('/12', (req,res)=> {
+//     res.render('./member/pug/myOrderList')
+// })
+// app.get('/13', (req,res)=> {
+//     res.render('./member/pug/myShippingAddrList')
+// })
+// app.get('/14', (req,res)=> {
+//     res.render('./member/pug/myViewItemList')
+// })
 
 
 
