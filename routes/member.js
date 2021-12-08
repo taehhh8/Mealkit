@@ -3,6 +3,7 @@ const router = express.Router();
 const session = require("express-session")
 const FileStore = require('session-file-store')(session)
 
+
 // const app = express();
 
 // const host = '127.0.0.1'
@@ -70,17 +71,14 @@ router.get('/', (req, res) => {
             })
         } else {
             console.log(req.session)
-            res.send('<script>alert("로그인을 해주세여"); window.location.href = "/login"; </script>');
+            res.send('<script>alert("로그인 후 사용 해주세여"); window.location.href = "/login"; </script>');
             // res.redirect('/login')
         }
     })
 
-
 router.get('/login', (req, res) => {
     res.render("login")
 })
-
-
 
 router.get('/myOrderList', (req, res) => {
     res.render("myOrderList", {

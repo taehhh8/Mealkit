@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt-nodejs');
 const session = require("express-session")
 const getConnection = require("./model/database.js")
 const member = require("./routes/member.js")
+require("dotenv").config
 // const FileStore = require('session-file-store')(session)
 // require("dotenv").config();
 // const upload = require("multer")
@@ -57,8 +58,8 @@ app.get('/board/order', (req, res) => {
 
 })
 
-const port = 3000
-const host = '127.0.0.1'
+const port = process.env.appPort
+const host = process.env.appHost
 
 app.get('/', (req, res) => {
     // console.log(req.session.valid)
@@ -69,7 +70,7 @@ app.get('/', (req, res) => {
         { title: "스위트 바나나 드레싱", name: "리코타 치즈 샐러드 (S/R)", sale: ["10%", "5,800원"], price: "5,220원" }
     ]
     if (req.session.valid) {
-        res.render('index', { breadcrumbList: ["HOME"], products: products, page: 'event.pug', sessionValid: req.session.valid, user: req.session.user.Id })
+        res.render('index', {breadcrumbList: ["HOME"], products: products, page: 'event.pug', sessionValid: req.session.valid, user: req.session.user.Id})
         // console.log("user: ", req.session.user.Id)
     } else {
         res.render('event', { breadcrumbList: ["HOME", '비회원접근'] })
@@ -215,24 +216,48 @@ app.get('/logout', (req, res) => {
 
 
 app.get('/event', (req, res) => {
-    res.render('event', { breadcrumbList: ["HOME", "이벤트"] })
+    if (req.session.valid) {
+        res.render('event', {breadcrumbList: ["HOME", "이벤트"], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('event', { breadcrumbList: ["HOME", "이벤트"] })
+    }
 })
 app.get('/display', (req, res) => {
-    res.render('display', {breadcrumbList: ["HOME", "기획전"] })
+    if (req.session.valid) {
+        res.render('display', {breadcrumbList: ["HOME", "기획전"], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('display', {breadcrumbList: ["HOME", "기획전"] })
+    }
 })
 app.get('/coupon', (req, res) => {
-    var val = req.session.valid
-    res.render('coupon', {breadcrumbList: ["HOME", '쿠폰/교환권'], sessionValid: val})
+    if (req.session.valid) {
+        res.render('coupon', {breadcrumbList: ["HOME", '쿠폰/교환권'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('coupon', {breadcrumbList: ["HOME", '쿠폰/교환권'], sessionValid: req.session.valid})
+    }
 })
 app.get('/detail', (req, res) => {
-    res.render('detail')
+    if (req.session.valid) {
+        res.render('detail', {breadcrumbList: ["HOME", '상품상세'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('detail', {breadcrumbList: ["HOME", '상품상세'], sessionValid: req.session.valid})
+    }
 })
 app.get('/story', (req, res) => {
-    res.render('story', { breadcrumbList: ["HOME", '스토리'] })
+    if (req.session.valid) {
+        res.render('story', {breadcrumbList: ["HOME", '스토리'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('story', {breadcrumbList: ["HOME", '스토리'], sessionValid: req.session.valid})
+    }
 })
-app.get('/post', (req, res) => {
-    res.render('post', { breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'] })
-})
+// app.get('/post', (req, res) => {
+//     res.render('post', { breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'] })
+// })
 
 app.use('/member', member)
 
