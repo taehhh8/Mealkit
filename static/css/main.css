@@ -5666,7 +5666,7 @@ white-space
 .hd-checkbox [type="checkbox"]:checked + label:before,
 .hd-checkbox [type="radio"]:checked + label:before {
   border: 1px solid #918c00;
-  background: #918c00 url(/front_pc/images/ico_comm_checkbox_on.png?ver=210315) no-repeat 50% 50%;
+  background: #918c00 url(/src/id_checkbox.png) no-repeat 50% 50%;
 }
 
 .hd-checkbox-type2 {
