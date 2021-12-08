@@ -13,9 +13,11 @@ head
     .topBanner
       a(href='./event/eventReview?evEventId=3878#page1')
         figure
-          img(src='../src/head/2FF579614D9B4DD6830B0C0788865BE2.jpg', alt='1')
+
+          img(src='./src/head/2FF579614D9B4DD6830B0C0788865BE2.jpg', alt='1')
       a.topBanner__close(href='javascript:closeTopBanner();')
-        img(src='../src/head/btn_topBanner-close.png', alt='닫기')
+        img(src='./src/head/btn_topBanner-close.png', alt='닫기')
+
     .header
       section.user-area
         ul.user-area__menu
@@ -32,17 +34,21 @@ head
               i
             ul
               li
-                a(href='./board/notice') 공지사항
+
+                a(href='./serviceCenter/notice') 공지사항
               li
-                a(href='./board/faq') 자주하는 질문
+                a(href='./serviceCenter/faq') 자주하는 질문
                 a(href='./board/myPersonalQuery') 1:1 문의
               li
-                a(href='./board/qna') 고객의 소리
+                a(href='./serviceCenter/qna') 고객의 소리
+
       .header__inner
         .header__sec
           h1.logo
             a(href='https://nodepj2.run.goorm.io/')
-              img(src='../src/logo-removebg-preview.png', alt='mealkit' , width="250", height=140)
+
+              img(src='./src/logo-removebg-preview.png', alt='mealkit' , width="250", height=140)
+
           .all
             a(href='./event/eventList#')
               span.all__icon
@@ -231,10 +237,12 @@ head
               // 2021.09.23 YSC 상품권 내리기 <input type="text" id="searchInput2" class="search-input" placeholder="그리팅 '기프트 카드' 출시!" autocomplete="off">
               input#searchInput2.search-input(type='text', placeholder='검색어를 입력해 주세요.', autocomplete='off')
               a(href='#')
-                img#dvSrhFilterBtn2(src='../src/head/icon_header_search.png', alt='검색')
+
+                img#dvSrhFilterBtn2(src='./src/head/icon_header_search.png', alt='검색')
             a.direct__cart(href='./order/orderCart')
               span#cartCnt 0
-              img(src='../src/head/icon_header_cart.png', alt='장바구니')
+              img(src='./src/head/icon_header_cart.png', alt='장바구니')
+
   main#contents.hd__eventList
     ul.breadcrumb
       each val in breadcrumbList

@@ -1,11 +1,13 @@
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
+
 // const upload = require("multer")
 const logger = require("morgan");
 const session = require("express-session")
 const getConnection = require("./static/js/database.js")
 require("dotenv").config();
+
 
 getConnection((conn) => {
     var q1 = ""
@@ -14,6 +16,10 @@ getConnection((conn) => {
     );
     conn.release()
 })
+
+
+
+
 // const personalQueryRouter= require('./routes/board/personalQuery');
 
 //routes
@@ -22,7 +28,9 @@ getConnection((conn) => {
 // app.use("/membership", membership);
 // app.use("/common", common);
 // const db = require("./model");
-const mq = require("./model/mquery");
+
+
+
 
 app.use(express.static('./views'))
 app.use(express.static('./static'))
@@ -50,13 +58,16 @@ var Users = [];
 app.set('view engine', 'pug');
 app.set("views", './views');
 
-app.get('/order', (req, res) => {
-    res.render('order', {page: "join"})
+
+app.get('/board/order', (req, res) => {
+    res.render('order', { page: "join" })
+
 })
 
 
 
 const port = 3000
+
 const host = '0.0.0.0'
 
 app.get('/', (req, res) => {
@@ -92,61 +103,79 @@ app.post('/signup', (req, res, registchk) => {
     if (formdata.id != undefined) {
         var QchckId = `SELECT * FROM Customer WHERE Id='${formdata.id}'`
         console.log("formdata.id: " + formdata.id)
+
         getConnection((conn) => {
             conn.query(QchckId, function (err, row, fields) {
                 if (err) {
                     console.log("회원가입 실패")
-                    res.render('signup', {
-                        registchk: 0,
-                        breadcrumbList: ["HOME", "회원가입"]
-                    });
+
+                    res.send('<script>alert("아이디 에러; 아이디를 다시 입력해주세여"); window.location.href = "/signup"; </script>');
                     throw err;
                 } else if (row.length > 0) {
-                    console.log("회원가입 실패\n아이디가 이미 존재합니다")
-                    res.render('signup', {
-                        registchk: 2,
-                        breadcrumbList: ["HOME", "회원가입"]
-                    });
-                } else if (formdata.pwd != formdata.pwdchk) {
-                    console.log("사용 가능한 아이디입니돠")
-                    console.log("비밀번호 틀림")
-                    res.render('signup', {
-                        registchk: 3,
-                        breadcrumbList: ["HOME", "회원가입"]
-                    });
+                    console.log("회원가입 실패 아이디가 이미 존재합니다")
+                    res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세여"); window.location.href = "/signup"; </script>');
                 } else {
-                    bcrypt.hash(formdata.pwd, null, null, function (err, hash) {
-                        // insert user data into users table
-                        var qSignup = "INSERT INTO Customer (Id, Pwd, Name, Addr, Birthdate, Phone, Gender, RegDate) VALUES ('" + formdata.id + "', '" + hash + "', '" + formdata.name + "', '" + formdata.addr + "', '" + formdata.birthdate + "', '" + formdata.phone + "', '" + formdata.gender + "', '" + formdata.date + "');"
-                        getConnection((conn) => {
-                            conn.query(qSignup, function (err, row, fields) {
-                                if (err) {
-                                    console.log("회원가입 실패")
-                                    res.render('signup', {
-                                        registchk: 0,
-                                        breadcrumbList: ["HOME", "회원가입"]
-                                    });
-                                    throw err;
-                                }
-                                console.log("회원가입 성공")
-                                // console.log(row);
-                                // res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세요"); window.location.href = "/signup"; </script>');
-                                // res.send({registchk: 1});
-                                res.render('signup', {
-                                    registchk: 1,
-                                    breadcrumbList: ["HOME", "회원가입"]
-                                });
-                            })
-                        });
-                    })
+                    console.log("사용 가능한 아이디입니돠")
+                    res.send('<script>alert("사용 가능한 아이디입니돠"); window.location.href = "/signup"; </script>');
                 }
                 console.log("release pool")
                 conn.release()
             })
         })
     }
+
+
 })
 
+app.post('/signup', (req, res, registchk) => {
+    // console.log(req.body)
+    var formdata = {
+        id: req.body.id,
+        name: req.body.name,
+        pwd: req.body.pwd,
+        pwdchk: req.body.pwdck,
+        addr: req.body.post + '/' + req.body.addr + '/' + req.body.detai,
+        birthdate: req.body.date,
+        gender: req.body.gender,
+        phone: req.body.phone
+    }
+    
+
+
+    if (formdata.pwd != formdata.pwdchk) {
+        console.log("비밀번호 틀림")
+        res.render('signup', {
+            registchk: 0,
+            breadcrumbList: ["HOME", "회원가입"]
+        });
+    } else {
+        bcrypt.hash(formdata.pwd, null, null, function (err, hash) {
+            // insert user data into users table
+            var qSignup = "INSERT INTO Customer (Id, Pwd, Name, Addr, Birthdate, Phone, Gender) VALUES ('" + formdata.id + "', '" + hash + "', '" + formdata.name + "', '" + formdata.addr + "', '" + formdata.birthdate + "', '" + formdata.phone + "', '" + formdata.gender + "');"
+            getConnection((conn) => {
+                conn.query(qSignup, function (err, row, fields) {
+                    if (err) {
+                        console.log("회원가입 실패")
+                        res.render('signup', {
+                            registchk: 0,
+                            breadcrumbList: ["HOME", "회원가입"]
+                        });
+                        throw err;
+                    }
+                    console.log("회원가입 성공")
+                    // console.log(row);
+                    // res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세요"); window.location.href = "/signup"; </script>');
+                    // res.send({registchk: 1});
+                    res.render('signup', {
+                        registchk: 1,
+                        breadcrumbList: ["HOME", "회원가입"]
+                    });
+                    conn.release()
+                })
+            });
+        })
+    }
+})
 
 
 app.get('/login', (req, res) => {
@@ -188,34 +217,33 @@ app.post('/login', (req, res) => {
     });
     res.redirect('/')
 })
+
+
+app.get('/mypage', (req, res) => {
+    res.render('event', { breadcrumbList: ["HOME", "이벤트"] })
+})
+
+
 app.get('/event', (req, res) => {
-    res.render('event', {breadcrumbList: ["HOME", "이벤트"]})
+    res.render('event', { breadcrumbList: ["HOME", "이벤트"] })
 })
 app.get('/display', (req, res) => {
-    res.render('display', {breadcrumbList: ["HOME", "기획전"]})
+    res.render('display', { breadcrumbList: ["HOME", "기획전"] })
 })
 app.get('/coupon', (req, res) => {
-    res.render('coupon', {breadcrumbList: ["HOME", '쿠폰/교환권']})
+    res.render('coupon', { breadcrumbList: ["HOME", '쿠폰/교환권'] })
+
 })
 app.get('/detail', (req, res) => {
     res.render('detail')
 })
 app.get('/story', (req, res) => {
-    res.render('story', {breadcrumbList: ["HOME", '스토리']})
-})
-app.get('/board/notice', (req, res) => {
-    res.render('notice', {breadcrumbList: ["HOME", '고객센터', '공지사항']})
-})
-app.get('/board/faq', (req, res) => {
-    res.render('faq', {breadcrumbList: ["HOME", '고객센터', '자주 묻는 질문']})
+
+    res.render('story', { breadcrumbList: ["HOME", '스토리'] })
 })
 app.get('/board/myPersonalQuery', (req, res) => {
-    res.render('myPersonalQuery', {breadcrumbList: ["HOME", '고객센터', '1:1 문의하기']})
+    res.render('myPersonalQuery', { breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'] })
 })
-app.get('/board/qna', (req, res) => {
-    res.render('qna', {breadcrumbList: ["HOME", '고객센터', '고객의 소리']})
-})
-
 
 
 
