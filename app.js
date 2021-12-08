@@ -1,11 +1,14 @@
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
+const bcrypt = require('bcrypt-nodejs');
+// const upload = require("multer")
 const logger = require("morgan");
 const session = require("express-session")
-const dotenv = require("dotenv").config();
-const getConnection = require("./database.js")
-const bcrypt = require('bcrypt-nodejs');
+const getConnection = require("./static/js/database.js")
+require("dotenv").config();
+
+
 
 getConnection((conn) => {
     var q1 = ""
@@ -16,6 +19,8 @@ getConnection((conn) => {
 })
 
 
+
+
 // const personalQueryRouter= require('./routes/board/personalQuery');
 
 //routes
@@ -24,6 +29,8 @@ getConnection((conn) => {
 // app.use("/membership", membership);
 // app.use("/common", common);
 // const db = require("./model");
+
+
 
 app.use(express.static('./views'))
 app.use(express.static('./static'))
@@ -51,8 +58,10 @@ var Users = [];
 app.set('view engine', 'pug');
 app.set("views", './views');
 
+
 app.get('/board/order', (req, res) => {
     res.render('order', { page: "join" })
+
 })
 
 
@@ -67,43 +76,19 @@ app.get('/', (req, res) => {
         { title: "참깨 드레싱", name: "율무 단호박 샐러드(R)", sale: ["10%", "5,800원"], price: "5,220원" },
         { title: "스위트 바나나 드레싱", name: "리코타 치즈 샐러드 (S/R)", sale: ["10%", "5,800원"], price: "5,220원" }
     ]
-    if (req.session.user != undefined) {
-
-        res.render('index', { breadcrumbList: ["HOME"], products: products, page: 'event.pug' })
+    if (req.session.valid) {
+        res.render('index', { breadcrumbList: ["HOME"], products: products, page: 'event.pug', sessionValid: req.session.valid, user:req.session.user.Id})
+		console.log("user: ", req.session.user)
     } else {
-        res.render('event', { breadcrumbList: ["HOME"] })
+        res.render('event', { breadcrumbList: ["HOME", '비회원접근']})
     }
 })
 
 app.get('/signup', (req, res) => {
     res.render('signup', {breadcrumbList: ["HOME", "회원가입"] })
 })
-app.post('/chkId', (req, res, registchk) => {
-    var formdata = {
-        id: req.body.id
-    }
-    if (formdata.id != undefined) {
-        var QchckId = `SELECT * FROM Customers WHERE Id='${formdata.id}'`
-        console.log("formdata.id: "+ formdata.id)
-        getConnection((conn) => {
-            conn.query(QchckId, function (err, row, fields) {
-                if (err) {
-                    console.log("회원가입 실패")
-                    res.send('<script>alert("아이디 에러; 아이디를 다시 입력해주세여"); window.location.href = "/signup"; </script>');
-                    throw err;
-                } else if (row.length > 0) {
-                    console.log("회원가입 실패 아이디가 이미 존재합니다")
-                    res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세여"); window.location.href = "/signup"; </script>');
-                } else {
-                    console.log("사용 가능한 아이디입니돠")
-                    res.send('<script>alert("사용 가능한 아이디입니돠"); window.location.href = "/signup"; </script>');
-                }
-                console.log("release pool")
-                conn.release()
-            })
-        })
-    }
-
+app.get('/signup', (req, res) => {
+    res.render('signup', { breadcrumbList: ["HOME", "회원가입"] })
 })
 
 app.post('/signup', (req, res, registchk) => {
@@ -116,53 +101,74 @@ app.post('/signup', (req, res, registchk) => {
         addr: req.body.post + '/' + req.body.addr + '/' + req.body.detai,
         birthdate: req.body.date,
         gender: req.body.gender,
-        phone: req.body.phone
+        phone: req.body.phone,
+        date: Date.now()
     }
-    
-
-
-    if (formdata.pwd != formdata.pwdchk) {
-        console.log("비밀번호 틀림")
-        res.render('signup', {
-            registchk: 0,
-            breadcrumbList: ["HOME", "회원가입"]
-        });
-    } else {
-        bcrypt.hash(formdata.pwd, null, null, function (err, hash) {
-            // insert user data into users table
-            var qSignup = "INSERT INTO Customer (Id, Pwd, Name, Addr, Birthdate, Phone, Gender) VALUES ('" + formdata.id + "', '" + hash + "', '" + formdata.name + "', '" + formdata.addr + "', '" + formdata.birthdate + "', '" + formdata.phone + "', '" + formdata.gender + "');"
-            getConnection((conn) => {
-                conn.query(qSignup, function (err, row, fields) {
-                    if (err) {
-                        console.log("회원가입 실패")
-                        res.render('signup', {
-                            registchk: 0,
-                            breadcrumbList: ["HOME", "회원가입"]
-                        });
-                        throw err;
-                    }
-                    console.log("회원가입 성공")
-                    // console.log(row);
-                    // res.send('<script>alert("이미 있는 아이디입니다 다시 입력해주세요"); window.location.href = "/signup"; </script>');
-                    // res.send({registchk: 1});
+    if (formdata.id != undefined) {
+        var QchckId = `SELECT * FROM Customer WHERE Id='${formdata.id}'`
+        console.log("formdata.id: " + formdata.id)
+        getConnection((conn) => {
+            conn.query(QchckId, function (err, row, fields) {
+                if (err) {
+                    console.log("회원가입 실패")
                     res.render('signup', {
-                        registchk: 1,
+                        registchk: 0,
                         breadcrumbList: ["HOME", "회원가입"]
                     });
-                    conn.release()
-                })
-            });
+                    throw err;
+                } else if (row.length > 0) {
+                    console.log("회원가입 실패\n아이디가 이미 존재합니다")
+                    res.render('signup', {
+                        registchk: 2,
+                        breadcrumbList: ["HOME", "회원가입"]
+                    });
+                } else if (formdata.pwd != formdata.pwdchk) {
+                    console.log("사용 가능한 아이디입니돠")
+                    console.log("비밀번호 틀림")
+                    res.render('signup', {
+                        registchk: 3,
+                        breadcrumbList: ["HOME", "회원가입"]
+                    });
+                } else {
+                    bcrypt.hash(formdata.pwd, null, null, function (err, hash) {
+                        // insert user data into users table
+                        var qSignup = "INSERT INTO Customer (Id, Pwd, Name, Addr, Birthdate, Phone, Gender, RegDate) VALUES ('" + formdata.id + "', '" + hash + "', '" + formdata.name + "', '" + formdata.addr + "', '" + formdata.birthdate + "', '" + formdata.phone + "', '" + formdata.gender + "', '" + formdata.date + "');"
+                        getConnection((conn) => {
+                            conn.query(qSignup, function (err, row, fields) {
+                                if (err) {
+                                    res.render('signup', {
+                                        registchk: 0,
+                                        breadcrumbList: ["HOME", "회원가입"]
+                                    });
+                                    throw err;
+                                }
+                                console.log("회원가입 성공")
+                                // console.log(row);
+                                // res.send({registchk: 1});
+                                res.render('signup', {
+                                    registchk: 1,
+                                    breadcrumbList: ["HOME", "회원가입"]
+                                });
+                            })
+                        });
+                    })
+                }
+                console.log("release pool")
+                conn.release()
+            })
         })
     }
 })
 
+
+
 app.get('/login', (req, res) => {
-    res.render('login', { breadcrumbList: ["HOME", "로그인"] })
+    res.render('login', { breadcrumbList: ["HOME", "로그인"], signIn: 10})
 })
 
 app.post('/login', (req, res) => {
-    param = [req.body.id, req.body.pw]
-    qLogin = `SELECT * FROM customer WHERE Id='${param[0]}'`
+    param = [req.body.id, req.body.pwd]
+    qLogin = `SELECT * FROM Customer WHERE Id='${param[0]}'`
     getConnection((conn) => {
         conn.query(
             qLogin, function (err, row) {
@@ -179,28 +185,47 @@ app.post('/login', (req, res) => {
                                     return res.status(500).send("h1 500 error");
                                 }
                                 else {
-                                    res.status(200).send('h1 OK');
+									req.session.valid = true
+                                    res.redirect('/')
                                 }
                             })
                         } else {
-                            console.log('로그인 실패')
+                            console.log('로그인 실패 비밀번호 틀림')
                             console.log("user: ", req.session.user)
+							// res.send({signIn:0})
+                            res.render('login', {
+                                breadcrumbList: ["HOME", "로그인"],
+                                signIn : 0
+                            })
                         }
                     })
                 } else {
                     console.log('ID가 존재하지 않습니다.')
+					// res.send({signIn:2})
+                    res.render('login', {
+                        breadcrumbList: ["HOME", "로그인"],
+                        signIn : 2
+                    })
                 }
             })
         conn.release()
     });
-    res.redirect('/')
+    // res.redirect('/')
 })
+
+app.get('/logout',(req,res) => {
+    req.session.destroy((err) => {
+        if(err) {
+            return console.log(err);
+        }
+        res.redirect('/login');
+    });
+
+});
 
 app.get('/mypage', (req, res) => {
     res.render('event', { breadcrumbList: ["HOME", "이벤트"] })
 })
-
-
 app.get('/event', (req, res) => {
     res.render('event', { breadcrumbList: ["HOME", "이벤트"] })
 })
@@ -209,6 +234,7 @@ app.get('/display', (req, res) => {
 })
 app.get('/coupon', (req, res) => {
     res.render('coupon', { breadcrumbList: ["HOME", '쿠폰/교환권'] })
+
 })
 app.get('/detail', (req, res) => {
     res.render('detail')
@@ -216,9 +242,10 @@ app.get('/detail', (req, res) => {
 app.get('/story', (req, res) => {
     res.render('story', { breadcrumbList: ["HOME", '스토리'] })
 })
-app.get('/board/myPersonalQuery', (req, res) => {
-    res.render('myPersonalQuery', { breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'] })
+app.get('/post', (req, res) => {
+    res.render('post', { breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'] })
 })
+
 
 
 app.listen(port, host, () => {
