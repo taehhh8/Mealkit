@@ -2,6 +2,8 @@ doctype html
 head
   meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
   link(href="./css/join.css" crossorigin="anonymous", rel="stylesheet")
+  script(src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
+  script(src="./js/kakaoapi.js")
   include ./common/head.pug
   
   main#contents.hd__greatingJoin
@@ -11,66 +13,104 @@ head
       //-   li 약관동의
       //-   li.on 정보입력
       //-   li 가입완료
-      .register
-        form(action='')
+      .register#signup
+        form(name="signup" method="post" action='/signup')
           .flex
             ul.container
               li.item.center
-                | &#xC774;&#xB984;
+                | 이름
               li.item
                 input(type='text', name='name', autofocus='', required='')
               li.item
             ul.container
               li.item.center
-                | &#xC544;&#xC774;&#xB514;
+                | 아이디
               li.item
-                input(type='text', placeholder='아이디를 입력하세요.', required='')
+                input(type='text', name='id' placeholder='아이디를 입력하세요.', required='')
               li.item
-                button.idcheck &#xC911;&#xBCF5;&#xD655;&#xC778;
+                //- button.idcheck(type="button") 중복확인
             ul.container
               li.item.center
-                | &#xBE44;&#xBC00;&#xBC88;&#xD638;
+                | 비밀번호
               li.item
-                input(type='password', placeholder='비밀번호를 입력하세요.', required='')
-              li.item
-            ul.container
-              li.item.center
-                | &#xBE44;&#xBC00;&#xBC88;&#xD638; &#xD655;&#xC778;
-              li.item
-                input(type='password', placeholder='비밀번호를 입력하세요.', required='')
+                input(name= 'pwd', type='password', placeholder='비밀번호를 입력하세요.', required='')
               li.item
             ul.container
               li.item.center
-                | &#xC0DD;&#xB144;&#xC6D4;&#xC77C;
+                | 비밀번호 확인
               li.item
-                input(type='date', required='')
+                input(name= 'pwdck', type='password', placeholder='비밀번호를 입력하세요.', required='')
               li.item
             ul.container
               li.item.center
-                | &#xC131;&#xBCC4;
+                | 생년월일
+              li.item
+                input(name='date', type='date', required='')
+              li.item
+            ul.container
+              li.item.center
+                | 주소
+              li.item
+                input(name = 'post' id="member_post"  type="text" placeholder="눌러서 검색하기" readonly onclick="findAddr()", required='')
+            ul.container
+              | &nbsp;
+              li.item
+                input(name = 'addr' id="member_addr" type="text" placeholder="" readonly)
+            ul.container
+              | &nbsp;
+              li.item
+                input(name = 'detai' type="text" placeholder="상세주소 (동/호수)")
+              li.item
+            ul.container
+              li.item.center
+                | 성별
               li.item
                 select(name='gender', id='')
-                  option(value='선택', selected='') &#xC120;&#xD0DD;
-                  option(value='남성') &#xB0A8;&#xC131;
-                  option(value='여성') &#xC5EC;&#xC131;
+                  option(value='선택', selected='') 선택
+                  option(value='남성') 남성
+                  option(value='여성') 여성
               li.item
             ul.container
               li.item.center
-                | &#xC804;&#xD654;&#xBC88;&#xD638;
+                | 전화번호
               li.item
-                input(type='text', placeholder='휴대전화번호')
+                input(name= 'phone', type='text', placeholder='\' - \' 를 제외하고 입력해주세요')
               li.item
             ul.container
               li.item.center
               li.item
-                button.submit &#xAC00;&#xC785;&#xD558;&#xAE30;
-              li.item
-  #dvdpPopupArea(style='position: absolute; top: 40px; width: 100%; height: auto;')
-  a.hd__top(href='#')
-    span.hidden &#xC0C1;&#xB2E8;&#xC73C;&#xB85C; &#xBC14;&#xB85C;&#xAC00;&#xAE30;
-  script(src='/pc/greating/js/controller/common/footerController.js?dt=20210601')
-form#inputForm(method='post' name='inputForm')
-  input#FLEX_DATA_KEY(name='FLEX_DATA_KEY' type='hidden' value='')
-  input#FLEX_YN(name='FLEX_YN' type='hidden' value='N')
-script(src='../js/commonJoin.js')
-script(src='../js/greatingJoin.js')
+            button.submit(type="submit") 가입하기
+      .register#hiddenInfo(style='display: none')
+        .flex
+          ul
+            li.item.center
+              a.loginlink#message 회원가입이 완료되었습니다.
+            li.item.center
+              a.loginlink(href='./login' style='color: blue') 로그인
+              a.loginlink 을 해주세여.
+            
+script.
+  function chkid() {
+
+  }
+  //- alert("test")
+  if (#{registchk} == 1) {
+    document.getElementById('signup').style.display= "none";
+    document.getElementById("hiddenInfo").style.display= "block";
+    alert("회원가입 성공")
+    console.log("registchk", #{registchk})
+  } else if (#{registchk} == 2){
+    console.log("registchk", #{registchk})
+      alert("회원가입 실패\n아이디가 이미 존재합니다.")
+  } else if (#{registchk} == 3){
+    console.log("registchk", #{registchk})
+      alert("회원가입이 실패하였습니다.\n 비밀번호를 확인해주세여.")
+  } else {
+    console.log("registchk", #{registchk})
+      alert("회원가입이 실패하였습니다.\n 다시 시도하여 주세여.")
+  }
+
+     
+//- script(src='/pc/greating/js/controller/common/footerController.js?dt=20210601')
+//- script(src='./js/commonJoin.js')
+//- script(src='./js/greatingJoin.js')

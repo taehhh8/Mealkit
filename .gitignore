@@ -10,3 +10,7 @@ node_modules
 #testFiles
 /testFiles/
 temp/
+
+
+#goorm
+goorm.manifest

@@ -11,9 +11,7 @@ let con = mysql.createConnection({ //대소문자 구분해야됨
 
 // let con = mysql.createConnection(dbConfig);
 
-
-
-//상품 조회
+//상품 조회 R
 module.exports = con.connect(function(err){
         if(err) throw err;
         console.log("Database Connected!");
@@ -45,31 +43,12 @@ module.exports = router.get("/productlist",auth, (req, res)=>{
     
 });
 
-//상품 등록
+//상품 등록 C
 con.connect(function(err){
         if(err) throw err;
         console.log("Database Connected!");
     
-        let sQuery = `INSERT INTO Product
-                        (Product_id, 
-                        Category_id, 
-                        Name, 
-                        Price, 
-                        Created_time, 
-                        Updated_time, 
-                        Content, 
-                        Product_imageUrl, 
-                        Quantity)
-                    VALUES
-                        ('Product_id 1', 
-                        'Category_id 1', 
-                        'Name 1', 
-                        'Price 1', 
-                        'Created_time 1', 
-                        'Updated_time 1', 
-                        'Content 1', 
-                        'Product_imageUrl 1', 
-                        'Quantity 1')`;
+        let sQuery = ``;
         con.query(sQuery, (err, result, fields)=>{
             if(err) console.error(err); //throw err;
             console.log(result);
@@ -78,6 +57,8 @@ con.connect(function(err){
     con.end();
     });
 
+//상품 업데이트 U
+//상품 제거 D
 
 
 

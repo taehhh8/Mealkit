@@ -9,7 +9,7 @@ let con = mysql.createConnection({ //대소문자 구분해야됨
     database: process.env.DATABASE
 });
 
-
+console.log(process.env.HOST)
 
 console.log(con);
 // let con = mysql.createConnection(dbConfig);
