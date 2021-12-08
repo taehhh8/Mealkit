@@ -1,25 +1,13 @@
 const mysql = require('mysql');
 require("dotenv").config();
-// # Data base host
-//     HOST=0.0.0.0
-// # Database User Id
-//     USER=root
-// # Database User Password
-//     PASSWORD=qweqwe123
-// # Database 
-//     DATABASE=mealkit
-// # Conn Limit
-// 	Conn = 30
-// # Port
-// 	PORT=3306
 
 const config = {
-	host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-	port: process.env.PORT,
-	connectionLimit: process.env.Conn
+  host: process.env.host,
+  user: process.env.user,     
+  password: process.env.password,      
+  port: process.env.port,
+  database: process.env.database,
+  connectionLimit: process.env.connectionLimit
 };
 // console.log(config)
 let pool = mysql.createPool(config);
@@ -33,11 +21,11 @@ function getConnection(callback) {
   });
 }
 
-// module.exports = getConnection;
-getConnection((conn) => {
-    var q1 = ""
-    conn.query(
-        q1
-    );
-    conn.release()
-})
+module.exports = getConnection;
+// getConnection((conn) => {
+//     var q1 = ""
+//     conn.query(
+//         q1
+//     );
+//     conn.release()
+// })

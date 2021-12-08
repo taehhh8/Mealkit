@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
 const logger = require("morgan");
 const session = require("express-session")
 const getConnection = require("./static/js/database.js")
-require("dotenv").config({path:"./static/js/.env"});
+require("dotenv").config();
 
 getConnection((conn) => {
     var q1 = ""
