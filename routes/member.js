@@ -42,7 +42,7 @@ let user_menus =[
 ]
 
 router.get('/', (req,res) => {
-    res.render("submenu", {
+    res.render("./common/submenu", {
         menu1 : shopping_menus,
         menu2 : point_menus,
         menu3 : attention_menus,
