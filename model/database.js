@@ -8,15 +8,16 @@ require("dotenv").config()
 //   database: 'mealkit',
 //   connectionLimit: 30
 // };
-const configs = {
-  host: process.env.HOST,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-  port: process.env.PORT,
-  connectionLimit: process.env.Conn
+const config = {
+  host: process.env.host,
+  user: process.env.user,     
+  password: process.env.password,      
+  port: process.env.port,
+  database: process.env.database,
+  connectionLimit: process.env.connectionLimit
 };
-let pool = mysql.createPool(configs);
+
+let pool = mysql.createPool(config);
 
 function getConnection(callback) {
   pool.getConnection(function (err, conn) {

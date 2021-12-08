@@ -2,10 +2,8 @@ doctype html
 head
   meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
   include ./common/head.pug
-  script.
-    if(IS_SESSION == 'N'){
-    location.href='/login?reurl=' + encodeURIComponent(document.location.href);
-    }
+
+  //- #{sessionValid}
   body#eventList.hd
     main#contents.hd__myCoupon 
       .coupon__wrap
@@ -39,3 +37,12 @@ head
                   | 이후 서비스는 그리팅몰 서비스 정책을 따릅니다. 
                 li - 본 교환권은 현금이나 잔액환불이 안되며, 이미 사용한 교환권은 취소 및 환불이 불가 합니다.
                 li - 교환권 번호 노출/분실로 인한 책임을 지지 않습니다.
+
+  
+    script. 
+      sessionValid1= "#{sessionValid}";
+      if (!sessionValid1) {
+        alert("로그인 후 사용 해주세여")
+        window.location.href = "/login"
+      }
+    
