@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        style.
+            ul,ol,li{list-decroration:none;}
+            a:hover, a:visited, a:link{ text-decoration:none; color:black;}
+
+            a:-webkit-any-link 
+                (cursor:pointer)
+        
+        //- style
+        //-     include ../css/main.css
+        //-     include ../css/jquery.css
+             
+body
+        //- include header.pug
+
+        h2 나의쇼핑내역 
+            each shopping_menus in menu1
+                a(href=shopping_menus.url)
+                    ol.menu1= shopping_menus.ID
+            
+            //- a(href=meznnus.url)
+            //-     li.menu= point_menus.ID
+                //- li.menu= point_menus.ID
+        h2 나의 혜택관리
+            each point_menus in menu2
+                a(href=point_menus.url)
+                    ol.menu2= point_menus.ID
+        hr    
+        h2 나의 관심내역
+            each attention_menus in menu3
+                a(href=attention_menus.url)
+                    ol.menu3= attention_menus.ID
+        hr    
+        h2 나의 커뮤니티
+            each community_menus in menu4
+                a(href=community_menus.url)
+                    ol.menu4= community_menus.ID
+        hr    
+        h2 회원정보
+            each user_menus in menu5
+                a(href=user_menus.url)
+                    ol.menu5= user_menus.ID

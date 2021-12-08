@@ -17,6 +17,7 @@ const configs = {
   connectionLimit: process.env.Conn
 };
 let pool = mysql.createPool(configs);
+
 function getConnection(callback) {
   pool.getConnection(function (err, conn) {
     if(err) throw err;
@@ -34,4 +35,5 @@ module.exports = getConnection;
 //       q1
 //   );
 //   conn.release()
+
 // })

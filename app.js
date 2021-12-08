@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const bcrypt = require('bcrypt-nodejs');
+
 // const upload = require("multer")
 const logger = require("morgan");
 const session = require("express-session")
@@ -9,15 +10,13 @@ const getConnection = require("./static/js/database.js")
 require("dotenv").config();
 
 
-
-getConnection((conn) => {
-    var q1 = ""
-    conn.query(
-        q1
-    );
-    conn.release()
-})
-
+// getConnection((conn) => {
+//     var q1 = ""
+//     conn.query(
+//         q1
+//     );
+//     conn.release()
+// })
 
 
 
@@ -67,7 +66,8 @@ app.get('/board/order', (req, res) => {
 
 
 const port = 3000
-const host = '127.0.0.1'
+
+const host = '0.0.0.0'
 
 app.get('/', (req, res) => {
     let products = [
@@ -77,16 +77,17 @@ app.get('/', (req, res) => {
         { title: "스위트 바나나 드레싱", name: "리코타 치즈 샐러드 (S/R)", sale: ["10%", "5,800원"], price: "5,220원" }
     ]
     if (req.session.valid) {
-        res.render('index', { breadcrumbList: ["HOME"], products: products, page: 'event.pug', sessionValid: req.session.valid, user:req.session.user.Id})
-		console.log("user: ", req.session.user)
+        res.render('index', { breadcrumbList: ["HOME"], products: products, page: 'event.pug', sessionValid: req.session.valid, user: req.session.user.Id })
+        console.log("user: ", req.session.user)
     } else {
-        res.render('event', { breadcrumbList: ["HOME", '비회원접근']})
+        res.render('event', { breadcrumbList: ["HOME", '비회원접근'] })
     }
 })
 
 app.get('/signup', (req, res) => {
-    res.render('signup', {breadcrumbList: ["HOME", "회원가입"] })
+    res.render('signup', { breadcrumbList: ["HOME", "회원가입"] })
 })
+
 app.get('/signup', (req, res) => {
     res.render('signup', { breadcrumbList: ["HOME", "회원가입"] })
 })
@@ -160,10 +161,8 @@ app.post('/signup', (req, res, registchk) => {
     }
 })
 
-
-
 app.get('/login', (req, res) => {
-    res.render('login', { breadcrumbList: ["HOME", "로그인"], signIn: 10})
+    res.render('login', { breadcrumbList: ["HOME", "로그인"], signIn: 10 })
 })
 
 app.post('/login', (req, res) => {
@@ -185,26 +184,26 @@ app.post('/login', (req, res) => {
                                     return res.status(500).send("h1 500 error");
                                 }
                                 else {
-									req.session.valid = true
+                                    req.session.valid = true
                                     res.redirect('/')
                                 }
                             })
                         } else {
                             console.log('로그인 실패 비밀번호 틀림')
                             console.log("user: ", req.session.user)
-							// res.send({signIn:0})
+                            // res.send({signIn:0})
                             res.render('login', {
                                 breadcrumbList: ["HOME", "로그인"],
-                                signIn : 0
+                                signIn: 0
                             })
                         }
                     })
                 } else {
                     console.log('ID가 존재하지 않습니다.')
-					// res.send({signIn:2})
+                    // res.send({signIn:2})
                     res.render('login', {
                         breadcrumbList: ["HOME", "로그인"],
-                        signIn : 2
+                        signIn: 2
                     })
                 }
             })
@@ -213,9 +212,9 @@ app.post('/login', (req, res) => {
     // res.redirect('/')
 })
 
-app.get('/logout',(req,res) => {
+app.get('/logout', (req, res) => {
     req.session.destroy((err) => {
-        if(err) {
+        if (err) {
             return console.log(err);
         }
         res.redirect('/login');

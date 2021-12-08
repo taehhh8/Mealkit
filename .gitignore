@@ -9,4 +9,16 @@ node_modules
 
 #testFiles
 /testFiles/
+<<<<<<< HEAD
+<<<<<<< HEAD
 temp/
+
+
+#goorm
+goorm.manifest
+=======
+temp/
+>>>>>>> 08bd4b97d91146fcb4b579ca6244dc1556eff053
+=======
+temp/
+>>>>>>> 08bd4b97d91146fcb4b579ca6244dc1556eff053
