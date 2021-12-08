@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 
+
 // const upload = require("multer")
 const logger = require("morgan");
 const session = require("express-session")
@@ -9,13 +10,14 @@ const getConnection = require("./static/js/database.js")
 require("dotenv").config();
 
 
-getConnection((conn) => {
-    var q1 = ""
-    conn.query(
-        q1
-    );
-    conn.release()
-})
+
+// getConnection((conn) => {
+//     var q1 = ""
+//     conn.query(
+//         q1
+//     );
+//     conn.release()
+// })
 
 
 
@@ -28,7 +30,6 @@ getConnection((conn) => {
 // app.use("/membership", membership);
 // app.use("/common", common);
 // const db = require("./model");
-
 
 
 
@@ -72,43 +73,33 @@ const host = '0.0.0.0'
 
 app.get('/', (req, res) => {
     let products = [
-        {title:"양파 치즈 마요 드레싱" , name:"부드러운 닭가슴살 콥 샐러드 (S)" , sale:[ "10%",  "5,800원"], price:"5,220원"},
-        {title:"참깨 마요 드레싱" , name:"[I like Eat] 크랜베리 치킨 샐러드" , sale:[ "10%",  "5,800원"], price:"5,220원"},
-        {title:"참깨 드레싱" , name:"율무 단호박 샐러드(R)" , sale:[ "10%",  "5,800원"], price:"5,220원"},
-        {title:"스위트 바나나 드레싱" , name:"리코타 치즈 샐러드 (S/R)" , sale:[ "10%",  "5,800원"], price:"5,220원"} ]
-    let sQuery = "select * from Product";
-    // let products = mq.query(sQuery);
-    // console.log(products);
-    res.render('index', {breadcrumbList: ["HOME"],products: products,  page: 'event.pug'})
-})
+        { title: "양파 치즈 마요 드레싱", name: "부드러운 닭가슴살 콥 샐러드 (S)", sale: ["10%", "5,800원"], price: "5,220원" },
+        { title: "참깨 마요 드레싱", name: "[I like Eat] 크랜베리 치킨 샐러드", sale: ["10%", "5,800원"], price: "5,220원" },
+        { title: "참깨 드레싱", name: "율무 단호박 샐러드(R)", sale: ["10%", "5,800원"], price: "5,220원" },
+        { title: "스위트 바나나 드레싱", name: "리코타 치즈 샐러드 (S/R)", sale: ["10%", "5,800원"], price: "5,220원" }
+    ]
+    if (req.session.user != undefined) {
 
+        res.render('index', { breadcrumbList: ["HOME"], products: products, page: 'event.pug' })
+    } else {
+        res.render('event', { breadcrumbList: ["HOME"] })
+    }
+})
 
 app.get('/signup', (req, res) => {
-    res.render('signup', { breadcrumbList: ["HOME", "회원가입"] })
+    res.render('signup', {breadcrumbList: ["HOME", "회원가입"] })
 })
-
-app.post('/signup', (req, res, registchk) => {
-    // console.log(req.body)
+app.post('/chkId', (req, res, registchk) => {
     var formdata = {
-        id: req.body.id,
-        name: req.body.name,
-        pwd: req.body.pwd,
-        pwdchk: req.body.pwdck,
-        addr: req.body.post + '/' + req.body.addr + '/' + req.body.detai,
-        birthdate: req.body.date,
-        gender: req.body.gender,
-        phone: req.body.phone,
-        date: Date.now()
+        id: req.body.id
     }
     if (formdata.id != undefined) {
-        var QchckId = `SELECT * FROM Customer WHERE Id='${formdata.id}'`
-        console.log("formdata.id: " + formdata.id)
-
+        var QchckId = `SELECT * FROM Customers WHERE Id='${formdata.id}'`
+        console.log("formdata.id: "+ formdata.id)
         getConnection((conn) => {
             conn.query(QchckId, function (err, row, fields) {
                 if (err) {
                     console.log("회원가입 실패")
-
                     res.send('<script>alert("아이디 에러; 아이디를 다시 입력해주세여"); window.location.href = "/signup"; </script>');
                     throw err;
                 } else if (row.length > 0) {
@@ -123,8 +114,6 @@ app.post('/signup', (req, res, registchk) => {
             })
         })
     }
-
-
 })
 
 app.post('/signup', (req, res, registchk) => {
@@ -218,7 +207,6 @@ app.post('/login', (req, res) => {
     res.redirect('/')
 })
 
-
 app.get('/mypage', (req, res) => {
     res.render('event', { breadcrumbList: ["HOME", "이벤트"] })
 })
@@ -238,7 +226,6 @@ app.get('/detail', (req, res) => {
     res.render('detail')
 })
 app.get('/story', (req, res) => {
-
     res.render('story', { breadcrumbList: ["HOME", '스토리'] })
 })
 app.get('/board/myPersonalQuery', (req, res) => {
