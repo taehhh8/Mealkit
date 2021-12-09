@@ -28,7 +28,7 @@ head
               li.item
                 input(type='text', name='id' placeholder='아이디를 입력하세요.', required='')
               li.item
-                button.idcheck(action='/chkId' method='post') 중복확인
+               //- button.idcheck(action='/chkId' method='post') 중복확인
             ul.container
               li.item.center
                 | 비밀번호
@@ -90,12 +90,22 @@ head
               a.loginlink 을 해주세여.
             
 script.
-    if (#{registchk} == 1) {
-      document.getElementById('signup').style.display= "none";
-      document.getElementById("hiddenInfo").style.display= "block";
-    } else {
-       alert("회원가입이 실패하였습니다.\n 다시 시도하여 주세여.")
-    }
+  //- alert("test")
+  if (#{registchk} == 1) {
+    document.getElementById('signup').style.display= "none";
+    document.getElementById("hiddenInfo").style.display= "block";
+    alert("회원가입 성공")
+    console.log("registchk", #{registchk})
+  } else if (#{registchk} == 2){
+    console.log("registchk", #{registchk})
+      alert("회원가입 실패\n아이디가 이미 존재합니다.")
+  } else if (#{registchk} == 3){
+    console.log("registchk", #{registchk})
+      alert("회원가입이 실패하였습니다.\n 비밀번호를 확인해주세여.")
+  } else {
+    console.log("registchk", #{registchk})
+      alert("회원가입이 실패하였습니다.\n 다시 시도하여 주세여.")
+  }
 
      
 //- script(src='/pc/greating/js/controller/common/footerController.js?dt=20210601')

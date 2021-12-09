@@ -9,7 +9,7 @@ const router = express.Router();
 // 첫 번째 인자인 '/' 은 주소값입니다. 만약 사용자가 http:내사이트.com/ 으로 접속했다면 바로 이어지는 두 번째 인자로 들어온 함수를 실행합니다.
 
 router.get('/', function(req, res, next) { 
-  res.render('myPersonalQuery');
+  res.render('post');
 });
 router.post('/post', function(req, res, next) { 
   console.log(req.body)

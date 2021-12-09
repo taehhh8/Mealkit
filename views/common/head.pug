@@ -19,11 +19,18 @@ head
     .header
       section.user-area
         ul.user-area__menu
-          // 로그인전
-          li
-            a(href='/login') 로그인
-          li
-            a(href='/signup') 회원가입
+          // 로그인처리
+          if sessionValid
+            a(style=("font-size:14px")) #{user}님 안녕하세요
+              li
+                form
+                  a(style=("font-size:14px"))
+                    button(type="submit" formaction='/logout' method='post') 로그아웃
+          else
+            li
+              a(href='/login') 로그인
+            li
+              a(href='/signup') 회원가입
           li
             a(href='./myPage/randomCouponRegist') 쿠폰/교환권
           li
@@ -32,12 +39,12 @@ head
               i
             ul
               li
-                a(href='./serviceCenter/notice') 공지사항
+                a(href='./notice') 공지사항
               li
-                a(href='./serviceCenter/faq') 자주하는 질문
-                a(href='./board/myPersonalQuery') 1:1 문의
+                a(href='./faq') 자주하는 질문
+                a(href='./post') 1:1 문의
               li
-                a(href='./serviceCenter/qna') 고객의 소리
+                a(href='./qna') 고객의 소리
       .header__inner
         .header__sec
           h1.logo
