@@ -1,0 +1,20 @@
+doctype html 
+html 
+    head 
+        meta(charset="utf-8")
+        title 
+    body 
+        h1 
+            a(href="/board")
+        ult 
+            each board in boardList 
+                li 
+                    a(href="/board/" + board.num)= board.title 
+        article 
+            h1= 'Delete ? ' + board.title 
+            form(action="/board/" + board.num + "/delete" method="POST")
+                p 
+                    input(type="submit" value="yes")
+                form(action="/board/" + board.num method="GET")
+                    p 
+                        input(type="submit" value="no") 

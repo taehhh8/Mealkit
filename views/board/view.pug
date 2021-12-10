@@ -1,0 +1,31 @@
+doctype html
+html(lang="ko")
+
+head
+meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+link(rel='stylesheet', href='../css/table.css')
+//- include ../common/head.pug
+body
+    table.type11
+        tr
+            th 번호
+            th 이메일
+            th 휴대폰 번호
+            th 제목 
+            th 내용
+            th 작성시간
+            th 
+        
+        each va, index in boardList 
+            tr
+                form(action="/board/delete" method='post')          
+                    th= va.num
+                        input(type="hidden" id="num" name="num" value= va.num)
+                    th= va.Email
+                    th= va.Phone_Number
+                    th= va.Writer
+                    th= va.Content
+                    th= va.Posted_time
+                    th
+                        button(type="submit") 글 삭제
+                        

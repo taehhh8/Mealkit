@@ -5,13 +5,27 @@ const bcrypt = require('bcrypt-nodejs');
 const session = require("express-session")
 const getConnection = require("./model/database.js")
 const member = require("./routes/member.js")
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const boardRouter= require('./routes/board');
+
 require("dotenv").config
 // const FileStore = require('session-file-store')(session)
 // require("dotenv").config();
 // const upload = require("multer")
 // const logger = require("morgan");
 
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/board', boardRouter);
 // getConnection((conn) => {
 //     var q1 = ""
 //     conn.query(
@@ -255,9 +269,47 @@ app.get('/story', (req, res) => {
         res.render('story', {breadcrumbList: ["HOME", '스토리'], sessionValid: req.session.valid})
     }
 })
-// app.get('/post', (req, res) => {
-//     res.render('post', { breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'] })
+app.get('/notice', (req, res) => {
+    if (req.session.valid) {
+        res.render('noitce', {breadcrumbList: ["HOME", '고객센터', '공지사항'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('notice', {breadcrumbList: ["HOME", '고객센터', '공지사항'], sessionValid: req.session.valid})
+    }
+})
+app.get('/faq', (req, res) => {
+    if (req.session.valid) {
+        res.render('faq', {breadcrumbList: ["HOME", '고객센터', '자주 묻는 질문'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('faq', {breadcrumbList: ["HOME", '고객센터', '자주 묻는 질문'], sessionValid: req.session.valid})
+    }
+})
+app.get('/post', (req, res) => {
+    if (req.session.valid) {
+        res.render('post', {breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('post', {breadcrumbList: ["HOME", '고객센터', '1:1 문의하기'], sessionValid: req.session.valid})
+    }
+})
+app.get('/qna', (req, res) => {
+    if (req.session.valid) {
+        res.render('qna', {breadcrumbList: ["HOME", '고객센터', '고객의 소리'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('qna', {breadcrumbList: ["HOME", '고객센터', '고객의 소리'], sessionValid: req.session.valid})
+    }
+})
+// app.get('/board', (req, res) => {
+//     if (req.session.valid) {
+//         res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid, user: req.session.user.Id})
+//         // console.log("user: ", req.session.user.Id)
+//     } else {
+//         res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid})
+//     }
 // })
+
 
 app.use('/member', member)
 

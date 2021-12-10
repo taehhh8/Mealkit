@@ -3,12 +3,15 @@ doctype html
 head
   // Global site tag (gtag.js) - Google Analytics
   script(src='https://www.youtube.com/iframe_api')
-  link(rel='stylesheet', type='text/css', href='../static/stylesheets/qnaM.css')
-  link(rel='stylesheet', type='text/css', href='../static/stylesheets/qnaJ.css')
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible', content='IE=edge')
-  script(src='/front_pc/src/js/main.js?dt=211015')
-  script(src='/front_pc/src/js/vendor.js?ver=201215')
+  link(rel='stylesheet', type='text/css', href='../css/qnaM.css')
+  link(rel='stylesheet', type='text/css', href='../css/qnaJ.css')
+  script(src='../static/js/notice.js')
+  script(src='../static/js/noticeVendor.js')
+  script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-154592972-1')
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+
+  include ./common/head.pug
   // <script type="text/javascript" src="/pc/greating/js/jquery.min.js"></script>
   style.
     .pop_wrap {
@@ -87,31 +90,28 @@ body.hd#myPersonalInquery
               span.btn-img &#xCD08;&#xAE30;&#xD654;
             button#dvSrhFilterSelectBtn.btn-init.green &#xC120;&#xD0DD;&#xC644;&#xB8CC;
   main#contents.hd__myPersonalInquery
-    ul.breadcrumb
-      li HOME
-      li &#xACE0;&#xAC1D;&#xC13C;&#xD130;
-      li &#xACE0;&#xAC1D;&#xC758; &#xC18C;&#xB9AC;
     .myPersonalInquery
       h2.hd__page-title &#xACE0;&#xAC1D;&#xC758; &#xC18C;&#xB9AC;
       .sub-wrap.hd__inner1100
-        // snb
         aside.snb
-          h3.hidden &#xC11C;&#xBE0C;&#xBA54;&#xB274;
+          h3.hidden 서브메뉴
           ul.snb-box
             li#notice.snb-box__list
-              a(href='/serviceCenter/notice') &#xACF5;&#xC9C0;&#xC0AC;&#xD56D;
+              a(href='/serviceCenter/notice') 공지사항
             li#faq.snb-box__list
-              a(href='/serviceCenter/faq') &#xC790;&#xC8FC; &#xBB3B;&#xB294; &#xC9C8;&#xBB38;
+              a(href='/serviceCenter/faq') 자주 묻는 질문
             li#myPersonalInquery.snb-box__list
-              a(href='/serviceCenter/myPersonalInquery?TYPE=0') 1:1 &#xBB38;&#xC758;
+              a(href='/serviceCenter/myPersonalInquery?TYPE=0') 1:1 문의
             li#qna.snb-box__list
-              a(href='/serviceCenter/qna') &#xACE0;&#xAC1D;&#xC758; &#xC18C;&#xB9AC;
+              a(href='/serviceCenter/qna') 고객의 소리
           .snb__csCenter
             span.snb__csCenter__num
-              | &#xACE0;&#xAC1D;&#xC13C;&#xD130;
-              strong#csCenterTel
+              | 고객센터
+              strong#csCenterTel 1234-5678
             p#csCenterTime.snb__csCenter__use
-        // 컨텐츠
+              | 평일, 토요일 7:00~18:00
+              br
+              | 공휴일 7시 ~ 13시 (일요일 휴무)
         .sub-cont
           section.sub-cont__sec
             form#iForm(name='iForm', enctype='multipart/form-data', method='post', onsubmit='return false;')

@@ -1,0 +1,143 @@
+doctype html
+html(lang="ko")
+// post.pug
+head
+  meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+  link(rel='stylesheet', href='../css/qnaJ.css')
+  link(rel='stylesheet', href='../css/qnaM.css')
+  script(src='https://unpkg.com/axios/dist/axios.min.js')
+  //- script(src='../public/javascripts/post.js')
+  include ./common/head.pug
+body.hd#myPersonalInquery  
+#wrap
+  main#contents.hd__myPersonalInquery
+    .myPersonalInquery
+      h2.hd__page-title 1:1 문의하기
+      .sub-wrap.hd__inner1100
+        aside.snb
+          h3.hidden 서브메뉴
+          ul.snb-box
+            li#notice.snb-box__list
+              a(href='/serviceCenter/notice') 공지사항
+            li#faq.snb-box__list
+              a(href='/serviceCenter/faq') 자주 묻는 질문
+            li#myPersonalInquery.snb-box__list
+              a(href='/serviceCenter/myPersonalInquery?TYPE=0') 1:1 문의
+            li#qna.snb-box__list
+              a(href='/serviceCenter/qna') 고객의 소리
+          .snb__csCenter
+            span.snb__csCenter__num
+              | 고객센터
+              strong#csCenterTel 1234-5678
+            p#csCenterTime.snb__csCenter__use
+              | "평일, 토요일 7:00~18:00"
+              br
+              | "공휴일 7시 ~ 13시 (일요일 휴무)"
+        .sub-cont
+          section.sub-cont__sec
+            form#iForm(name='iForm', action="/board/post" method='post')
+              input(name='BIZ_CLASS', type='hidden', value='CS')
+              input(name='FOLDER1', type='hidden', value='qna')
+              input(name='FOLDER2', type='hidden', value='1')
+              input#Q_NAME(name='Q_NAME', type='hidden', value='')
+              .myPersonalInquery__sec
+                #hmBuyerArea.inquery__sec.type(style='display:none;')
+                  h3.inquery__title
+                    | 구분 
+                    span.import *
+                  .input-box
+                    .hd-checkbox-type2
+                      input#COMPANY_TYPE1.hidden(type='radio', name='COMPANY_TYPE', value='', onclick='fnChangeCompanyType()')
+                      label(for='COMPANY_TYPE1') 그리팅
+                    .hd-checkbox-type2
+                      input#COMPANY_TYPE2.hidden(type='radio', name='COMPANY_TYPE', value='H', onclick='fnChangeCompanyType()')
+                      label(for='COMPANY_TYPE2') 현대장터
+                .inquery__sec.e-mail
+                  h3.inquery__title
+                    | 이메일 
+                    span.import *
+                  .input-box
+                    .email__box
+                      input#name.input__text(type='text' name='Email1' title='이메일' placeholder='이메일')
+                      span @
+                      input#Q_EMAIL3.input__text.input_mail(type='text', name='Email3', validation='required', title='이메일')
+                      .hd__custom-select
+                        select#Q_EMAIL2(name='Email2')
+                          option(value='') 직접입력
+                          option(value='naver.com') naver.com
+                          option(value='gmail.com') gmail.com
+                          option(value='hotmail.com') hotmail.com
+                          option(value='hanmail.net') hanmail.net
+                          option(value='daum.net') daum.net
+                          option(value='nate.com') nate.com
+                      input#Q_EMAIL(type='hidden', name='Email')
+                    .hd-checkbox
+                      input#mailAlarm.hidden(type='checkbox', checked='checked')
+                      label(for='mailAlarm') 답변 알람 수신
+                .inquery__sec.cellphone
+                  h3.inquery__title
+                    | 휴대폰번호 
+                    span.import *
+                  .input-box
+                    .cellphone__number
+                      .hd__custom-select.phone
+                        select#Q_MOBILE1.input_select.memberSelect(name="Q_MOBILE1")
+                          option(value='') 선택
+                          option(value='010') 010
+                          option(value='011') 011
+                          option(value='016') 016
+                          option(value='017') 017
+                          option(value='018') 018
+                          option(value='019') 019
+                      |  -
+                      // <input type="text" id="Q_MOBILE1" class="input__text" maxlength="3" numberonly> -
+                      input#password.input__text(name='Phone_Number1', type='text', maxlength='4', numberonly='')
+                      |  -
+                      // id="Q_MOBILE2"
+                      input#Q_MOBILE3.input__text(name='Phone_Number2', type='text', maxlength='4', numberonly='')
+                      input#Q_MOBILE(type='hidden')
+                    .hd-checkbox
+                      input#phoneAlarm.hidden(type='checkbox', checked='checked')
+                      label(for='phoneAlarm') 답변 알람 수신
+                .inquery__sec
+                  h3.inquery__title
+                    | 제목 
+                    span.import *
+                  .input_type
+                    input#title.input__text(type='text', name='Writer', title='제목', placeholder='제목을 입력해주세요.', validation='required')
+                    // id="Q_TITLE"
+                .inquery__sec
+                  h3.inquery__title
+                    | 내용 
+                    span.import *
+                  .textarea_box
+                    textarea#contents.input__textarea(name='Content', title='내용', placeholder='문의하실 내용을 입력해주세요.', validation='required')
+                    // id="QUESTION"
+                .inquery__sec
+                  h3.inquery__title 첨부파일
+                  .file_list
+                    ul
+                      li
+                        label.image-box(for='file1')
+                          input#file1.input_file.hidden(type='file', title='파일찾기', name='file1', accept='.jpg, .png', data-maxmemory-mb='10')
+                          img(src='/front_pc/images/img_comm_preview.png', alt='')
+                          button.btn_icon.del(type='button')
+                            span.hidden 삭제
+                    .file_info
+                      p * 파일형식은 이미지파일(jpg, png)로 제출 가능합니다.
+                      p * 파일 용량은 최대 10MB 까지 가능합니다.
+              strong.inquery__notice
+                | * 1:1 문의하기 내역은 
+                a#myInqueryListBtn(href='#') 마이페이지 > 1:1 문의내역
+                | 에서 확인할 수 있습니다.
+              .btn
+                a#write(href='#')
+                  button#cancelBtn.btn-init.white(type='button')
+                    strong 취소
+                a(href='/board')
+                  button#addBtn.btn-init.green(type='submit')
+                    strong 등록
+  footer
+ 
+  
+

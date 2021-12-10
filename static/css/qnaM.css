@@ -1,15 +1,4 @@
-body {
-    margin: 0;
-  }
- 
-
-/* .header {
-    width: 100%;
-    height: 160px;
-    background-color: gray;
-} */
-
-/* @charset "UTF-8"; */
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -8714,6 +8703,13 @@ white-space
     right: 1vw;
     z-index: 10;
   }
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: greenyellow;
+
 }
 
 .hd .window-popup__header {
@@ -18904,28 +18900,19 @@ white-space
   line-height: 43px;
 }
 
-.hd .myPersonalInquery {
+.hd .popup_groupOrder .myPersonalInquery {
   max-height: 600px;
   overflow-y: scroll;
   padding: 0 20px;
 }
 
-.hd .myPersonalInquery__sec {
+.hd .popup_groupOrder .myPersonalInquery__sec {
   margin-bottom: 40px;
   padding: 25px 0;
   border-bottom: 1px solid #ccc;
 }
 
-.hd .myPersonalInquery .inquery__title {
-  display: table-cell;
-  width: 130px;
-  padding-top: 12px;
-  vertical-align: top;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.hd .myPersonalInquery .inquery__sec {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -18933,11 +18920,11 @@ white-space
   margin-top: 15px;
 }
 
-.hd .myPersonalInquery .inquery__sec:first-child {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec:first-child {
   margin-top: 0;
 }
 
-.hd .myPersonalInquery .inquery__sec.orderNumber .btn-init {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec.orderNumber .btn-init {
   vertical-align: top;
   width: 150px;
   height: 45px;
@@ -18947,38 +18934,38 @@ white-space
   font-weight: 400;
 }
 
-.hd .myPersonalInquery .inquery__sec.orderNumber .txt {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec.orderNumber .txt {
   margin-top: 10px;
   font-size: 16px;
   color: #888;
 }
 
-.hd .myPersonalInquery .inquery__sec.e-mail {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec.e-mail {
   position: relative;
 }
 
-.hd .myPersonalInquery .inquery__sec.e-mail .email__box {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec.e-mail .email__box {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
-.hd .myPersonalInquery .inquery__sec.e-mail .email__box input {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec.e-mail .email__box input {
   width: 120px;
 }
 
-.hd .myPersonalInquery .inquery__sec.e-mail .email__box .hd__custom-select {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec.e-mail .email__box .hd__custom-select {
   display: inline-block;
   vertical-align: top;
   width: 120px;
 }
 
-.hd .myPersonalInquery .inquery__sec.e-mail .email__box .hd__custom-select select {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec.e-mail .email__box .hd__custom-select select {
   height: 45px;
 }
 
-.hd .myPersonalInquery .inquery__sec .cellphone__number {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .cellphone__number {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -18987,27 +18974,27 @@ white-space
   line-height: 0;
 }
 
-.hd .myPersonalInquery .inquery__sec .cellphone__number input {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .cellphone__number input {
   width: 100px;
 }
 
-.hd .myPersonalInquery .inquery__sec .file_list ul:after {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .file_list ul:after {
   content: '';
   display: block;
   clear: both;
 }
 
-.hd .myPersonalInquery .inquery__sec .file_list ul li {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .file_list ul li {
   float: left;
   margin-top: 0;
   margin-left: 15px;
 }
 
-.hd .myPersonalInquery .inquery__sec .file_list ul li:first-child {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .file_list ul li:first-child {
   margin-left: 0;
 }
 
-.hd .myPersonalInquery .inquery__sec .file_list ul li .image-box {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .file_list ul li .image-box {
   display: block;
   overflow: hidden;
   position: relative;
@@ -19016,12 +19003,12 @@ white-space
   border: 1px solid #C3C3C3;
 }
 
-.hd .myPersonalInquery .inquery__sec .file_list ul li .image-box img {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .file_list ul li .image-box img {
   width: 100%;
   pointer-events: none;
 }
 
-.hd .myPersonalInquery .inquery__sec .file_list ul li .image-box .btn_icon {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .file_list ul li .image-box .btn_icon {
   display: none;
   position: absolute;
   top: 0;
@@ -19031,45 +19018,45 @@ white-space
   background: #918c00 url(/front_pc/images/ico_file_delete.png) no-repeat 50% 50%;
 }
 
-.hd .myPersonalInquery .inquery__sec .file_list .file_info {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .file_list .file_info {
   margin-top: 15px;
   line-height: 26px;
   font-size: 16px;
   color: #888;
 }
 
-.hd .myPersonalInquery .inquery__sec .textarea_box {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .textarea_box {
   font-size: 16px;
 }
 
-.hd .myPersonalInquery .inquery__sec .textarea_box h4 {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .textarea_box h4 {
   font-size: 18px;
   font-weight: bold;
 }
 
-.hd .myPersonalInquery .inquery__sec .textarea_box ul {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .textarea_box ul {
   line-height: 1.4;
 }
 
-.hd .myPersonalInquery .inquery__sec .textarea_box ul li {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .textarea_box ul li {
   margin-top: 5px;
   padding-left: 15px;
   text-indent: -15px;
 }
 
-.hd .myPersonalInquery .inquery__sec .textarea_box dl {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .textarea_box dl {
   margin: 10px 0;
 }
 
-.hd .myPersonalInquery .inquery__sec .textarea_box dl dt {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .textarea_box dl dt {
   font-weight: bold;
 }
 
-.hd .myPersonalInquery .inquery__sec .textarea_box dl dd {
+.hd .popup_groupOrder .myPersonalInquery .inquery__sec .textarea_box dl dd {
   margin-top: 5px;
 }
 
-.inquery__title {
+.hd .popup_groupOrder .myPersonalInquery .inquery__title {
   display: table-cell;
   width: 130px;
   padding-top: 12px;
@@ -19078,11 +19065,11 @@ white-space
   font-weight: 600;
 }
 
-.hd .myPersonalInquery .inquery__title .import {
+.hd .popup_groupOrder .myPersonalInquery .inquery__title .import {
   color: #F9D983;
 }
 
-.hd .myPersonalInquery .inquery__notice {
+.hd .popup_groupOrder .myPersonalInquery .inquery__notice {
   display: block;
   text-align: center;
   font-size: 16px;
@@ -19090,11 +19077,11 @@ white-space
   color: #888;
 }
 
-.hd .myPersonalInquery .inquery__notice a {
+.hd .popup_groupOrder .myPersonalInquery .inquery__notice a {
   color: #1c1c1c;
 }
 
-.hd .myPersonalInquery .input-box {
+.hd .popup_groupOrder .myPersonalInquery .input-box {
   display: table-cell;
   position: relative;
   width: 380px;
@@ -19102,17 +19089,17 @@ white-space
   font-size: 16px;
 }
 
-.hd .myPersonalInquery .input-box .hd-checkbox {
+.hd .popup_groupOrder .myPersonalInquery .input-box .hd-checkbox {
   position: static;
   margin-top: 10px;
 }
 
-.hd .myPersonalInquery .btn {
+.hd .popup_groupOrder .myPersonalInquery .btn {
   width: 405px;
   margin: 20px auto 30px;
 }
 
-.hd .myPersonalInquery .btn-init {
+.hd .popup_groupOrder .myPersonalInquery .btn-init {
   height: 60px;
   line-height: 60px;
   margin: 10px 0 0 0 !important;
@@ -33598,14 +33585,6 @@ blockquote {
   /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
-
-.myPersonalInquery__sec {
-  margin-bottom: 40px;
-  padding: 25px 0;
-  border-bottom: 1px solid #ccc;
-  border: green 1px solid;
-}
-
 
 
 /*# sourceMappingURL=main.css.map*/
