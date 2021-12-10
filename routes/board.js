@@ -48,7 +48,7 @@ router.get('/post', function (req, res) {
 });
 
 //작성된 게시판으로 이동
-router.get('/view', function (req, res) {
+router.get('/board', function (req, res) {
     res.render('board/view', { boardList: ["보드리스트"] });
 })
 

@@ -301,14 +301,14 @@ app.get('/qna', (req, res) => {
         res.render('qna', {breadcrumbList: ["HOME", '고객센터', '고객의 소리'], sessionValid: req.session.valid})
     }
 })
-// app.get('/board', (req, res) => {
-//     if (req.session.valid) {
-//         res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid, user: req.session.user.Id})
-//         // console.log("user: ", req.session.user.Id)
-//     } else {
-//         res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid})
-//     }
-// })
+app.get('/board', (req, res) => {
+    // if (req.session.valid) {
+    //     res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid, user: req.session.user.Id})
+    //     // console.log("user: ", req.session.user.Id)
+    // } else {
+        res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid})
+    // }
+})
 
 
 app.use('/member', member)
