@@ -1,0 +1,24 @@
+style.
+    #related{margin-top:50px;}
+    .relatedImg{display: flex;}
+    li{display: inline;}
+    del{color:gray;}
+    a:visited, a:hover, a{color:black; text-decoration:none;}
+
+#related
+    h3.relatedProduct 연관상품
+    hr
+    -let products = [1,2]
+    ul
+    each i in products
+        li
+            div.relatedImg 
+                a(href="")
+                    figure
+                        img(src="https://image.greating.co.kr/IL/item/202107/14/M_F48429B058DA432CBD6026A5D6471587.jpg" width=260 height= 260)
+                    div.pNmae 부드러운 닭가슴살 콥 샐러드(S)
+                    div.bPrice
+                        span.sale 10%
+                        span 
+                            del 5,800원
+                    div.Price 5,220원

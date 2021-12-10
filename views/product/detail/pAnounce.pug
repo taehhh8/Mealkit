@@ -1,0 +1,18 @@
+style.
+    .theanounce{display:block;}
+    .lines{display:flex; flex-direction: row;}
+    .alines{font-size: 8px; font-weight: bolder; display:table; table-layout:fixed;}
+    .list.tit{width:210px; display:table-cell;} 
+    .list.desc{width:890px; display:table-cell;}
+h3 상품정보제공고시
+hr
+
+ul.theanounce
+    li.alines
+    -for( let key in anounce)
+        span.list.tit=key
+        span.list.desc=anounce[key]
+        hr  
+        
+
+    

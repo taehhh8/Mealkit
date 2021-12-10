@@ -1,0 +1,17 @@
+//- extends ../index.pug
+style.
+    #anounced{margin: 0 25%;}
+//- block content
+include ../../common/header
+
+h2 상세페이지
+
+include ./pmainInfo.pug
+include ./tapmenu
+include ./contents
+div#anounced
+    include ./pAnounce
+include ./related
+
+//- div#traceoption
+//-     include ./
