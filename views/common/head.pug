@@ -4,7 +4,7 @@ head
   meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
  
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
-  link(rel='shortcut icon', href='.front_mo/images/favicon.png')
+  link(rel='shortcut icon', href='/front_mo/images/favicon.png')
   link(rel='stylesheet', href='/css/main.css', type='text/css')
   script(src='/js/main.js')
   style.
@@ -14,14 +14,17 @@ head
   //-   a, a:visited, a:hover{color: black; text-decoration:none;}
   //-   .user-area__menu{display:flex; float: right;}
 
+
 #wrap
   header#header.hd__header
     .topBanner
       a(href='./event/eventReview?evEventId=3878#page1')
         figure
+
           img(src='/src/head/2FF579614D9B4DD6830B0C0788865BE2.jpg', alt='1')
       a.topBanner__close(href='javascript:closeTopBanner();')
         img(src='/src/head/btn_topBanner-close.png', alt='닫기')
+
     .header
       section.user-area
         ul.user-area__menu
@@ -36,19 +39,23 @@ head
             li
               a(href='/signup') 회원가입
           li
+
             a(href='/coupon') 쿠폰/교환권
           li
             a(href='/serviceCenter/serviceCenterMain')
+
               |고객센터
               i
             ul
               li
+
                 a(href='/notice') 공지사항
               li
                 a(href='/faq') 자주하는 질문
                 a(href='/post') 1:1 문의
               li
                 a(href='/qna') 고객의 소리
+
       .header__inner
         .header__sec
           h1.logo
@@ -228,6 +235,7 @@ head
           .gnb
             ul.gnb__inner
               li.gnb__list
+
                 a.gnb__list-name(href='/care') 케어식단
               li.gnb__list
                 a.gnb__list-name(href='/health') 건강마켓
@@ -237,6 +245,7 @@ head
                 a.gnb__list-name(href='/event') 이벤트
               li.gnb__list
                 a.gnb__list-name(href='/') 스토리
+
           nav.direct
             #searchPopup.direct__search.btn__modal-open(data-login='y', data-popup-name='popup_search')
               // 2021.09.23 YSC 상품권 내리기 <input type="text" id="searchInput2" class="search-input" placeholder="그리팅 '기프트 카드' 출시!" autocomplete="off">

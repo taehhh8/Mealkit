@@ -14,6 +14,7 @@ const boardRouter = require('./routes/board');
 const orderRouter = require("./routes/order/order");
 const productRouter = require("./routes/products/product");
 
+
 require("dotenv").config
 // const FileStore = require('session-file-store')(session)
 // require("dotenv").config();
@@ -30,6 +31,7 @@ app.use('/users', usersRouter);
 app.use('/board', boardRouter);
 app.use("/order", orderRouter);
 app.use("/product", productRouter);
+
 // getConnection((conn) => {
 //     var q1 = ""
 //     conn.query(
@@ -74,6 +76,7 @@ app.set('view engine', 'pug');
 app.set("views", './views');
 
 app.get('/board/order', (req, res) => {
+
     res.render('order', )
 
 })
@@ -87,14 +90,17 @@ app.get('/', (req, res) => {
         conn.query( query, (err, result)=>{
             conn.release();
             if (req.session.valid) {
+
                 res.render('careFood/sikdan', {breadcrumbList: ["HOME"], product:result, sessionValid: req.session.valid, user: req.session.user.Id})
                 // console.log("user: ", req.session.user.Id)
             } else {
                 res.render('careFood/sikdan', { breadcrumbList: ["HOME", '비회원접근'] })
+
             }
         })
     })
 })
+
 
 
 app.post('/signup', (req, res, registchk) => {
@@ -263,6 +269,7 @@ app.get('/detail', (req, res) => {
         // console.log("user: ", req.session.user.Id)
     } else {
         res.render('product/detail/page', {breadcrumbList: ["HOME", '상품상세'], sessionValid: req.session.valid})
+
     }
 })
 app.get('/story', (req, res) => {
@@ -306,6 +313,7 @@ app.get('/qna', (req, res) => {
     }
 })
 app.get('/board', (req, res) => {
+
     if (req.session.valid) {
         res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid, user: req.session.user.Id})
         // console.log("user: ", req.session.user.Id)
@@ -337,8 +345,6 @@ app.get("/health", (req, res)=>{
     }
     
 });
-
-
 
 app.use('/member', member)
 
