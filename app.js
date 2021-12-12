@@ -346,6 +346,8 @@ app.get("/health", (req, res)=>{
     
 });
 
+
+
 app.use('/member', member)
 
 app.listen(port, host, () => {

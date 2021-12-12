@@ -28,6 +28,7 @@ head
     2020.10.30 내용 추가 Lee Seung Hwan
   style.
     .async-hide { opacity: 0 !important}
+    .btn.btn-success{width:310px; height:70px; background-color: #918c00; color:white; text-align:center; font-size:25px; font-weight:bold;}
   script.
     (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
     h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
@@ -73,6 +74,7 @@ head
   script(src='https://www.youtube.com/iframe_api')
   link(rel='stylesheet' type='text/css' href='./css/main.css')
   link(rel='stylesheet' type='text/css' href='./css/jquery.css')
+  
   script(src='/front_pc/src/js/main.js?dt=211015')
   script(src='/front_pc/src/js/vendor.js?ver=201215')
   // <script type="text/javascript" src="/pc/greating/js/jquery.min.js"></script>
@@ -524,7 +526,7 @@ noscript
                       .title 상세주소
                       input.information#detailAddress(type="text", name='detailAddress')
                       br
-                      button.submit(type='submit') submit
+                      b(style="color:white" readonly) 
                         script(src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
                         script.
                             window.onload = function() {
@@ -1572,8 +1574,8 @@ noscript
                 label(for='chkAgreeAll') &#xC704; &#xC8FC;&#xBB38;&#xC758; &#xC0C1;&#xD488;, &#xAC00;&#xACA9;, &#xD560;&#xC778;, &#xBC30;&#xC1A1;&#xC815;&#xBCF4; &#xBC0F; &#xC774;&#xC6A9;&#xC57D;&#xAD00;&#xC744; &#xD655;&#xC778;&#xD558;&#xC600;&#xC73C;&#xBA70;, &#xACB0;&#xC81C;&#xC5D0; &#xB3D9;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.
             //- button#dvOrder.btn-init.green.btn-pay(data-login='n' data-popup-name='popup_greatingPayPwConfirm') &#xACB0;&#xC81C;&#xD558;&#xAE30;
             //- button#dvOrder.btn-init.green.btn-pay(data-login='n' data-popup-name='popup_greatingPayPwConfirm') &#xACB0;&#xC81C;&#xD558;&#xAE30;
-            a(href="./paymentResult")
-             input.informatio#order112(type="button" name="order112" value="결제하기")
+            a(href="/product/paymentResult")
+             button.btn.btn-success#order112(name="order112" ) 결제하기
             
             
             button#dvCancelOrder.btn-init.white.btn-cancel &#xCDE8;&#xC18C;

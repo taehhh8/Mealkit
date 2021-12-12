@@ -13,7 +13,7 @@ html(lang="en")
       
       .boximg{display:block; margin: 0 auto; margin-top: 25px;}
       .btnbox{display:table; margin: 0 auto; margin-bottom: 150px;}
-      .btns{display: flex; }
+      .btns{display: flex; padding:20px; }
       .btn{
         border:0.1px #918c00 solid;
         width:443px; height: 92px;
@@ -21,21 +21,31 @@ html(lang="en")
         display:flex; align-items: center;
         justify-content: center;
         font-size: 22px; font-weight: bold;
-        
+        color:#fff
       }
-      .order{ background-color: #918c00; } .order a{color: #fff;}
-      .gift{ background-color: #e5b83f;}.gift a{color: #fff;} .preview a{color:#918c00 ;}
-      .btnn{width:443px; height:92px;}
+      .preview{color:#918c00} .order{background-color:#918c00 }.gift{background-color: #e5b83f; width: 212px;} 
+      
   body
     
-    img.boximg(src=_url alt="sikdan" )
+    img.boximg(src=_url alt="sikdan")
+      
     .btnbox
-      .btns 
-        .preview.btn
-          a(herf="/product/preview") 메뉴 미리보기
-        .order.btn
-          a(herf="/") 주문하기
-        .gift.btn
-          a(herf="/").btn 선물하기
+      .btns
+        a(href="/product/preview") 
+          div.btn.preview 메뉴 미리보기
+        a(href="/product/order")
+          div.btn.order 주문하기
+        a(href="/product/order")
+          div.btn.gift 선물하기
+
+    //- .btnbox
+    //-   .btns 
+    //-     .preview.btn
+    //-       a(herf="/product/preview")
+    //-         div.btn 메뉴 미리보기
+    //-     .order.btn
+    //-       a(herf="/") 주문하기
+    //-     .gift.btn
+    //-       a(herf="/").btn 선물하기
           
     include ../common/footer

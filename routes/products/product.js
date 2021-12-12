@@ -1,16 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const getConnection = require("../../model/database");
-
+const session = require("express-session")
 router.use(express.static('./views'))
 router.use(express.static("static"));
 
-// router.get("/", ( req, res)=>{
-//     res.render("careFood/sikdan", {  
-//         breadcrumbList: ["HOME", "케어식단", "칼로리식단"]
-//     })
-// });
-
+router.use(session({
+    secret: "my secret",
+    store: false,
+    secure: false,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: (1000 * 60 * 100) //miliseconds
+    }
+}));
 
 router.get("/care/:pid", (req, res)=>{
     let pid = req.params.pid;
@@ -42,10 +46,37 @@ router.get("/care/:pid", (req, res)=>{
     // })
 
 router.get("/preview", (req, res)=>{
-    
-    res.render("menupreview", {});
+    if (req.session.valid) {
+        res.render('careFood/preview', {breadcrumbList: ["HOME", "메뉴 미리보기"], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('careFood/preview', { breadcrumbList: ["HOME", "메뉴 미리보기"] })
+    }
+});
+router.get("/order", (req, res)=>{
+    if (req.session.valid) {
+        res.render('order/views/orderPayment', {breadcrumbList: ["HOME", "주문하기"], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('order/views/orderPayment', { breadcrumbList: ["HOME", "주문하기"] })
+    }
 });
 
+router.get("/paymentResult", (req, res)=>{
+    if (req.session.valid) {
+        res.render('order/views/paymentResult', {
+            breadcrumbList: ["HOME", "주문완료"], 
+            sessionValid: req.session.valid, 
+            user: req.session.user.Id, 
+            name: req.body.name,
+            address: req.body.address,
+            detailAddress: req.body.detailAddress
+        })
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('order/views/paymentResult', { breadcrumbList: ["HOME", "주문완료"] })
+    }
+});
 
 
 router.get("/challenge/:pid", (req, res)=>{
