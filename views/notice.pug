@@ -1,0 +1,209 @@
+doctype html
+// 세션 세팅
+head
+  // Global site tag (gtag.js) - Google Analytics
+  script(src='https://www.youtube.com/iframe_api')
+  link(rel='stylesheet', type='text/css', href='../css/qnaM.css')
+  link(rel='stylesheet', type='text/css', href='../css/qnaJ.css')
+  script(src='../static/js/notice.js')
+  script(src='../static/js/noticeVendor.js')
+  script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-154592972-1')
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+
+  include ./common/head.pug
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-154592972-1', { 'optimize_id': 'OPT-PKR6F5B'});
+  // Google Tag Manager
+  script.
+    (function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+    'gtm.start' : new Date().getTime(),
+    event : 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l='
+    + l
+    : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KN4Z3B7');
+  //
+    Anti-flicker snippet (recommended)
+    2020.10.30 내용 추가 Lee Seung Hwan
+  style.
+    .async-hide { opacity: 0 !important}
+  script.
+    (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'OPT-PKR6F5B':true});
+  // End Google Tag Manager
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  style.
+    .pop_wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    }
+    .pop_wrap__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 400px;
+    padding: 30px;
+    background: #FFF;
+    transform: translate3d(-50%, -50%, 0);
+    }
+    .pop_wrap__inner .pop_content {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 26px;
+    }
+    .pop_content .btn_close {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 30px;
+    height: 20px;
+    font: 0/0 a;
+    }
+    .pop_wrap__inner .btn.alert {
+    width: 220px;
+    }
+    .pop_wrap__inner .btn.confirm {
+    width: 440px;
+    }
+    .pop_wrap__inner .btn .btn-init {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    }
+
+body.hd#noticeList
+#wrap
+  .hd__popup.hd__popup-v2.popup_search
+    article.hd__popup__modal.modal
+      section.modal__sec
+        strong.modal__sec__title.bb-none
+          | &#xC0C1;&#xD488;&#xAC80;&#xC0C9;
+          a.btn__close-x.btn__modal-close(href='#')
+            span.hidden &#xB808;&#xC774;&#xC5B4; &#xD31D;&#xC5C5; &#xB2EB;&#xAE30;
+        section.input-text
+          input#searchInput.search-input(type='text', placeholder='검색어를 입력해 주세요.')
+          button#dvSrhFilterBtn.btn-init.green &#xAC80;&#xC0C9;
+        .modal__sec__cont.scroll
+          button#btnClear.btn-clear
+            span.btn-img &#xCD08;&#xAE30;&#xD654;
+          #dvGetFilterArea
+            script#dvFilterGrpTemplate(type='text/x-handlebars-template').
+              <section class="category">
+              <h3 class="category__title">{{FILTER_GRP_NAME}}</h3>
+              <ul class="box" id="dvFilterGrpSubTemplate{{FILTER_GRP_CODE}}"></ul>
+              </section>
+            script#dvFilterListTemplate(type='text/x-handlebars-template').
+              <li class="box__list hd__custom-label">
+              <input type="checkbox" class="hidden" name="{{FILTER_GRP_CODE}}_{{IL_ITEM_FILTER_ID}}" id="filter_{{IL_ITEM_FILTER_ID}}" value="{{IL_ITEM_FILTER_ID}}" data-filtername="{{FILTER_NAME}}">
+              <label for="filter_{{IL_ITEM_FILTER_ID}}">{{FILTER_NAME}}</label>
+              </li>
+          .btn
+            button#btnClear.btn-init.white
+              span.btn-img &#xCD08;&#xAE30;&#xD654;
+            button#dvSrhFilterSelectBtn.btn-init.green &#xC120;&#xD0DD;&#xC644;&#xB8CC;
+  main#contents.hd__noticeList
+    .noticeList
+      h2.hd__page-title 공지사항
+      .sub-wrap.hd__inner1100
+        aside.snb
+          ul.snb-box
+            li#notice.snb-box__list
+              a(href='/serviceCenter/notice') 공지사항
+            li#faq.snb-box__list
+              a(href='/serviceCenter/faq') 자주 묻는 질문
+            li#myPersonalInquery.snb-box__list
+              a(href='/serviceCenter/myPersonalInquery?TYPE=0') 1:1 문의
+            li#qna.snb-box__list
+              a(href='/serviceCenter/qna') 고객의 소리
+          .snb__csCenter
+            span.snb__csCenter__num
+              | 고객센터
+              strong#csCenterTel 1234-5678
+            p#csCenterTime.snb__csCenter__use
+              | 평일, 토요일 7:00~18:00
+              br
+              | 공휴일 7시 ~ 13시 (일요일 휴무)
+        .sub-cont
+          section.sub-cont__sec
+            .noticeList__top
+              strong.noticeList__top__total
+                | &#xC804;&#xCCB4; 
+                span#csTotal
+                | &#xAC1C;
+              .dvSearchResult(style='display: none;')
+                strong#csSubTit
+                | &#xC5D0; &#xB300;&#xD55C; &#xAC80;&#xC0C9;&#xACB0;&#xACFC; &#xCD1D; 
+                span#csSubTotal.total 0 &#xAC1C;
+              .list-search
+                input#searchinput.input__text(type='text', title='검색', value='', placeholder='검색어를 입력하세요.', data-del-btn='')
+                // <button type="button" class="search_del del">삭제</button>
+                button#btnSearch.btn-init.green(type='button') &#xAC80;&#xC0C9;
+            #dvNoticeListMainArea.notice
+              // dvNoticeListMainTemplate
+            script#dvNoticeListMainTemplate(type='text/x-handlebars-template').
+              {{#if total}}
+              <div class="noticeList__cont">
+              <ul class="box" id="dvNoticeListArea1">
+              <!-- dvNoticeListTemplate1 -->
+              </ul>
+              <ul class="box" id="dvNoticeListArea2" style="border-top:0;">
+              <!-- dvNoticeListTemplate2 -->
+              </ul>
+              </div>
+              {{else}}
+              {{#if CONDI_VALUE}}
+              <div class="none-list">
+              <div class="none-list__inner">
+              <p class="none-list__txt">
+              <strong>[{{CONDI_VALUE}}]</strong>에 대한 검색 결과가 없습니다.
+              </p>
+              </div>
+              </div>
+              {{else}}
+              <!-- 리스트 없는 경우 -->
+              <div class="none-list">
+              <div class="none-list__inner">
+              <p class="none-list__txt">등록된 공지사항이 없습니다.</p>
+              </div>
+              </div>
+              {{/if}}
+              {{/if}}
+            // paging
+            #pageNation.pagenation
+            // //paging
+  // 플로팅 배너
+  aside#sideBanner.side-banner
+    // 사이드배너
+    .side-slide-wrap
+      #sideSlide.side-slide
+      button.slide-prev
+      button.slide-next
+    // 최근 본 상품
+    #sideMyViewItem.good-list
+      h2
+        a(href='/myPage/myViewItemList') &#xCD5C;&#xADFC; &#xBCF8; &#xC0C1;&#xD488;
+      ul#sideMyViewItemList
+    span#sideBannerCustomerCenter.call-center
+  include ./board/viewFooter 
+  

@@ -1,0 +1,217 @@
+doctype html
+// 세션 세팅
+head
+  // Global site tag (gtag.js) - Google Analytics
+  script(src='https://www.youtube.com/iframe_api')
+  link(rel='stylesheet', type='text/css', href='../css/qnaM.css')
+  link(rel='stylesheet', type='text/css', href='../css/qnaJ.css')
+  script(src='../static/js/notice.js')
+  script(src='../static/js/noticeVendor.js')
+  script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-154592972-1')
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+
+  include ./common/head.pug
+  // <script type="text/javascript" src="/pc/greating/js/jquery.min.js"></script>
+  style.
+    .pop_wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    }
+    .pop_wrap__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 400px;
+    padding: 30px;
+    background: #FFF;
+    transform: translate3d(-50%, -50%, 0);
+    }
+    .pop_wrap__inner .pop_content {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 26px;
+    }
+    .pop_content .btn_close {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 30px;
+    height: 20px;
+    font: 0/0 a;
+    }
+    .pop_wrap__inner .btn.alert {
+    width: 220px;
+    }
+    .pop_wrap__inner .btn.confirm {
+    width: 440px;
+    }
+    .pop_wrap__inner .btn .btn-init {
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    }
+// Google Tag Manager (noscript)
+body.hd#myPersonalInquery
+#wrap
+  .hd__popup.hd__popup-v2.popup_search
+    article.hd__popup__modal.modal
+      section.modal__sec
+        strong.modal__sec__title.bb-none
+          | &#xC0C1;&#xD488;&#xAC80;&#xC0C9;
+          a.btn__close-x.btn__modal-close(href='#')
+            span.hidden &#xB808;&#xC774;&#xC5B4; &#xD31D;&#xC5C5; &#xB2EB;&#xAE30;
+        section.input-text
+          input#searchInput.search-input(type='text', placeholder='검색어를 입력해 주세요.')
+          button#dvSrhFilterBtn.btn-init.green &#xAC80;&#xC0C9;
+        .modal__sec__cont.scroll
+          button#btnClear.btn-clear
+            span.btn-img &#xCD08;&#xAE30;&#xD654;
+          #dvGetFilterArea
+            script#dvFilterGrpTemplate(type='text/x-handlebars-template').
+              <section class="category">
+              <h3 class="category__title">{{FILTER_GRP_NAME}}</h3>
+              <ul class="box" id="dvFilterGrpSubTemplate{{FILTER_GRP_CODE}}"></ul>
+              </section>
+            script#dvFilterListTemplate(type='text/x-handlebars-template').
+              <li class="box__list hd__custom-label">
+              <input type="checkbox" class="hidden" name="{{FILTER_GRP_CODE}}_{{IL_ITEM_FILTER_ID}}" id="filter_{{IL_ITEM_FILTER_ID}}" value="{{IL_ITEM_FILTER_ID}}" data-filtername="{{FILTER_NAME}}">
+              <label for="filter_{{IL_ITEM_FILTER_ID}}">{{FILTER_NAME}}</label>
+              </li>
+          .btn
+            button#btnClear.btn-init.white
+              span.btn-img &#xCD08;&#xAE30;&#xD654;
+            button#dvSrhFilterSelectBtn.btn-init.green &#xC120;&#xD0DD;&#xC644;&#xB8CC;
+  main#contents.hd__myPersonalInquery
+    .myPersonalInquery
+      h2.hd__page-title &#xACE0;&#xAC1D;&#xC758; &#xC18C;&#xB9AC;
+      .sub-wrap.hd__inner1100
+        aside.snb
+          h3.hidden 서브메뉴
+          ul.snb-box
+            li#notice.snb-box__list
+              a(href='/serviceCenter/notice') 공지사항
+            li#faq.snb-box__list
+              a(href='/serviceCenter/faq') 자주 묻는 질문
+            li#myPersonalInquery.snb-box__list
+              a(href='/serviceCenter/myPersonalInquery?TYPE=0') 1:1 문의
+            li#qna.snb-box__list
+              a(href='/serviceCenter/qna') 고객의 소리
+          .snb__csCenter
+            span.snb__csCenter__num
+              | 고객센터
+              strong#csCenterTel 1234-5678
+            p#csCenterTime.snb__csCenter__use
+              | 평일, 토요일 7:00~18:00
+              br
+              | 공휴일 7시 ~ 13시 (일요일 휴무)
+        .sub-cont
+          section.sub-cont__sec
+            form#iForm(name='iForm', enctype='multipart/form-data', method='post', onsubmit='return false;')
+              input(name='BIZ_CLASS', type='hidden', value='CS')
+              input(name='FOLDER1', type='hidden', value='qna')
+              input(name='FOLDER2', type='hidden', value='1')
+              input#Q_NAME(name='Q_NAME', type='hidden', value='')
+              #companyTypeArea.inquery__sec.type(style='display:none;')
+                h3.inquery__title
+                  | &#xAD6C;&#xBD84; 
+                  span.import *
+                .input-box
+                  .hd-checkbox-type2
+                    input#COMPANY_TYPE1.hidden(type='radio', name='COMPANY_TYPE', value='')
+                    label(for='COMPANY_TYPE1') &#xADF8;&#xB9AC;&#xD305;
+                  .hd-checkbox-type2
+                    input#COMPANY_TYPE2.hidden(type='radio', name='COMPANY_TYPE', value='H')
+                    label(for='COMPANY_TYPE2') &#xD604;&#xB300;&#xC7A5;&#xD130;
+              .myPersonalInquery__sec
+                .inquery__sec.e-mail
+                  h3.inquery__title
+                    | &#xC774;&#xBA54;&#xC77C; 
+                    span.import *
+                  .input-box
+                    .email__box
+                      input#Q_EMAIL1.input__text(type='text', name='Q_EMAIL1', title='이메일', placeholder='이메일')
+                      |  @
+                      input#Q_EMAIL3.input__text.input_mail(type='email', name='Q_EMAIL3', validation='required', title='이메일')
+                      .hd__custom-select
+                        select#Q_EMAIL2(name='Q_EMAIL2')
+                          option(value='') &#xC9C1;&#xC811;&#xC785;&#xB825;
+                          option(value='naver.com') naver.com
+                          option(value='gmail.com') gmail.com
+                          option(value='hotmail.com') hotmail.com
+                          option(value='hanmail.net') hanmail.net
+                          option(value='daum.net') daum.net
+                          option(value='nate.com') nate.com
+                      input#Q_EMAIL(type='hidden', name='Q_EMAIL')
+                .inquery__sec.cellphone
+                  h3.inquery__title
+                    | &#xD734;&#xB300;&#xD3F0;&#xBC88;&#xD638; 
+                    span.import *
+                  .input-box
+                    .cellphone__number
+                      .hd__custom-select.phone
+                        select#Q_MOBILE1.input_select.memberSelect
+                          option(value='') &#xC120;&#xD0DD;
+                          option(value='010') 010
+                          option(value='011') 011
+                          option(value='016') 016
+                          option(value='017') 017
+                          option(value='018') 018
+                          option(value='019') 019
+                      |  -
+                      // <input type="text" id="Q_MOBILE1" class="input__text" maxlength="3" numberonly> -
+                      input#Q_MOBILE2.input__text(type='text', maxlength='4', numberonly='')
+                      |  -
+                      input#Q_MOBILE3.input__text(type='text', maxlength='4', numberonly='')
+                      input#Q_MOBILE(type='hidden')
+                .inquery__sec
+                  h3.inquery__title
+                    | &#xC81C;&#xBAA9; 
+                    span.import *
+                  .input_type
+                    input#Q_TITLE.input__text(type='text', name='Q_TITLE', title='제목', placeholder='제목을 입력해주세요.', validation='required')
+                .inquery__sec
+                  h3.inquery__title
+                    | &#xB0B4;&#xC6A9; 
+                    span.import *
+                  .textarea_box
+                    textarea#QUESTION.input__textarea(name='QUESTION', title='내용', placeholder='문의하실 내용을 입력해주세요.', validation='required')
+                .inquery__sec
+                  h3.inquery__title &#xCCA8;&#xBD80;&#xD30C;&#xC77C;
+                  .file_list
+                    ul
+                      li
+                        label.image-box(for='file1')
+                          input#file1.input_file.hidden(type='file', title='파일찾기', name='file1', accept='.jpg, .png', data-maxmemory-mb='10')
+                          img(src='/front_pc/images/img_comm_preview.png', alt='')
+                          button.btn_icon.del(type='button')
+                            span.hidden &#xC0AD;&#xC81C;
+                    .file_info
+                      p * &#xD30C;&#xC77C;&#xD615;&#xC2DD;&#xC740; &#xC774;&#xBBF8;&#xC9C0;&#xD30C;&#xC77C;(jpg, png)&#xB85C; &#xC81C;&#xCD9C; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.
+                      p * &#xD30C;&#xC77C; &#xC6A9;&#xB7C9;&#xC740; &#xCD5C;&#xB300; 10MB &#xAE4C;&#xC9C0; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.
+              .btn
+                button#cancelBtn.btn-init.white(type='button')
+                  strong &#xCDE8;&#xC18C;
+                button#addBtn.btn-init.green(type='button')
+                  strong &#xB4F1;&#xB85D;
+  // 플로팅 배너
+  aside#sideBanner.side-banner
+    // 사이드배너
+    .side-slide-wrap
+      #sideSlide.side-slide
+      button.slide-prev
+      button.slide-next
+    // 최근 본 상품
+    #sideMyViewItem.good-list
+      h2
+        a(href='/myPage/myViewItemList') &#xCD5C;&#xADFC; &#xBCF8; &#xC0C1;&#xD488;
+      ul#sideMyViewItemList
+    span#sideBannerCustomerCenter.call-center
+  include ./board/viewFooter

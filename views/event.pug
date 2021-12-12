@@ -1,0 +1,183 @@
+doctype html
+head
+  meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+  include ./common/head.pug
+  
+  body#eventList.hd
+    main#contents.hd__eventList
+      .eventList.hd__inner1100
+        .eventList__cont
+          ul.tab-menu-v2.clearfix
+            li.tab-menu__list.tab-menu__list--on
+              div#ongoing(onclick='ongoingEvents()')
+                a.dvTap 진행 중 이벤트
+            li.tab-menu__list
+              div#end(onclick='endedEvents()')
+                a.dvTap 종료된 이벤트
+          // 진행 중 이벤트
+          ul#eventOngoing.event-ing.box.tab-content.tab-content--show
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,6078);')
+                figure.box__list__thumb
+                  img(src='./src/event/novbuyevent.jpg', alt='11월 구매 사은품 이벤트 ★')
+  
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,6058);')
+                figure.box__list__thumb
+                  img(src='./src/event/novsignevent.jpg', alt='[11월 이벤트]신규가입하면 그리팅 인기상품이 990원')
+              
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,6018);')
+                figure.box__list__thumb
+                  img(src='./src/event/pushdownevent.jpg', alt='(11월) 앱 푸시 알림 동의+ 앱 다운로드 이벤트')
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,6098);')
+                figure.box__list__thumb
+                  img(src='./src/event/hyundaimevent.jpg', alt='그리팅 x 현대카드 M포인트 제휴 혜택')
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,6038);')
+                figure.box__list__thumb
+                  img(src='./src/event/kakaoevent.jpg', alt='그리팅 카톡 채널 추가하고 최대 3만원 쿠폰 받자')
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,5860);')
+                figure.box__list__thumb
+                  img(src='./src/event/shinhanevent.jpg', alt='신한카드 제휴 할인 이벤트')
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,5859);')
+                figure.box__list__thumb
+                  img(src='./src/event/samsungevent.jpg', alt='삼성카드 LINK 제휴 할인 이벤트')
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,3878);')
+                figure.box__list__thumb
+                  img(src='./src/event/maysignevent.jpg', alt='(5월~) 2021 그리팅 신규가입 혜택 안내')
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,2998);')
+                figure.box__list__thumb
+                  img(src='./src/event/hyundaivipevent.jpg', alt='[제휴혜택] 현대백화점 우수고객')
+          // //진행 중 이벤트
+          // 종료된 이벤트
+          ul#eventDone.event-end.box.tab-content
+            li.box__list
+              a(href='javascript:void(0);', onclick='fnBanner(1,2998);')
+                figure.box__list__thumb
+                  img(src='./src/event/hyundaivipevent.jpg', alt='[제휴혜택] 현대백화점 우수고객')
+          // //종료된 이벤트
+          // paging
+          #pageNation.pagenation
+            button.pageBtn_first(onclick="fnPgUtilRead('first')", style='display: none;')
+              span.hidden &#xCC98;&#xC74C;&#xC73C;&#xB85C;
+            button.pageBtn_prev(onclick="fnPgUtilRead('prev')", style='display: none;')
+              span.hidden &#xC774;&#xC804;
+            span#pager.pagenation__number
+              span.active.paging
+                span 1
+            button.pageBtn_next(onclick="fnPgUtilRead('next')", style='display: none;')
+              span.hidden &#xB2E4;&#xC74C;
+            button.pageBtn_end(onclick="fnPgUtilRead('last')", style='display: none;')
+              span.hidden &#xB9C8;&#xC9C0;&#xB9C9;
+          // //paging
+    // 플로팅 배너
+    aside#sideBanner.side-banner(style='top: 230px;')
+      // 사이드배너
+      .side-slide-wrap
+        #sideSlide.side-slide.slick-initialized.slick-slider
+          .slick-list.draggable
+            .slick-track(style='opacity: 1; width: 490px;')
+              .slick-slide(data-slick-index='0', aria-hidden='true', style='width: 98px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms linear 0s;', tabindex='-1')
+                div
+                  .side-slider__list(style='width: 100%; display: inline-block;')
+                    a(href='https://www.greating.co.kr/main/boardDetail?freeboardId=339', style='position:static; width: auto; margin-left:0; cursor:pointer;', tabindex='-1')
+                      img(src='./src/event/rollingbanner1.jpg', alt='홈 플로팅 롤링배너01')
+              .slick-slide.slick-current.slick-active(data-slick-index='1', aria-hidden='false', style='width: 98px; position: relative; left: -98px; top: 0px; z-index: 999; opacity: 1;')
+                div
+                  .side-slider__list(style='width: 100%; display: inline-block;')
+                    a(href='https://www.greating.co.kr/spComn/checkAddress', style='position:static; width: auto; margin-left:0; cursor:pointer;', tabindex='0')
+                      img(src='./src/event/rollingbanner2.jpg', alt='홈 플로팅 롤링배너02')
+              .slick-slide(data-slick-index='2', aria-hidden='true', style='width: 98px; position: relative; left: -196px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms linear 0s;', tabindex='-1')
+                div
+                  .side-slider__list(style='width: 100%; display: inline-block;')
+                    a(href='https://www.greating.co.kr/groupOrder/groupOrderMain', style='position:static; width: auto; margin-left:0; cursor:pointer;', tabindex='-1')
+                      img(src='./src/event/rollingbanner3.jpg', alt='홈 플로팅 롤링배너03')
+              .slick-slide(data-slick-index='3', aria-hidden='true', style='width: 98px; position: relative; left: -294px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms linear 0s;', tabindex='-1')
+                div
+                  .side-slider__list(style='width: 100%; display: inline-block;')
+                    a(href='https://www.greating.co.kr/serviceCenter/benefit', style='position:static; width: auto; margin-left:0; cursor:pointer;', tabindex='-1')
+                      img(src='./src/event/rollingbanner4.jpg', alt='홈 플로팅 롤링배너04')
+              .slick-slide(data-slick-index='4', aria-hidden='true', style='width: 98px; position: relative; left: -392px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms linear 0s;', tabindex='-1')
+                div
+                  .side-slider__list(style='width: 100%; display: inline-block;')
+                    a(href='https://www.greating.co.kr/main/boardDetail?freeboardId=499', style='position:static; width: auto; margin-left:0; cursor:pointer;', tabindex='-1')
+                      img(src='./src/event/5B0F261EA6BA408EACA9D69BE4DA2460.jpg', alt='홈 플로팅 롤링배너05')
+        button.slide-prev.slick-arrow(style='')
+        button.slide-next.slick-arrow(style='')
+      // 최근 본 상품
+      #sideMyViewItem.good-list
+        h2
+          a(href='https://www.greating.co.kr/myPage/myViewItemList') 최근 본 상품
+        ul#sideMyViewItemList
+      span#sideBannerCustomerCenter.call-center 1800-0700
+    footer#footer.hd__footer
+      .hd__footer__inner
+        .hd__footer__left
+          ul.item
+            // <li><a href="https://hyundaigreenfood.com/po/INDEX.hgc" target="_blank">회사소개</a></li>
+            li
+              a(href='https://www.greating.co.kr/main/boardDetail?freeboardId=239') 회사소개
+            // <li><a href="/serviceCenter/userGuide">이용안내</a></li>
+            li
+              a.winOpen(href='https://www.greating.co.kr/event/eventList#', data-url='/main/defaultCaulse?ID=1') 이용약관
+            li
+              a.bold.winOpen(href='https://www.greating.co.kr/event/eventList#', data-url='/main/personalInfo?ID=2') 개인정보처리방침
+            li
+              a(href='https://www.greating.co.kr/serviceCenter/benefit') 멤버십 프로그램
+          .support
+            strong.support__title 고객센터
+            span#CUSTOMER_CENTER_TEL.support__tel 1800-0700
+            p#CUSTOMER_CENTER_TIME.support__desc
+              | 평일, 토요일 7:00~18:00
+              br
+              | 공휴일 7시 ~ 13시 (일요일
+              | 휴무)
+              br
+              | 카카오톡 
+              span.point
+                a.icon-area-kakao(href='javascript:csKakao();') @그리팅
+              | 친구 추가하고 소식과 혜택을 받아보세요.
+          ul.sns-box
+            li
+              a.sns-box__intagram(href='https://www.instagram.com/greating.official/') 인스타그램
+            li
+              a.sns-box__youtube(href='https://www.youtube.com/channel/UClyxH287Qe5OEWxCPXRRvHg', target='_blank') 유튜브
+            li
+              a.sns-box__blog(href='https://blog.naver.com/h_greating', target='_blank') 블로그
+            li
+              a.sns-box__kakao(href='javascript:csKakao()') 카카오톡
+        .hd__footer__right
+          .company
+            strong#COMPANY_NAME.company__name 현대그린푸드
+            #COMPANY_INFO.company__info
+              | 대표이사 : 박홍진 | 사업장소재지 : 경기도 용인시 수지구 문인로 30(동천동))
+              | 현대그린푸드
+              br
+              | 사업자등록번호 : 211-81-08241 
+              a.winOpen(href='https://www.greating.co.kr/event/eventList#', data-url='http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2118108241') [사업자정보확인]
+              |  |
+              | 통신판매신고번호 : 제 2011-용인수지-0268 호
+              br
+              | 개인정보보호책임자 : 김해곤 | 
+              | 개인정보 관리 이메일 : hdgreenfood@hyundaigreenfood.com
+              br
+              | 호스팅 서비스 사업자 : (주)현대그린푸드
+              br
+              p
+                | 그리팅의 개별 판매자가 등록한 상품(브랜드직송)에 대한 광고, 상품주문, 배송, 환불의 의무와 책임은 
+                br
+                | 각 판매자가 부담하고, 그리팅은 통신판매
+                | 중개자로서의 의무와 책임을 다합니다.
+              a.winOpen(href='https://www.greating.co.kr/event/eventList#', data-url='https://pg.nicepay.co.kr/issue/IssueEscrow.jsp?Mid=hyundaig5m&CoNo=2118108241')
+                | [에스크로
+                | 서비스 가입사실 확인]
+              br
+
+          em#COPYRIGHT.copyright Copyright &copy; 2020 HYUNDAI GREEN FOOD. All Rights Reserved.
+  

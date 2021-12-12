@@ -1,0 +1,46 @@
+style
+    include ../css/main.css
+    include ../css/jquery.css
+
+body.hd#paymentResult
+
+        noscript
+          iframe(src='https://www.googletagmanager.com/ns.html?id=GTM-KN4Z3B7', height='0', width='0', style='display:none;visibility:hidden')
+        // End Google Tag Manager (noscript)
+        #wrap
+          include ../../common/head.pug
+
+        #wrap
+          main#contents.hd__orderComplete
+            ul.breadcrumb
+              li HOME
+              li 주문완료
+
+        p(style="text-align:center;") 
+          | 주문을 완료하였습니다.
+          br
+          | 배송이 곧 시작 됩니다.
+          br
+          | 조금만 기다려 주세요.
+
+
+
+      
+        h1 주문상품 목록
+
+
+        h1 결제금액
+
+        h1 배송지 정보
+
+        .title 이름
+            .infomation2#name(name='name') #{name}
+
+            .title 주소
+            .infomation2#address(name='address') #{address}
+
+            .title 상세 주소
+            .infomation2#detailAddress(name='detailAddress') #{detailAddress}
+
+            .emptyBtn(type='submit')
+

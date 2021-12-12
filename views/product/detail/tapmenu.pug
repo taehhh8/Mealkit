@@ -1,0 +1,15 @@
+style.
+    ul, li { list-style: none; padding:0; display: flex; margin: 0 50px;}
+    a:hover, a:visited, a { color: black; text-decoration: none;}
+    .tab-menus{margin: 0 10%; margin-top: 50px;}
+    
+
+
+- let tabs = ["상품정보", "상품후기", "상품문의", "교환/반품"];
+.tab-menus
+    ul
+        each i in tabs
+            a(href="#")
+                li=i
+    hr
+    

@@ -1,0 +1,253 @@
+doctype html
+// saved from url=(0048)./event/eventList#page1
+head
+  meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+ 
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  link(rel='shortcut icon', href='./front_mo/images/favicon.png')
+  link(rel='stylesheet', href='./css/main.css', type='text/css')
+  script(src='/js/main.js')
+  style.
+    .breadcrumb{position: relative; left:50px;}
+  //- style.
+  //-   ul,ol,li{list-style:none; padding:0}
+  //-   a, a:visited, a:hover{color: black; text-decoration:none;}
+  //-   .user-area__menu{display:flex; float: right;}
+
+#wrap
+  header#header.hd__header
+    .topBanner
+      a(href='./event/eventReview?evEventId=3878#page1')
+        figure
+          img(src='./src/head/2FF579614D9B4DD6830B0C0788865BE2.jpg', alt='1')
+      a.topBanner__close(href='javascript:closeTopBanner();')
+        img(src='./src/head/btn_topBanner-close.png', alt='닫기')
+    .header
+      section.user-area
+        ul.user-area__menu
+          // 로그인처리
+          if sessionValid
+            a(style=("font-size:14px")) #{user}님 안녕하세요
+              li
+                a(href='/logout' style=("font-size:14px")) 로그아웃
+          else
+            li
+              a(href='/login') 로그인
+            li
+              a(href='/signup') 회원가입
+          li
+            a(href='./coupon') 쿠폰/교환권
+          li
+            a(href='./serviceCenter/serviceCenterMain')
+              |고객센터
+              i
+            ul
+              li
+                a(href='./notice') 공지사항
+              li
+                a(href='./faq') 자주하는 질문
+                a(href='./post') 1:1 문의
+              li
+                a(href='./qna') 고객의 소리
+      .header__inner
+        .header__sec
+          h1.logo
+            a(href='/')
+              img(src='./src/440x167.png', alt='mealkit' , width="220", height=70)
+          .all
+            a(href='./event/eventList#')
+              span.all__icon
+                span
+                span
+                span
+              | 카테고리
+            .all-menu
+              .all-menu__inner
+                ul.all-menu__depth1
+                  li
+                    a(href='/care') 케어식단
+                    ul.all-menu__depth2
+                      li
+                        a(href='./') 정기식단
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 저당식단
+                          li
+                            a(href='./') 칼로리식단
+                          li
+                            a(href='./') 장수마을식단
+                          li
+                            a(href='./') 마이그리팅
+                      li
+                        a(href='./') 챌린지식단
+                        ul.all-menu__depth3
+                          li
+                            a(href='./')
+                              | BEAUTY
+                              | FIT
+                          li
+                            a(href='./')
+                              | HI
+                              | FAT
+                          li
+                            a(href='./')
+                              | PROTEIN
+                              | UP
+                          li
+                            a(href='./')
+                              | INNER
+                              | BALANCE
+                  li
+                    a(href='./') 건강마켓
+                    ul#dvMainMenuCtgryList.all-menu__depth2
+                      li#cate_slide_id_55.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 건강반찬
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 메인요리
+                          li
+                            a(href='./') 밀키트
+                          li
+                            a(href='./') 밑반찬
+                          li
+                            a(href='./') 나물
+                          li
+                            a(href='./') 소스/양념
+                          li
+                            a(href='./') 키즈
+                      li#cate_slide_id_1058.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 진한 국/찌개
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 국
+                          li
+                            a(href='./') 찌개
+                      li#cate_slide_id_3058.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 자연 담은 면
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 국수
+                          li
+                            a(href='./') 파스타
+                      li#cate_slide_id_719.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 영양가득 밥/죽
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 밥
+                          li
+                            a(href='./') 죽
+                      li#cate_slide_id_718.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 샐러드/샌드위치
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 샐러드
+                          li
+                            a(href='./') 샌드위치
+                          li
+                            a(href='./') 브런치박스
+                      li#cate_slide_id_1198.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 베이커리/스프
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 빵
+                          li
+                            a(href='./') 스프
+                          li
+                            a(href='./') 버터/치즈
+                          li
+                            a(href='./')
+                              | 잼/시럽
+                      li#cate_slide_id_1699.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 착한 간식/음료
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 식사대용
+                          li
+                            a(href='./') 영양간식
+                          li
+                            a(href='./') 커피/차/음료
+                          li
+                            a(href='./') 오늘주스
+                          li
+                            a(href='./') 캔디/쿠키
+                      li#cate_slide_id_2598.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 안심 키즈
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 간편식/국/반찬/소스
+                          li
+                            a(href='./') 간식/건강식품/음료
+                      li#cate_slide_id_818.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 부드러운 연화식
+                        ul.all-menu__depth3
+                          li
+                            a(href='./') 고기
+                          li
+                            a(href='./') 생선
+                      li#cate_slide_id_2018.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 비건
+                      li#cate_slide_id_1038.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 스페셜 패키지
+                      li#cate_slide_id_3279.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 반찬 정기구독
+                      li#cate_slide_id_3500.submenu__list
+                        a.submenu__list-name(href='./')
+                          i.all-menu__depth2-ico
+                          | 라이프
+                  li
+                    a(href='./') 브랜드직송관
+                ul.all-menu__nav
+                  li
+                    a(href='./') 신상품
+                  li
+                    a(href='./') 베스트
+          .gnb
+            ul.gnb__inner
+              li.gnb__list
+                a.gnb__list-name(href='/care') 케어식단
+              li.gnb__list
+                a.gnb__list-name(href='/health') 건강마켓
+              li.gnb__list
+                a.gnb__list-name(href='/display') 기획전
+              li.gnb__list
+                a.gnb__list-name(href='/event') 이벤트
+              li.gnb__list
+                a.gnb__list-name(href='/') 스토리
+          nav.direct
+            #searchPopup.direct__search.btn__modal-open(data-login='y', data-popup-name='popup_search')
+              // 2021.09.23 YSC 상품권 내리기 <input type="text" id="searchInput2" class="search-input" placeholder="그리팅 '기프트 카드' 출시!" autocomplete="off">
+              input#searchInput2.search-input(type='text', placeholder='검색어를 입력해 주세요.', autocomplete='off')
+              a(href='#')
+                img#dvSrhFilterBtn2(src='./src/head/icon_header_search.png', alt='검색')
+            a.direct__cart(href='./order/orderCart')
+              span#cartCnt 0
+              img(src='./src/head/icon_header_cart.png', alt='장바구니')
+  main#contents.hd__eventList
+    ul.breadcrumb
+      each val in breadcrumbList
+        li=val
+    

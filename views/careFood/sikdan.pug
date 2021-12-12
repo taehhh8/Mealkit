@@ -1,0 +1,93 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    link(rel='shortcut icon', href='./front_mo/images/favicon.png')
+    link(rel='stylesheet', href='./css/main.css', type='text/css')
+    script(src='/js/main.js')
+    include ../common/head
+    style.
+      #careWrap{margin: 0 auto;
+        margin-top: 0px;
+        margin-right: auto;
+        margin-bottom: 0px;
+        margin-left: auto;
+        width: 1100px; }
+        section{}
+        .meals__banner{
+          display: flex;
+          position: relative;
+          margin: 15px;
+          width: 1100px;
+          overflow: hidden;
+          list-style:none;
+        } a, a:visited, a:hover{text-decoration:none; color:black;}
+        .meals__banner li{ margin:10px;}
+        ul.challenge__banner {
+          display:flex;
+        }
+        .challenge__banner li{margin:10px;}
+        .meals__title, .meals__subtitle{text-align: center; margin: 15px 0; font-size: 22px; font-weight:bold;}
+        ul.moreView{text-align:center; margin: 25px auto;}
+        .moreView li{display: inline-flex; list-style:none; margin: 0 45px; }
+        .market__sect{text-align:center; margin: 50px auto;}
+        .inquiry__title, .inquiry__subtitle{ margin: 25px; font-size: 20px;}
+        .icon-area{ display: block; text-align:;}
+  body 
+
+    div#careWrap
+      .meals.v2
+        section.meals__sec.hd__inner1100
+          h2.meals__title
+            img(src='https://www.greating.co.kr/front_pc/images/img_meals_tit.png?ver=210324' alt='MEAL PLAN')
+          p.meals__subtitle &#xC815;&#xAE30;&#xC2DD;&#xB2E8; &#xD504;&#xB85C;&#xADF8;&#xB7A8;
+          ul.moreView
+            li
+              a(href='')
+                | 정기식단 프로그램이 뭔가요?
+                i
+            li
+              a(href='')
+                | 주문은 어떻게 하나요?
+                i
+          ul.meals__banner
+            li
+              a(href='/product/care/lowcal' target='_self')
+                img(src='https://image.greating.co.kr/DP/banner/202103/148381CD99A54CB7883D587F031184FC.png' alt='')
+            li
+              a(href='/product/care/light' target='_self')
+                img(src='https://image.greating.co.kr/DP/banner/202103/C0BBD914778E482C82E6754AC8A05852.png' alt='')
+            li
+              a(href='/product/care/welln' target='_self')
+                img(src='https://image.greating.co.kr/DP/banner/202103/4EC252AA63724D1589FDB6D2B4F41E25.png' alt='')
+            li
+              a(href='/product/care/mygreat' target='_self')
+                img(src='https://image.greating.co.kr/DP/banner/202103/8EBBAC230A7F4E7697AA57E6E0DD83F7.png' alt='')
+        section.meals__sec.challenge
+          h2.meals__title
+            a(href='')
+              img(src='https://www.greating.co.kr/front_pc/images/img_challenge_tit.png?ver=210324' alt='CHALLENGE')
+              i
+          p.meals__subtitle 건강관리가 쉬워지는 그리팅 챌린지
+          ul.challenge__banner.hd__inner1100
+            li
+              a(href='' target='')
+                img(src='https://image.greating.co.kr/DP/banner/202109/6E362ECAB243459984F938A9EBB82F02.png' alt='')
+            li
+              a(href='' target='')
+                img(src='https://image.greating.co.kr/DP/banner/202109/C4124B58974B45F5B686F58FCB6C7211.png' alt='')
+            li
+              a(href='' target='')
+                img(src='https://image.greating.co.kr/DP/banner/202109/608CA04D39D143FBA6BC4881405E6C51.png' alt='')
+            li
+              a(href='' target='')
+                img(src='https://image.greating.co.kr/DP/banner/202109/CD243259F41045809E748698C1AEF3CB.png' alt='')
+        section.market__sect.inquiry
+          h2.inquiry__title.strong 도움이 필요하세요?
+          p.inquiry__subtitle 정기식단 서비스에 대한 궁금한 사항을 문의하세요
+          .icon-area
+            a.icon-area-phone(href='' title='고객센터') 고객센터
+            a.icon-area-kakao(href='javascript:csKakao();' title='카카오톡 문의') 카카오톡 문의
+
+
+include ../common/footer
