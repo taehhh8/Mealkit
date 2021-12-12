@@ -265,10 +265,10 @@ app.get('/coupon', (req, res) => {
 })
 app.get('/detail', (req, res) => {
     if (req.session.valid) {
-        res.render('product/detail/page', {breadcrumbList: ["HOME", '상품상세'], sessionValid: req.session.valid, user: req.session.user.Id})
+        res.render('product/detail/page', {breadcrumbList: ["HOME", '상품상세페이지'], sessionValid: req.session.valid, user: req.session.user.Id})
         // console.log("user: ", req.session.user.Id)
     } else {
-        res.render('product/detail/page', {breadcrumbList: ["HOME", '상품상세'], sessionValid: req.session.valid})
+        res.render('product/detail/page', {breadcrumbList: ["HOME", '상품상세페이지'], sessionValid: req.session.valid})
 
     }
 })
