@@ -1,0 +1,562 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    style.
+      .marketList{margin:0 25%;}
+    include ../common/head
+  body 
+  
+
+
+    .marketList
+      h2.hd__page-title &#xAC74;&#xAC15;&#xB9C8;&#xCF13;
+      section.marketList__sect.category
+        h2.hidden &#xAC74;&#xAC15;&#xB9C8;&#xCF13; &#xCE74;&#xD14C;&#xACE0;&#xB9AC; &#xBA54;&#xB274;
+        aside#dvCtgryList.tnb
+          ul.tnb__inner
+            li#dep2_50.tnb__list.tnb__list--on(onclick='getMarketGoodsListData(50);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xC804;&#xCCB4;
+            li#dep2_55.tnb__list(onclick='getMarketGoodsListData(55);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xAC74;&#xAC15;&#xBC18;&#xCC2C;
+            li#dep2_1058.tnb__list(onclick='getMarketGoodsListData(1058);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xC9C4;&#xD55C; &#xAD6D;/&#xCC0C;&#xAC1C;
+            li#dep2_3058.tnb__list(onclick='getMarketGoodsListData(3058);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xC790;&#xC5F0; &#xB2F4;&#xC740; &#xBA74;
+            li#dep2_719.tnb__list(onclick='getMarketGoodsListData(719);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xC601;&#xC591;&#xAC00;&#xB4DD; &#xBC25;/&#xC8FD;
+            li#dep2_718.tnb__list(onclick='getMarketGoodsListData(718);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xC0D0;&#xB7EC;&#xB4DC;/&#xC0CC;&#xB4DC;&#xC704;&#xCE58;
+            li#dep2_1198.tnb__list(onclick='getMarketGoodsListData(1198);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xBCA0;&#xC774;&#xCEE4;&#xB9AC;/&#xC2A4;&#xD504;
+            li#dep2_1699.tnb__list(onclick='getMarketGoodsListData(1699);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xCC29;&#xD55C; &#xAC04;&#xC2DD;/&#xC74C;&#xB8CC;
+            li#dep2_2598.tnb__list(onclick='getMarketGoodsListData(2598);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xC548;&#xC2EC; &#xD0A4;&#xC988;
+            li#dep2_818.tnb__list(onclick='getMarketGoodsListData(818);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xBD80;&#xB4DC;&#xB7EC;&#xC6B4; &#xC5F0;&#xD654;&#xC2DD;
+            li#dep2_1139.tnb__list(onclick='getMarketGoodsListData(1139);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | 1Table
+            li#dep2_2018.tnb__list(onclick='getMarketGoodsListData(2018);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xBE44;&#xAC74;
+            li#dep2_1038.tnb__list(onclick='getMarketGoodsListData(1038);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xC2A4;&#xD398;&#xC15C; &#xD328;&#xD0A4;&#xC9C0;
+            li#dep2_3279.tnb__list(onclick='getMarketGoodsListData(3279);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xBC18;&#xCC2C; &#xC815;&#xAE30;&#xAD6C;&#xB3C5;
+            li#dep2_3500.tnb__list(onclick='getMarketGoodsListData(3500);')
+              a(href='javascript:void(0);')
+                span.tnb__list-depth1
+                  i
+                  | &#xB77C;&#xC774;&#xD504;
+      // 메뉴타입별 정보영역 추가
+      //
+        <section class="marketList__sect info">
+        <div id="dvCtgryInfo">
+        </div>
+        </section>
+      .hd__inner1100
+        section#dvCtgryItemFrameArea.marketList__sect.item-area.asStart
+          .head
+            span.all
+              | &#xC804;&#xCCB4;&#xC0C1;&#xD488; 
+              span.all__num 357
+            .sorting-area
+              .select-wrap
+                .hd__custom-select.hd__custom-select--type2
+                  select#orderTypeSelect
+                    option#dvMd.orderTypeOption(selected='selected') MD&#xCD94;&#xCC9C;&#xC21C;
+                    option#dvBest.orderTypeOption &#xC778;&#xAE30;&#xC21C;
+                    option#dvNew.orderTypeOption &#xCD5C;&#xC2E0;&#xC21C;
+                    option#dvPriceAsc.orderTypeOption &#xB0AE;&#xC740;&#xAC00;&#xACA9;&#xC21C;
+                    option#dvPriceDesc.orderTypeOption &#xB192;&#xC740;&#xAC00;&#xACA9;&#xC21C;
+                    option#dvFeedback.orderTypeOption &#xACE0;&#xAC1D;&#xD6C4;&#xAE30;&#xC21C;
+              span.filter.btn__modal-open(data-login='n' data-popup-name='popup_filter')
+            .hd-checkbox
+              input#soldOut.hidden(type='checkbox' name='soldOut' data-checked='y')
+              label(for='soldOut') &#xD488;&#xC808; &#xC0C1;&#xD488;&#xC81C;&#xC678;
+          ul#dvListArea.box
+            li.box__list(data-item_id='115747')
+              a(href='/market/marketDetail?itemId=115747&idx=1' onclick="javascript:gaClickTagging('115747','[그리팅 X 성산포바당] 제주 고사리 육개장','건강마켓','건강마켓','9000','현대그린푸드','1');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202110/18/M_F0762AE104F44496A6A18CCF0B9304B0.jpg' alt='[그리팅 X 성산포바당] 제주 고사리 육개장')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xB3C8;&#xB4F1;&#xBF08;,&#xC81C;&#xC8FC;&#xC0B0; &#xACE0;&#xC0AC;&#xB9AC;&#xB85C; &#xB053;&#xC778;
+                span.box__list__title [&#xADF8;&#xB9AC;&#xD305; X &#xC131;&#xC0B0;&#xD3EC;&#xBC14;&#xB2F9;] &#xC81C;&#xC8FC; &#xACE0;&#xC0AC;&#xB9AC; &#xC721;&#xAC1C;&#xC7A5;
+              .box__list__price
+                span.box__list__price-discounted.strong 9,000&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(115747,1);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='115746')
+              a(href='/market/marketDetail?itemId=115746&idx=2' onclick="javascript:gaClickTagging('115746','[그리팅 X 성산포바당] 제주 몸국','건강마켓','건강마켓','9000','현대그린푸드','2');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202110/18/M_10C53153070349B1A2A1288D36BC8D25.jpg' alt='[그리팅 X 성산포바당] 제주 몸국')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub 100% &#xC81C;&#xC8FC; &#xAC74;&#xBAA8;&#xC790;&#xBC18;&#xC73C;&#xB85C; &#xB053;&#xC5EC;&#xB0B8;
+                span.box__list__title [&#xADF8;&#xB9AC;&#xD305; X &#xC131;&#xC0B0;&#xD3EC;&#xBC14;&#xB2F9;] &#xC81C;&#xC8FC; &#xBAB8;&#xAD6D;
+              .box__list__price
+                span.box__list__price-discounted.strong 9,000&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(115746,2);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102294')
+              a(href='/market/marketDetail?itemId=102294&idx=3' onclick="javascript:gaClickTagging('102294','한우 우거지탕 (2인분)','건강마켓','건강마켓','10450','현대그린푸드','3');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202108/24/M_2B4E60107A5644E0998EA51ABD10E6C5.jpg' alt='한우 우거지탕 (2인분)')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xD55C;&#xC6B0; &#xAD6D;&#xAC08;&#xBE44;&#xB97C; &#xBF08;&#xC9F8; &#xB123;&#xC740;
+                span.box__list__title &#xD55C;&#xC6B0; &#xC6B0;&#xAC70;&#xC9C0;&#xD0D5; (2&#xC778;&#xBD84;)
+              .box__list__price
+                span.box__list__price-discounted-rate 5%
+                del.box__list__price-origin 11,000&#xC6D0;
+                span.box__list__price-discounted.strong 10,450&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102294,3);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='118245')
+              a(href='/market/marketDetail?itemId=118245&idx=4' onclick="javascript:gaClickTagging('118245','[그리팅 X 성산포바당] 제주 고사리 육개장 면 패키지','건강마켓','건강마켓','8100','현대그린푸드','4');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202111/26/M_CAA8002AC1984EE7903C8BAF94478C0F.jpg' alt='[그리팅 X 성산포바당] 제주 고사리 육개장 면 패키지')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xC81C;&#xC8FC; &#xACE0;&#xC0AC;&#xB9AC; &#xC721;&#xAC1C;&#xC7A5;&#xACFC; &#xCF00;&#xC77C;&#xBA74;
+                span.box__list__title [&#xADF8;&#xB9AC;&#xD305; X &#xC131;&#xC0B0;&#xD3EC;&#xBC14;&#xB2F9;] &#xC81C;&#xC8FC; &#xACE0;&#xC0AC;&#xB9AC; &#xC721;&#xAC1C;&#xC7A5; &#xBA74; &#xD328;&#xD0A4;&#xC9C0;
+              .box__list__price
+                span.box__list__price-discounted-rate 10%
+                del.box__list__price-origin 9,000&#xC6D0;
+                span.box__list__price-discounted.strong 8,100&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(118245,4);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='118244')
+              a(href='/market/marketDetail?itemId=118244&idx=5' onclick="javascript:gaClickTagging('118244','[그리팅 X 성산포바당] 제주 몸국 면 패키지','건강마켓','건강마켓','8100','현대그린푸드','5');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202111/26/M_157104CE606F478D881513F681DC5C04.jpg' alt='[그리팅 X 성산포바당] 제주 몸국 면 패키지')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xC81C;&#xC8FC; &#xAC74;&#xBAA8;&#xC790;&#xBC18; &#xBAB8;&#xAD6D;&#xACFC; &#xCF00;&#xC77C;&#xBA74;
+                span.box__list__title [&#xADF8;&#xB9AC;&#xD305; X &#xC131;&#xC0B0;&#xD3EC;&#xBC14;&#xB2F9;] &#xC81C;&#xC8FC; &#xBAB8;&#xAD6D; &#xBA74; &#xD328;&#xD0A4;&#xC9C0;
+              .box__list__price
+                span.box__list__price-discounted-rate 10%
+                del.box__list__price-origin 9,000&#xC6D0;
+                span.box__list__price-discounted.strong 8,100&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(118244,5);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='114841')
+              a(href='/market/marketDetail?itemId=114841&idx=6' onclick="javascript:gaClickTagging('114841','버섯 어묵국 (2인분×2개)','건강마켓','건강마켓','8070','현대그린푸드','6');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202109/14/M_81E07BBB37694DA2A37BDC8B7987DC0C.jpg' alt='버섯 어묵국 (2인분×2개)')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xC0C8;&#xC1A1;&#xC774;&#xBC84;&#xC12F;&#xACFC; &#xBB34;&#xB85C; &#xB9DB;&#xC744; &#xB0B8;
+                span.box__list__title &#xBC84;&#xC12F; &#xC5B4;&#xBB35;&#xAD6D; (2&#xC778;&#xBD84;&times;2&#xAC1C;)
+              .box__list__price
+                span.box__list__price-discounted-rate 15%
+                del.box__list__price-origin 9,500&#xC6D0;
+                span.box__list__price-discounted.strong 8,070&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(114841,6);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='109408')
+              a(href='/market/marketDetail?itemId=109408&idx=7' onclick="javascript:gaClickTagging('109408','들깨 오리탕','건강마켓','건강마켓','19800','현대그린푸드','7');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202106/29/M_BC84D524DE4F412EA3A1102638E8976C.jpg' alt='들깨 오리탕')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xC6D0;&#xAE30;&#xD68C;&#xBCF5;&#xC5D0; &#xC88B;&#xC740; &#xAD6D;&#xC0B0; &#xC624;&#xB9AC;
+                span.box__list__title &#xB4E4;&#xAE68; &#xC624;&#xB9AC;&#xD0D5;
+              .box__list__price
+                span.box__list__price-discounted.strong 19,800&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(109408,7);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='109302')
+              a(href='/market/marketDetail?itemId=109302&idx=8' onclick="javascript:gaClickTagging('109302','대파 육개장','건강마켓','건강마켓','11000','현대그린푸드','8');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202106/25/M_B4A2E60C4201429CA02F6AF8CFA90503.jpg' alt='대파 육개장')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xB300;&#xD30C;&#xB97C; &#xB123;&#xC740; &#xC721;&#xAC1C;&#xC7A5;
+                span.box__list__title &#xB300;&#xD30C; &#xC721;&#xAC1C;&#xC7A5;
+              .box__list__price
+                span.box__list__price-discounted.strong 11,000&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(109302,8);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='109159')
+              a(href='/market/marketDetail?itemId=109159&idx=9' onclick="javascript:gaClickTagging('109159','맑은 양지탕','건강마켓','건강마켓','10350','현대그린푸드','9');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202106/21/M_6EF9638743344FA4BC83A66F281B7B62.jpg' alt='맑은 양지탕')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6C;&#xAE30;&#xC790;&#xB85C; &#xC6B0;&#xB824;&#xB0B4; &#xAE4A;&#xC5B4;&#xC9C4; &#xC721;&#xC218;
+                span.box__list__title &#xB9D1;&#xC740; &#xC591;&#xC9C0;&#xD0D5;
+              .box__list__price
+                span.box__list__price-discounted-rate 10%
+                del.box__list__price-origin 11,500&#xC6D0;
+                span.box__list__price-discounted.strong 10,350&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(109159,9);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='107247')
+              a(href='/market/marketDetail?itemId=107247&idx=10' onclick="javascript:gaClickTagging('107247','감자옹심이 들깨탕 (2인분)','건강마켓','건강마켓','10000','현대그린푸드','10');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202105/13/M_0CEE7A95485A49ED92315F0F0FA3D24B.jpg' alt='감자옹심이 들깨탕 (2인분)')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xAC10;&#xC790;&#xB85C; &#xB9CC;&#xB4E0; &#xCAC0;&#xB4DD;&#xD55C; &#xC639;&#xC2EC;&#xC774;
+                span.box__list__title &#xAC10;&#xC790;&#xC639;&#xC2EC;&#xC774; &#xB4E4;&#xAE68;&#xD0D5; (2&#xC778;&#xBD84;)
+              .box__list__price
+                span.box__list__price-discounted.strong 10,000&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(107247,10);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='103046')
+              a(href='/market/marketDetail?itemId=103046&idx=11' onclick="javascript:gaClickTagging('103046','콩나물 김칫국 ','건강마켓','건강마켓','3370','현대그린푸드','11');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202103/17/M_373FB8F4F91C4534B3BE32CCA5F820B3.jpg' alt='콩나물 김칫국 ')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xBC30;&#xCD94;&#xC640; &#xACE0;&#xCDA7;&#xAC00;&#xB8E8;&#xB85C; &#xCE7C;&#xCE7C;&#xD558;&#xAC8C;
+                span.box__list__title &#xCF69;&#xB098;&#xBB3C; &#xAE40;&#xCE6B;&#xAD6D; 
+              .box__list__price
+                span.box__list__price-discounted-rate 30%
+                del.box__list__price-origin 4,800&#xC6D0;
+                span.box__list__price-discounted.strong 3,370&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(103046,11);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102953')
+              a(href='/market/marketDetail?itemId=102953&idx=12' onclick="javascript:gaClickTagging('102953','손질 황태무국','건강마켓','건강마켓','4320','현대그린푸드','12');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202102/24/M_255ED254E40A426699072C411D21B8A1.jpg' alt='손질 황태무국')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAC00;&#xC2DC;&#xB97C; &#xC81C;&#xAC70;&#xD574; &#xBA39;&#xAE30; &#xD3B8;&#xD55C;
+                span.box__list__title &#xC190;&#xC9C8; &#xD669;&#xD0DC;&#xBB34;&#xAD6D;
+              .box__list__price
+                span.box__list__price-discounted-rate 10%
+                del.box__list__price-origin 4,800&#xC6D0;
+                span.box__list__price-discounted.strong 4,320&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102953,12);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102952')
+              a(href='/market/marketDetail?itemId=102952&idx=13' onclick="javascript:gaClickTagging('102952','쇠고기 미역국 (2인분 × 2개)','건강마켓','건강마켓','8070','현대그린푸드','13');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202102/24/M_512999F61FF244CEBB6624B144097BDC.jpg' alt='쇠고기 미역국 (2인분 × 2개)')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xBBF8;&#xC5ED;&#xACFC; &#xD638;&#xC8FC;&#xC0B0; &#xC640;&#xADDC;
+                span.box__list__title &#xC1E0;&#xACE0;&#xAE30; &#xBBF8;&#xC5ED;&#xAD6D; (2&#xC778;&#xBD84; &times; 2&#xAC1C;)
+              .box__list__price
+                span.box__list__price-discounted-rate 15%
+                del.box__list__price-origin 9,500&#xC6D0;
+                span.box__list__price-discounted.strong 8,070&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102952,13);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102517')
+              a(href='/market/marketDetail?itemId=102517&idx=14' onclick="javascript:gaClickTagging('102517','소고기 버섯전골 & 돼지감자중화면','건강마켓','건강마켓','11000','현대그린푸드','14');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202106/04/M_12FF1194D1444C6BBB50273564A5CB25.jpg' alt='소고기 버섯전골 & 돼지감자중화면')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                  span(style='border-color: rgb(114, 81, 3); color: rgb(114, 81, 3);') &#xBC18;&#xC870;&#xB9AC;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xD45C;&#xACE0;, &#xB9CC;&#xAC00;&#xB2E5;, &#xC0C8;&#xC1A1;&#xC774;, &#xB290;&#xD0C0;&#xB9AC;
+                span.box__list__title &#xC18C;&#xACE0;&#xAE30; &#xBC84;&#xC12F;&#xC804;&#xACE8; &amp; &#xB3FC;&#xC9C0;&#xAC10;&#xC790;&#xC911;&#xD654;&#xBA74;
+              .box__list__price
+                span.box__list__price-discounted.strong 11,000&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102517,14);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102405')
+              a(href='/market/marketDetail?itemId=102405&idx=15' onclick="javascript:gaClickTagging('102405','맑은 육개장 (2인분)','건강마켓','건강마켓','7650','현대그린푸드','15');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202012/08/M_C6BC4589349545699850E07603A0403E.jpg' alt='맑은 육개장 (2인분)')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xBA54;&#xBC00;&#xAC00;&#xB8E8;&#xB85C; &#xAD6C;&#xC218;&#xD568;&#xC744; &#xB354;&#xD55C;
+                span.box__list__title &#xB9D1;&#xC740; &#xC721;&#xAC1C;&#xC7A5; (2&#xC778;&#xBD84;)
+              .box__list__price
+                span.box__list__price-discounted-rate 15%
+                del.box__list__price-origin 9,000&#xC6D0;
+                span.box__list__price-discounted.strong 7,650&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102405,15);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102404')
+              a(href='/market/marketDetail?itemId=102404&idx=16' onclick="javascript:gaClickTagging('102404','감자탕','건강마켓','건강마켓','8550','현대그린푸드','16');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202012/08/M_EEFB8134C36F4042ACF8ED2311BB8E3A.jpg' alt='감자탕')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xC5BC;&#xAC08;&#xC774;&#xBC30;&#xCD94;&#xC640; &#xC6B0;&#xAC70;&#xC9C0;&#xAC00; &#xB4EC;&#xBFCD;
+                span.box__list__title &#xAC10;&#xC790;&#xD0D5;
+              .box__list__price
+                span.box__list__price-discounted-rate 5%
+                del.box__list__price-origin 9,000&#xC6D0;
+                span.box__list__price-discounted.strong 8,550&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102404,16);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102379')
+              a(href='/market/marketDetail?itemId=102379&idx=17' onclick="javascript:gaClickTagging('102379','한마리 동태탕 (2인분)','건강마켓','건강마켓','15800','현대그린푸드','17');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202011/23/M_ED9D958F98494B15902EE47275846DF0.jpg' alt='한마리 동태탕 (2인분)')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xB3D9;&#xD0DC;&#xC0B4;&#xACFC; &#xACE0;&#xB2C8;&#xB97C; &#xB4EC;&#xBFCD; &#xB123;&#xC740;
+                span.box__list__title &#xD55C;&#xB9C8;&#xB9AC; &#xB3D9;&#xD0DC;&#xD0D5; (2&#xC778;&#xBD84;)
+              .box__list__price
+                span.box__list__price-discounted.strong 15,800&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102379,17);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+            li.box__list(data-item_id='102354')
+              a(href='/market/marketDetail?itemId=102354&idx=18' onclick="javascript:gaClickTagging('102354','황기 닭곰탕 ','건강마켓','건강마켓','6400','현대그린푸드','18');history.pushState(null, null, 'marketList?ctgryId=50#page1');")
+                figure.box__list__thumb
+                  img(src='https://image.greating.co.kr/IL/item/202011/11/M_55FA9FC18E394D9CAE8FE6DF40A029E4.jpg' alt='황기 닭곰탕 ')
+                .hd__icon__bundle
+                  span.hd__icon__best
+                    img(src='https://image.greating.co.kr/II/basic/itemBadge/2A415817620E4ACF8398A8A8FA670EA5.png' alt='투명')
+                // 태그 아이콘
+                .box__list__tag
+                  span(style='border-color: rgb(38, 79, 145); color: rgb(38, 79, 145);') &#xB0C9;&#xB3D9;
+                // // 태그 아이콘
+              .box__list__title__wrap
+                span.box__list__sub &#xAD6D;&#xC0B0; &#xBB34;&#xD56D;&#xC0DD;&#xC81C; &#xB2ED;&#xAC00;&#xC2B4;&#xC0B4;&#xB85C; &#xB9CC;&#xB4E0;
+                span.box__list__title &#xD669;&#xAE30; &#xB2ED;&#xACF0;&#xD0D5; 
+              .box__list__price
+                span.box__list__price-discounted-rate 20%
+                del.box__list__price-origin 8,000&#xC6D0;
+                span.box__list__price-discounted.strong 6,400&#xC6D0;
+              // 장바구니 버튼 추가  2020.06.23 Lee Seung Hwan
+              button.box__list__cart(type='button' onclick='cartClick(102354,18);')
+                span.cart &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8;
+              span.box__list__text
+                // <span class="green">12월 14일(화) 도착 예정</span>
+                //
+                  품절임박
+        // miniCart UI 추가 2020.06.23 Lee Seung Hwan
+        .layer-opacity
+        #dvMiniCart.option-area(style='display: none')
+          .btn-option
+            .btn.dvMiniCartOpen(dvitemid='' data-url='cart')
+              a.btn-init.green(href='#')  &#xC635;&#xC158;&#xC120;&#xD0DD; 
+          article.minicart
+            .minicart__inner
+              section#dvMiniCartItemOptionSelect.input
+              section#dvMiniCartOrderArea.output
+              .total
+                span#optnNeedVal.total__text
+                span.relative
+                  | &#xCD1D; &#xC0C1;&#xD488;&#xAE08;&#xC561;
+                  span.discount-tooltip.hide
+                span.total__price
+                  span#dvMiniCartTotalPrice 0
+                  | &#xC6D0;
+              .btn-area.full
+                .btn
+                  button#dvMiniCartButtonCart2.btn-init.orange(value='addRight' dvitemid='' data-url='cart') &#xC7A5;&#xBC14;&#xAD6C;&#xB2C8; &#xB2F4;&#xAE30;

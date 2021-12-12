@@ -10,7 +10,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const usersRouter = require('./routes/users');
-const boardRouter= require('./routes/board');
+const boardRouter = require('./routes/board');
+const orderRouter = require("./routes/order/order");
 
 require("dotenv").config
 // const FileStore = require('session-file-store')(session)
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 app.use('/users', usersRouter);
 app.use('/board', boardRouter);
+app.use("/order", orderRouter);
 // getConnection((conn) => {
 //     var q1 = ""
 //     conn.query(
@@ -315,6 +317,12 @@ app.get('/board', (req, res) => {
     // }
 })
 
+app.get("/care", (req, res)=>{
+    res.render("careFood/cFood", { breadcrumbList: ["HOME", '건강마켓'] });
+});
+app.get("/health", (req, res)=>{
+    res.render("healthMarket/hm", { breadcrumbList: ["HOME", '케어식단'] });
+});
 
 app.use('/member', member)
 

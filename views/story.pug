@@ -1,52 +1,449 @@
 doctype html
-html(lang="ko")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
-        style.
-            *{position:relative;}
-            #mainImg{ opacity:0.5;}
-    include ./common/head.pug
-    body 
-        div
-            div#headCoupon 지금 그리팅 가입하고 최대 10만원 쿠폰팩 받으세요 > 
-
-            
-            div#storyContent
-                div Home > 스토리
-                div#mainImg
-                    img(src="http://loremflickr.com/2115/864" alt="background")
-                    div.storyBrief
-                        div#corebrief BETTER FOOD BETTER LIFE
-                        div#comment1 건강한 음식을 먹는다는 건\n나 자신을 위한 작은 실천입니다.
-                        div#contentsBox
-                            div.content1
-                            div.content2
-                            div.content3
-                        div#comment2 기분 좋은 생활, 그리팅
-                            div#brandStroyBtn about greeting
-
-                            div 브랜드 스토리 
-
-                div#secondStoryImgii
-                    img(src="http://loremflickr.com/2115/864" alt="background")
-                    div 그리팅 매거진
-                        div Card
-                        div Card
-                        div Card
-                        div Card
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    style.
+      .story{margin:0 25%;}
+    include ./common/head
+  body 
     
-                div#thirdStoryImgiii
 
-                    div 그리팅 TV >
 
-                div#bottomBanner
-                    div 건강하고 지속 가능한 식문화를 만드는
-                    div 현대그린푸드 소개
-                    
-                
-                        
-                    
-                        
+    .story
+      // 철학
+      .story__sec.main.hPara.fadeInUp
+        .main-img__wrap
+          .main-img__dimmed(style='opacity: 0;')
+          img(src='/front_pc/images/img_story_main.jpg' alt='')
+        .main-txt__wrap.hd__inner1100
+          h2.main-txt__eng
+            img(src='/front_pc/images/txt_story.png?ver=210526' alt='')
+          .main-txt__kor
+            | &#xAC74;&#xAC15;&#xD55C; &#xC74C;&#xC2DD;&#xC744; &#xBA39;&#xB294;&#xB2E4;&#xB294; &#xAC74;
+            br
+            | &#xB098; &#xC790;&#xC2E0;&#xC744; &#xC704;&#xD55C; &#xC791;&#xC740; &#xC2E4;&#xCC9C;&#xC785;&#xB2C8;&#xB2E4;.
+          ul.main-txt__list
+            li.list01
+              span Food with Nutrient Balance
+              strong &#xB0B4; &#xBAB8;&#xC5D0; &#xAC74;&#xAC15;&#xD55C; &#xC74C;&#xC2DD;
+              p
+                | &#xADF8;&#xB9AC;&#xD305;Lab&#xC758; &#xC804;&#xBB38; &#xC5F0;&#xAD6C;&#xC6D0;&#xB4E4;&#xC774;
+                br
+                | &#xAC74;&#xAC15; &#xBAA9;&#xD45C;&#xC5D0; &#xB9DE;&#xB294; 
+                br
+                | &#xCD5C;&#xC801;&#xC758; &#xC601;&#xC591;&#xC18C; &#xBE44;&#xC728;&#xACFC; &#xC2DD;&#xC7AC;&#xB8CC;&#xB97C; &#xCC3E;&#xC544; 
+                br
+                | &#xADE0;&#xD615; &#xC7A1;&#xD78C; &#xC2DD;&#xC0DD;&#xD65C;&#xC744; &#xC81C;&#xC548;&#xD569;&#xB2C8;&#xB2E4;.
+            li.list02
+              span Food You Can Trust
+              strong &#xBBFF;&#xC744; &#xC218; &#xC788;&#xB294; &#xC74C;&#xC2DD;
+              p
+                | &#xD604;&#xB300;&#xBC31;&#xD654;&#xC810; &#xC2DD;&#xD488;&#xAD00;&#xC5D0;&#xC11C; &#xD310;&#xB9E4;&#xD558;&#xB294; &#xC2DD;&#xD488;&#xACFC;
+                br
+                | &#xD604;&#xB300;&#xADF8;&#xB9B0;&#xD478;&#xB4DC;&#xC758; &#xC2DD;&#xC7AC; &#xAD6C;&#xB9E4;&#xB97C; &#xB2F4;&#xB2F9;&#xD558;&#xB294;
+                br
+                | &#xB18D;&middot;&#xC218;&middot;&#xCD95;&#xC0B0; &#xBC14;&#xC774;&#xC5B4;&#xAC00; &#xAF3C;&#xAF3C;&#xD558;&#xAC8C;
+                br
+                | &#xC6B0;&#xC218; &#xC0B0;&#xC9C0;&#xB97C; &#xBC1C;&#xAD74;&#xD569;&#xB2C8;&#xB2E4;.
+                br
+                br
+                | &#xC790;&#xCCB4; &#xC548;&#xC804;&#xC131; &#xAC80;&#xC0AC;&#xB97C; &#xD1B5;&#xACFC;&#xD55C; &#xC2DD;&#xC7AC;&#xB8CC;&#xB9CC;&#xC744;
+                br
+                | &#xC120;&#xBCC4;&#xD574; &#xC9C1;&#xC811; &#xB9CC;&#xB4E0; &#xBB34;&#xCCA8;&#xAC00; &#xC18C;&#xC2A4;&#xB85C;
+                br
+                | &#xAC74;&#xAC15;&#xD558;&#xAC8C; &#xC870;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;.
+            li.list03
+              span Food with Healing Flavors
+              strong &#xC790;&#xC5F0;&#xC758; &#xB9DB;&#xC744; &#xB2F4;&#xC740; &#xC74C;&#xC2DD;
+              p
+                | &#xC624;&#xB79C; &#xACBD;&#xD5D8;&#xC744; &#xAC00;&#xC9C4;
+                br
+                | &#xC219;&#xB828;&#xB41C; &#xC694;&#xB9AC;&#xC0AC;&#xB4E4;&#xC774;
+                br
+                | &#xC2DD;&#xC7AC;&#xB8CC; &#xBCF8;&#xC5F0;&#xC758; &#xB9DB;&#xACFC; &#xD2B9;&#xC131;&#xC744;
+                br
+                | &#xADF8;&#xB300;&#xB85C; &#xC0B4;&#xB824; &#xC790;&#xADF9;&#xC801;&#xC774;&#xC9C0; &#xC54A;&#xACE0;
+                br
+                | &#xC18D;&#xC774; &#xD3B8;&#xC548;&#xD55C; &#xC74C;&#xC2DD;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;.
+          .main-txt__grt
+            | &#xAE30;&#xBD84; &#xC88B;&#xC740; &#xC0DD;&#xD65C;,
+            em.timesaletext.timesaletext1 &#xADF8;
+            em.timesaletext.timesaletext2 &#xB9AC;
+            em.timesaletext.timesaletext3 &#xD305;
+          button#gobrandStory.main-btn(type='button')
+            span about greating
+            |                         &#x9;&nbsp; &nbsp; &#xBE0C;&#xB79C;&#xB4DC; &#xC2A4;&#xD1A0;&#xB9AC;
+            i
+      // //철학
+      // 브랜드 소개
+      //
+        <div class="story__sec greating">
+        <div class="hd__inner1100">
+        <h2 class="greating-txt"><img src="/front_pc/images/txt_story.png" alt=""></h2>
+        <p><img src="/front_pc/images/txt_story2.jpg" alt=""></p>
+        <a href="#" class="greating-img">
+        <div id="videoPlayer"></div>
+        </a>
+        <button type="button" class="greating-btn" id="gobrandStory">
+        <span>about greating</span>
+        &nbsp; &nbsp; 브랜드 스토리<i></i>
+        </button>
+        </div>
+        </div>
+      // //브랜드 소개
+      // 매거진
+      .story__sec.magazine
+        .hd__inner1100
+          h2.hd__page-title
+            a(href='/story/greatingLife/greatingLifeList')
+              | &#xADF8;&#xB9AC;&#xD305; &#xB9E4;&#xAC70;&#xC9C4;
+              i.hd__page-title-more &#xC790;&#xC138;&#xD788; &#xBCF4;&#xAE30;
+          p.hd__page-desc
+            // 밥상주치의가 알려주는 바른 식생활
+          #dvGetGreatingLifeListArea.magazine-list.slick-initialized.slick-slider.slick-dotted
+            button.slick-prev.slick-arrow(aria-label='Previous' type='button' style='') Previous
+            .slick-list.draggable(style='padding: 0px 50px;')
+              .slick-track(style='opacity: 1; width: 30000px; transform: translate3d(-1095px, 0px, 0px);')
+                .slick-slide.slick-cloned(data-slick-index='-2' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2391' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/16/5EB62FD9EB3F44F4BF8989F8E11424A6.jpg' alt='싱가포르 칠리크랩')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xC2F1;&#xAC00;&#xD3EC;&#xB974; 
+                            br
+                            | &#xCE60;&#xB9AC;&#xD06C;&#xB7A9;
+                          p.list-txt-desc &#xC81C;&#xCCA0; &#xAF43;&#xAC8C; &#xD65C;&#xC6A9;&#xBC95;
+                .slick-slide.slick-cloned(data-slick-index='-1' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2351' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/02/05872D3E8E824C3081702ED38C3FD5A9.jpg' alt='고급 전통주 <천비향> 양조장 방문기')
+                        .list-txt
+                          span.list-txt-sort.c1 &#xBC14;&#xC774;&#xC5B4;&#xB178;&#xD2B8;
+                          strong.list-txt-title
+                            | &#xD3C9;&#xD0DD; 
+                            br
+                            | &#xC88B;&#xC740;&#xC220; &#xC591;&#xC870;&#xC7A5;
+                          p.list-txt-desc &#xACE0;&#xAE09; &#xC804;&#xD1B5;&#xC8FC; &#xBE0C;&#xB79C;&#xB4DC; &lt;&#xCC9C;&#xBE44;&#xD5A5;&gt;
+                #slick-slide00.slick-slide(data-slick-index='0' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control00' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2611' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202111/19/BE6C8B1943C24FE99BB44E55138BE366.jpg' alt='함박스테이크 수제버거')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xD568;&#xBC15;&#xC2A4;&#xD14C;&#xC774;&#xD06C; 
+                            br
+                            | &#xC218;&#xC81C;&#xBC84;&#xAC70;
+                          p.list-txt-desc &#xCD09;&#xCD09;&#xD55C; &#xC721;&#xC999;&#xC774; &#xAC00;&#xB4DD;
+                #slick-slide01.slick-slide(data-slick-index='1' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control01' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2591' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202111/19/ACF1F748242B4DCC98FA27C6BCE9856C.jpg' alt='단호박 해물떡찜')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xB2E8;&#xD638;&#xBC15; 
+                            br
+                            | &#xD574;&#xBB3C;&#xB5A1;&#xCC1C;
+                          p.list-txt-desc &#xC9D1;&#xB4E4;&#xC774; &#xC694;&#xB9AC;&#xB97C; &#xCC3E;&#xACE0; &#xC788;&#xB2E4;&#xBA74;
+                #slick-slide02.slick-slide.slick-current.slick-active.slick-center(data-slick-index='2' aria-hidden='false' role='tabpanel' aria-describedby='slick-slide-control02')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2411' tabindex='0')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/23/71BF50E3932A44D7B2C1905552667394.jpg' alt='고등어 레몬 파스타')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xACE0;&#xB4F1;&#xC5B4; 
+                            br
+                            | &#xB808;&#xBAAC; &#xD30C;&#xC2A4;&#xD0C0;
+                          p.list-txt-desc &#xC774;&#xD0C8;&#xB9AC;&#xC544; &#xB0A8;&#xBD80;&#xC758; &#xC774;&#xC0C9; &#xC694;&#xB9AC;
+                #slick-slide03.slick-slide(data-slick-index='3' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control03' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2392' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/16/434C5F5A594C4343966D1F0B8AA032FF.jpg' alt='나물 월남쌈')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xB098;&#xBB3C; 
+                            br
+                            | &#xC6D4;&#xB0A8;&#xC308;
+                          p.list-txt-desc &#xB0A8;&#xC740; &#xBA85;&#xC808; &#xB098;&#xBB3C;, &#xC774;&#xB807;&#xAC8C; &#xB4DC;&#xC138;&#xC694;!
+                #slick-slide04.slick-slide(data-slick-index='4' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control04' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2391' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/16/5EB62FD9EB3F44F4BF8989F8E11424A6.jpg' alt='싱가포르 칠리크랩')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xC2F1;&#xAC00;&#xD3EC;&#xB974; 
+                            br
+                            | &#xCE60;&#xB9AC;&#xD06C;&#xB7A9;
+                          p.list-txt-desc &#xC81C;&#xCCA0; &#xAF43;&#xAC8C; &#xD65C;&#xC6A9;&#xBC95;
+                #slick-slide05.slick-slide(data-slick-index='5' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control05' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2351' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/02/05872D3E8E824C3081702ED38C3FD5A9.jpg' alt='고급 전통주 <천비향> 양조장 방문기')
+                        .list-txt
+                          span.list-txt-sort.c1 &#xBC14;&#xC774;&#xC5B4;&#xB178;&#xD2B8;
+                          strong.list-txt-title
+                            | &#xD3C9;&#xD0DD; 
+                            br
+                            | &#xC88B;&#xC740;&#xC220; &#xC591;&#xC870;&#xC7A5;
+                          p.list-txt-desc &#xACE0;&#xAE09; &#xC804;&#xD1B5;&#xC8FC; &#xBE0C;&#xB79C;&#xB4DC; &lt;&#xCC9C;&#xBE44;&#xD5A5;&gt;
+                .slick-slide.slick-cloned(data-slick-index='6' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2611' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202111/19/BE6C8B1943C24FE99BB44E55138BE366.jpg' alt='함박스테이크 수제버거')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xD568;&#xBC15;&#xC2A4;&#xD14C;&#xC774;&#xD06C; 
+                            br
+                            | &#xC218;&#xC81C;&#xBC84;&#xAC70;
+                          p.list-txt-desc &#xCD09;&#xCD09;&#xD55C; &#xC721;&#xC999;&#xC774; &#xAC00;&#xB4DD;
+                .slick-slide.slick-cloned(data-slick-index='7' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2591' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202111/19/ACF1F748242B4DCC98FA27C6BCE9856C.jpg' alt='단호박 해물떡찜')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xB2E8;&#xD638;&#xBC15; 
+                            br
+                            | &#xD574;&#xBB3C;&#xB5A1;&#xCC1C;
+                          p.list-txt-desc &#xC9D1;&#xB4E4;&#xC774; &#xC694;&#xB9AC;&#xB97C; &#xCC3E;&#xACE0; &#xC788;&#xB2E4;&#xBA74;
+                .slick-slide.slick-cloned(data-slick-index='8' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2411' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/23/71BF50E3932A44D7B2C1905552667394.jpg' alt='고등어 레몬 파스타')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xACE0;&#xB4F1;&#xC5B4; 
+                            br
+                            | &#xB808;&#xBAAC; &#xD30C;&#xC2A4;&#xD0C0;
+                          p.list-txt-desc &#xC774;&#xD0C8;&#xB9AC;&#xC544; &#xB0A8;&#xBD80;&#xC758; &#xC774;&#xC0C9; &#xC694;&#xB9AC;
+                .slick-slide.slick-cloned(data-slick-index='9' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2392' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/16/434C5F5A594C4343966D1F0B8AA032FF.jpg' alt='나물 월남쌈')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xB098;&#xBB3C; 
+                            br
+                            | &#xC6D4;&#xB0A8;&#xC308;
+                          p.list-txt-desc &#xB0A8;&#xC740; &#xBA85;&#xC808; &#xB098;&#xBB3C;, &#xC774;&#xB807;&#xAC8C; &#xB4DC;&#xC138;&#xC694;!
+                .slick-slide.slick-cloned(data-slick-index='10' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2391' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/16/5EB62FD9EB3F44F4BF8989F8E11424A6.jpg' alt='싱가포르 칠리크랩')
+                        .list-txt
+                          span.list-txt-sort.c3 &#xADF8;&#xB9AC;&#xD305; &#xB808;&#xC2DC;&#xD53C;
+                          strong.list-txt-title
+                            | &#xC2F1;&#xAC00;&#xD3EC;&#xB974; 
+                            br
+                            | &#xCE60;&#xB9AC;&#xD06C;&#xB7A9;
+                          p.list-txt-desc &#xC81C;&#xCCA0; &#xAF43;&#xAC8C; &#xD65C;&#xC6A9;&#xBC95;
+                .slick-slide.slick-cloned(data-slick-index='11' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .slick-slide.magazine-list__slide(style='width: 100%; display: inline-block;' aria-hidden='true')
+                      a(href='/story/greatingLife/greatingLifeDetail?svContMstId=2351' tabindex='-1')
+                        img(src='https://image.greating.co.kr/CO/contents/202109/02/05872D3E8E824C3081702ED38C3FD5A9.jpg' alt='고급 전통주 <천비향> 양조장 방문기')
+                        .list-txt
+                          span.list-txt-sort.c1 &#xBC14;&#xC774;&#xC5B4;&#xB178;&#xD2B8;
+                          strong.list-txt-title
+                            | &#xD3C9;&#xD0DD; 
+                            br
+                            | &#xC88B;&#xC740;&#xC220; &#xC591;&#xC870;&#xC7A5;
+                          p.list-txt-desc &#xACE0;&#xAE09; &#xC804;&#xD1B5;&#xC8FC; &#xBE0C;&#xB79C;&#xB4DC; &lt;&#xCC9C;&#xBE44;&#xD5A5;&gt;
+            button.slick-next.slick-arrow(aria-label='Next' type='button' style='') Next
+            ul.slick-dots(style='' role='tablist')
+              li(role='presentation')
+                button#slick-slide-control00(type='button' role='tab' aria-controls='slick-slide00' aria-label='1 of 6' tabindex='-1') 1
+              li(role='presentation')
+                button#slick-slide-control01(type='button' role='tab' aria-controls='slick-slide01' aria-label='2 of 6' tabindex='-1') 2
+              li.slick-active(role='presentation')
+                button#slick-slide-control02(type='button' role='tab' aria-controls='slick-slide02' aria-label='3 of 6' tabindex='0' aria-selected='true') 3
+              li(role='presentation')
+                button#slick-slide-control03(type='button' role='tab' aria-controls='slick-slide03' aria-label='4 of 6' tabindex='-1') 4
+              li(role='presentation')
+                button#slick-slide-control04(type='button' role='tab' aria-controls='slick-slide04' aria-label='5 of 6' tabindex='-1') 5
+              li(role='presentation')
+                button#slick-slide-control05(type='button' role='tab' aria-controls='slick-slide05' aria-label='6 of 6' tabindex='-1') 6
+          #dvMagazineBackgroundArea.magazine-bg.slick-initialized.slick-slider
+            .slick-list.draggable
+              .slick-track(style='opacity: 1; width: 11418px;')
+                .slick-slide(data-slick-index='0' aria-hidden='true' style='width: 1903px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;' tabindex='-1')
+                  div
+                    div(style='width: 100%; display: inline-block;')
+                      img(src='https://image.greating.co.kr/CO/contents/202111/19/BE6C8B1943C24FE99BB44E55138BE366.jpg' alt='함박스테이크 수제버거')
+                .slick-slide(data-slick-index='1' aria-hidden='true' style='width: 1903px; position: relative; left: -1903px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;' tabindex='-1')
+                  div
+                    div(style='width: 100%; display: inline-block;')
+                      img(src='https://image.greating.co.kr/CO/contents/202111/19/ACF1F748242B4DCC98FA27C6BCE9856C.jpg' alt='단호박 해물떡찜')
+                .slick-slide.slick-current.slick-active(data-slick-index='2' aria-hidden='false' style='width: 1903px; position: relative; left: -3806px; top: 0px; z-index: 999; opacity: 1;')
+                  div
+                    div(style='width: 100%; display: inline-block;')
+                      img(src='https://image.greating.co.kr/CO/contents/202109/23/71BF50E3932A44D7B2C1905552667394.jpg' alt='고등어 레몬 파스타')
+                .slick-slide(data-slick-index='3' aria-hidden='true' style='width: 1903px; position: relative; left: -5709px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;' tabindex='-1')
+                  div
+                    div(style='width: 100%; display: inline-block;')
+                      img(src='https://image.greating.co.kr/CO/contents/202109/16/434C5F5A594C4343966D1F0B8AA032FF.jpg' alt='나물 월남쌈')
+                .slick-slide(data-slick-index='4' aria-hidden='true' style='width: 1903px; position: relative; left: -7612px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;' tabindex='-1')
+                  div
+                    div(style='width: 100%; display: inline-block;')
+                      img(src='https://image.greating.co.kr/CO/contents/202109/16/5EB62FD9EB3F44F4BF8989F8E11424A6.jpg' alt='싱가포르 칠리크랩')
+                .slick-slide(data-slick-index='5' aria-hidden='true' style='width: 1903px; position: relative; left: -9515px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;' tabindex='-1')
+                  div
+                    div(style='width: 100%; display: inline-block;')
+                      img(src='https://image.greating.co.kr/CO/contents/202109/02/05872D3E8E824C3081702ED38C3FD5A9.jpg' alt='고급 전통주 <천비향> 양조장 방문기')
+      // // 매거진
+      // 그리팅 TV
+      .story__sec.tv.hPara
+        .hd__inner1100
+          h2.hd__page-title
+            a(href='/story/month/monthStoryList')
+              | &#xADF8;&#xB9AC;&#xD305; TV
+              i.hd__page-title-more &#xC790;&#xC138;&#xD788; &#xBCF4;&#xAE30;
+          p.hd__page-desc
+            // 그리팅을 만드는 사람들
+          #dvGetMonthListArea.tv-list.slick-initialized.slick-slider.slick-dotted
+            .slick-list.draggable
+              .slick-track(style='opacity: 1; width: 20000px; transform: translate3d(-2208px, 0px, 0px);')
+                .slick-slide.slick-cloned(data-slick-index='-1' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2551' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#622897029(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed//BgPzOBlzJhs?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=4' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text &#xCD94;&#xC6CC;&#xC9C4; &#xB0A0;&#xC528;&#xC5D0; &#xD544;&#xC218;!
+                          h3.tv-list__title &#xC790;&#xC5F0;&#xACFC; &#xAC74;&#xAC15;&#xC744; &#xB2F4;&#xC740; &#xADF8;&#xB9AC;&#xD305; &#xC628;&#xBA74;
+                          span.tv-list__view view &gt;
+                #slick-slide20.slick-slide(data-slick-index='0' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control20' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2651' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#videoPlayerTv_2651(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed/VrwkckHKjno?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=1' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text 20&#xB144; &#xC804;&#xD1B5; &#xAD6C;&#xB8E1;&#xD3EC; &#xACFC;&#xBA54;&#xAE30;
+                          h3.tv-list__title &#xD3EC;&#xD56D; &#xAD6C;&#xB8E1;&#xD3EC; &#xC81C;&#xCCA0; &#xACFC;&#xBA54;&#xAE30;
+                          span.tv-list__view view &gt;
+                #slick-slide21.slick-slide(data-slick-index='1' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control21' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2632' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#videoPlayerTv_2632(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed/ZzU4DC7wdAM?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=2' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text &#xADF8;&#xB9AC;&#xD305; &#xAD6D;&middot;&#xCC0C;&#xAC1C; &#xB9DB;&#xC9D1;&#xC73C;&#xB85C; &#xBD88;&#xB9AC;&#xAC8C; &#xB41C; &#xC138; &#xBC88;&#xC9F8; &#xC774;&#xC720;
+                          h3.tv-list__title &#xADF8;&#xB9AC;&#xD305; &#xB530;&#xB048;&#xB530;&#xB048;&#xD55C; &apos;&#xC2E0;&#xC0C1; &#xAD6D; &#xCC0C;&#xAC1C;&apos; &#xBA54;&#xB274; &#xB300;&#xACF5;&#xAC1C;
+                          span.tv-list__view view &gt;
+                #slick-slide22.slick-slide.slick-current.slick-active(data-slick-index='2' aria-hidden='false' role='tabpanel' aria-describedby='slick-slide-control22')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2631' tabindex='0')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#videoPlayerTv_2631(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed/JaqRdcsna-0?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=3' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text &#xADF8;&#xB9AC;&#xD305; &#xC18C;&#xD504;&#xD2B8; &#xC5F0;&#xD654;&#xC2DD; 3&#xC885;
+                          h3.tv-list__title &#xB0A8;&#xB140;&#xB178;&#xC18C; &#xBD80;&#xB4DC;&#xB7FD;&#xAC8C; &#xC990;&#xAE30;&#xB294; &#xADF8;&#xB9AC;&#xD305; &#xC18C;&#xD504;&#xD2B8; &#xC5F0;&#xD654;&#xC2DD;
+                          span.tv-list__view view &gt;
+                #slick-slide23.slick-slide(data-slick-index='3' aria-hidden='true' role='tabpanel' aria-describedby='slick-slide-control23' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2551' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#videoPlayerTv_2551(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed//BgPzOBlzJhs?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=4' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text &#xCD94;&#xC6CC;&#xC9C4; &#xB0A0;&#xC528;&#xC5D0; &#xD544;&#xC218;!
+                          h3.tv-list__title &#xC790;&#xC5F0;&#xACFC; &#xAC74;&#xAC15;&#xC744; &#xB2F4;&#xC740; &#xADF8;&#xB9AC;&#xD305; &#xC628;&#xBA74;
+                          span.tv-list__view view &gt;
+                .slick-slide.slick-cloned(data-slick-index='4' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2651' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#492922671(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed/VrwkckHKjno?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=1' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text 20&#xB144; &#xC804;&#xD1B5; &#xAD6C;&#xB8E1;&#xD3EC; &#xACFC;&#xBA54;&#xAE30;
+                          h3.tv-list__title &#xD3EC;&#xD56D; &#xAD6C;&#xB8E1;&#xD3EC; &#xC81C;&#xCCA0; &#xACFC;&#xBA54;&#xAE30;
+                          span.tv-list__view view &gt;
+                .slick-slide.slick-cloned(data-slick-index='5' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2632' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#711628239(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed/ZzU4DC7wdAM?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=2' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text &#xADF8;&#xB9AC;&#xD305; &#xAD6D;&middot;&#xCC0C;&#xAC1C; &#xB9DB;&#xC9D1;&#xC73C;&#xB85C; &#xBD88;&#xB9AC;&#xAC8C; &#xB41C; &#xC138; &#xBC88;&#xC9F8; &#xC774;&#xC720;
+                          h3.tv-list__title &#xADF8;&#xB9AC;&#xD305; &#xB530;&#xB048;&#xB530;&#xB048;&#xD55C; &apos;&#xC2E0;&#xC0C1; &#xAD6D; &#xCC0C;&#xAC1C;&apos; &#xBA54;&#xB274; &#xB300;&#xACF5;&#xAC1C;
+                          span.tv-list__view view &gt;
+                .slick-slide.slick-cloned(data-slick-index='6' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2631' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#834026112(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed/JaqRdcsna-0?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=3' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text &#xADF8;&#xB9AC;&#xD305; &#xC18C;&#xD504;&#xD2B8; &#xC5F0;&#xD654;&#xC2DD; 3&#xC885;
+                          h3.tv-list__title &#xB0A8;&#xB140;&#xB178;&#xC18C; &#xBD80;&#xB4DC;&#xB7FD;&#xAC8C; &#xC990;&#xAE30;&#xB294; &#xADF8;&#xB9AC;&#xD305; &#xC18C;&#xD504;&#xD2B8; &#xC5F0;&#xD654;&#xC2DD;
+                          span.tv-list__view view &gt;
+                .slick-slide.slick-cloned(data-slick-index='7' id='' aria-hidden='true' tabindex='-1')
+                  div
+                    .tv-list__slide(style='width: 100%; display: inline-block;')
+                      a(href='/story/month/monthStoryDetail?svContMstId=2551' tabindex='-1')
+                        .greating-img
+                          // 이미지 또는 영상
+                          iframe#355648425(frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' title='YouTube video player' width='720' height='405' src='https://www.youtube.com/embed//BgPzOBlzJhs?modestbranding=1&autoplay=0&controls=2&showinfo=0&rel=0&loop=0&enablejsapi=1&origin=https%3A%2F%2Fwww.greating.co.kr&widgetid=4' data-gtm-yt-inspected-1_19='true')
+                        .tv-list__box
+                          p.tv-list__text &#xCD94;&#xC6CC;&#xC9C4; &#xB0A0;&#xC528;&#xC5D0; &#xD544;&#xC218;!
+                          h3.tv-list__title &#xC790;&#xC5F0;&#xACFC; &#xAC74;&#xAC15;&#xC744; &#xB2F4;&#xC740; &#xADF8;&#xB9AC;&#xD305; &#xC628;&#xBA74;
+                          span.tv-list__view view &gt;
+            ul.slick-dots(style='' role='tablist')
+              li(role='presentation')
+                button#slick-slide-control20(type='button' role='tab' aria-controls='slick-slide20' aria-label='1 of 4' tabindex='-1') 1
+              li(role='presentation')
+                button#slick-slide-control21(type='button' role='tab' aria-controls='slick-slide21' aria-label='2 of 4' tabindex='-1') 2
+              li.slick-active(role='presentation')
+                button#slick-slide-control22(type='button' role='tab' aria-controls='slick-slide22' aria-label='3 of 4' tabindex='0' aria-selected='true') 3
+              li(role='presentation')
+                button#slick-slide-control23(type='button' role='tab' aria-controls='slick-slide23' aria-label='4 of 4' tabindex='-1') 4
+      // //그리팅 TV
+      // 회사소개
+      .story__sec.greenfood
+        .hd__inner1100
+          a.story__sec__full(href='/main/boardDetail?freeboardId=239')
+            p.greenfood-desc &#xAC74;&#xAC15;&#xD558;&#xACE0; &#xC9C0;&#xC18D;&#xAC00;&#xB2A5;&#xD55C; &#xC2DD;&#xBB38;&#xD654;&#xB97C; &#xB9CC;&#xB4DC;&#xB294;
+            h2.greenfood-title &#xD604;&#xB300;&#xADF8;&#xB9B0;&#xD478;&#xB4DC; &#xC18C;&#xAC1C;
+            figure.story__sec__img
+              img(src='https://image.greating.co.kr/DP/banner/202103/D27B6E1068BB47FF89C8AB00AC12988A.jpg' alt='스토리메인_회사소개')
+      // //회사소개
