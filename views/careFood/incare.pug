@@ -8,7 +8,34 @@ html(lang="en")
     link(rel='stylesheet', href='./css/main.css', type='text/css')
     script(src='/js/main.js')
     include ../common/head
-    
+
+    style.
+      
+      .boximg{display:block; margin: 0 auto; margin-top: 25px;}
+      .btnbox{display:table; margin: 0 auto; margin-bottom: 150px;}
+      .btns{display: flex; }
+      .btn{
+        border:0.1px #918c00 solid;
+        width:443px; height: 92px;
+        text-align:center; 
+        display:flex; align-items: center;
+        justify-content: center;
+        font-size: 22px; font-weight: bold;
+        
+      }
+      .order{ background-color: #918c00; } .order a{color: #fff;}
+      .gift{ background-color: #e5b83f;}.gift a{color: #fff;} .preview a{color:#918c00 ;}
+      .btnn{width:443px; height:92px;}
   body
-    img(src=_url alt="sikdan")
+    
+    img.boximg(src=_url alt="sikdan" )
+    .btnbox
+      .btns 
+        .preview.btn
+          a(herf="/product/preview") 메뉴 미리보기
+        .order.btn
+          a(herf="/") 주문하기
+        .gift.btn
+          a(herf="/").btn 선물하기
+          
     include ../common/footer

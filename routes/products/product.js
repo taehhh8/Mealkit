@@ -5,11 +5,11 @@ const getConnection = require("../../model/database");
 router.use(express.static('./views'))
 router.use(express.static("static"));
 
-router.get("/", ( req, res)=>{
-    res.render("careFood/sikdan", {  
-        breadcrumbList: ["HOME", "케어식단", "칼로리식단"]
-    })
-});
+// router.get("/", ( req, res)=>{
+//     res.render("careFood/sikdan", {  
+//         breadcrumbList: ["HOME", "케어식단", "칼로리식단"]
+//     })
+// });
 
 
 router.get("/care/:pid", (req, res)=>{
@@ -30,7 +30,7 @@ router.get("/care/:pid", (req, res)=>{
         breadcrumbList: ["HOME", "케어식단", "마이그리팅"],
         _url :"https://www.greating.co.kr/front_pc/images/careMyGreating.jpg?ver=20210823"
     })}
-
+});
 
     // getConnection((conn) => {
     // let query = "select * from Product where pid = "+pid;     
@@ -40,7 +40,13 @@ router.get("/care/:pid", (req, res)=>{
     //     });
     //     conn.release()
     // })
+
+router.get("/preview", (req, res)=>{
+    
+    res.render("menupreview", {});
 });
+
+
 
 router.get("/challenge/:pid", (req, res)=>{
     let pid = req.params.pid;

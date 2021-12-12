@@ -48,6 +48,8 @@ app.use("/product", productRouter);
 
 app.use(express.static('./views'))
 app.use(express.static('./static'))
+app.use(express.static(__dirname+"./static"))
+
 
 
 // app.use('/board/personalQuery', personalQueryRouter);
@@ -85,7 +87,7 @@ app.get('/', (req, res) => {
         conn.query( query, (err, result)=>{
             conn.release();
             if (req.session.valid) {
-                res.render('index', {breadcrumbList: ["HOME"], result:result, page: 'event.pug', sessionValid: req.session.valid, user: req.session.user.Id})
+                res.render('careFood/sikdan', {breadcrumbList: ["HOME"], product:result, sessionValid: req.session.valid, user: req.session.user.Id})
                 // console.log("user: ", req.session.user.Id)
             } else {
                 res.render('careFood/sikdan', { breadcrumbList: ["HOME", '비회원접근'] })
@@ -304,20 +306,39 @@ app.get('/qna', (req, res) => {
     }
 })
 app.get('/board', (req, res) => {
-    // if (req.session.valid) {
-    //     res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid, user: req.session.user.Id})
-    //     // console.log("user: ", req.session.user.Id)
-    // } else {
+    if (req.session.valid) {
+        res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
         res.render('view', {breadcrumbList: ["HOME", '고객센터', '1:1문의하기'], sessionValid: req.session.valid})
-    // }
+    }
 })
 
+
+
+
+
 app.get("/care", (req, res)=>{
-    res.render("careFood/sikdan", { breadcrumbList: ["HOME", '케어식단'] });
+    if (req.session.valid) {
+        res.render('careFood/sikdan', {breadcrumbList: ["HOME", "케어식단"], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('careFood/sikdan', { breadcrumbList: ["HOME", "케어식단"] })
+    }
+    
+    
 });
 app.get("/health", (req, res)=>{
-    res.render("healthMarket/hm", { breadcrumbList: ["HOME", '건강마켓'] });
+    if (req.session.valid) {
+        res.render('healthMarket/hm', {breadcrumbList: ["HOME", "건강마켓"], sessionValid: req.session.valid, user: req.session.user.Id})
+        // console.log("user: ", req.session.user.Id)
+    } else {
+        res.render('healthMarket/hm', { breadcrumbList: ["HOME", "건강마켓"] })
+    }
+    
 });
+
+
 
 app.use('/member', member)
 
