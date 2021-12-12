@@ -318,10 +318,10 @@ app.get('/board', (req, res) => {
 })
 
 app.get("/care", (req, res)=>{
-    res.render("careFood/cFood", { breadcrumbList: ["HOME", '건강마켓'] });
+    res.render("careFood/cFood", { breadcrumbList: ["HOME", '케어식단'] });
 });
 app.get("/health", (req, res)=>{
-    res.render("healthMarket/hm", { breadcrumbList: ["HOME", '케어식단'] });
+    res.render("healthMarket/hm", { breadcrumbList: ["HOME", '건강마켓'] });
 });
 
 app.use('/member', member)

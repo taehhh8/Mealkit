@@ -2,12 +2,33 @@ doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
     include ../common/head
     style.
-      #careWrap{margin: 0 25%;}
+      #careWrap{margin: 0 auto;
+        margin-top: 0px;
+        margin-right: auto;
+        margin-bottom: 0px;
+        margin-left: auto;
+        width: 1100px; }
+        section{}
+        .meals__banner{
+          display: flex;
+          position: relative;
+          margin: 15px;
+          width: 1100px;
+          overflow: hidden;
+          list-style:none;
+        }
+        .meals__banner li{ margin:10px;}
+        ul.challenge__banner {
+          display:flex;
+        }
+        .challenge__banner li{margin:10px;}
+        .meals__title, .meals__subtitle{text-align: center; margin: 15px 0; font-size: 22px; font-weight:bold;}
+        ul.moreView{text-align:center; margin: 25px auto;}
+        .moreView li{display: inline-flex; list-style:none; margin: 0 45px; }
+        .market__sect{text-align:center; margin: 50px auto;}
+        .inquiry__title, .inquiry__subtitle{ margin: 25px; font-size: 20px;}
   body 
 
     div#careWrap
@@ -41,7 +62,7 @@ html(lang="en")
         section.meals__sec.challenge
           h2.meals__title
             a(href='/main/boardDetail?freeboardId=341')
-              img(src='/front_pc/images/img_challenge_tit.png?ver=210324' alt='CHALLENGE')
+              img(src='https://www.greating.co.kr/front_pc/images/img_challenge_tit.png?ver=210324' alt='CHALLENGE')
               i
           p.meals__subtitle &#xAC74;&#xAC15;&#xAD00;&#xB9AC;&#xAC00; &#xC26C;&#xC6CC;&#xC9C0;&#xB294; &#xADF8;&#xB9AC;&#xD305; &#xCC4C;&#xB9B0;&#xC9C0;
           ul.challenge__banner.hd__inner1100
@@ -63,3 +84,6 @@ html(lang="en")
           .icon-area
             a.icon-area-phone(href='/serviceCenter/serviceCenterMain' title='고객센터') &#xACE0;&#xAC1D;&#xC13C;&#xD130;
             a.icon-area-kakao(href='javascript:csKakao();' title='카카오톡 문의') &#xCE74;&#xCE74;&#xC624;&#xD1A1; &#xBB38;&#xC758;
+
+
+include ../common/footer
