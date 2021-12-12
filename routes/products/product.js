@@ -47,5 +47,10 @@ router.get("/challenge/:pid", (req, res)=>{
     res.render("product/detail/detail");
 
 })
+router.get("/detail/:pid", (req, res)=>{
+    let pid = req.params.pid;
+    res.render("product/detail/detail");
+
+})
 
 module.exports = router;
