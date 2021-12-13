@@ -323,6 +323,9 @@ app.get('/board', (req, res) => {
 })
 
 
+app.get('/signup', (req, res) => {
+    res.render('signup', { breadcrumbList: ["HOME", "회원가입"] })
+})
 
 
 
